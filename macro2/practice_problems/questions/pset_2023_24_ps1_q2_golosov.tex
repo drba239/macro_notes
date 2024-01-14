@@ -1,0 +1,44 @@
+Show that Equation (14) implies Equation (13).
+
+\deepersection{Solution}
+
+Equation (14) from Lecture 0 is:
+
+\begin{align}
+    \rho V(k) = \underset{c}{\text{max }} u(c) + V'(k)[f(k) - c - \delta k] \label{eq:pset_2023_24_ps1_q2_golosov_eq14}
+\end{align}
+
+with
+
+\begin{align}
+    \dot{k} = f(k) - \delta k -c \label{eq:pset_2023_24_ps1_q2_golosov_dotk}
+\end{align}
+
+Consider the FOC of \eqref{eq:pset_2023_24_ps1_q2_golosov_eq14} wrt c:
+
+\begin{align}
+    u'(c(t)) - V'(k(t)) = 0
+    \Leftrightarrow u'(c(t)) = V'(k(t)) \label{eq:pset_2023_24_ps1_q2_golosov_foc}
+\end{align}
+
+Additionally, note that
+
+\begin{align}
+    u''(c(t))\dot{c}(t) = V''(k(t))\dot{k}(t) && \text{Differentiating \eqref{eq:pset_2023_24_ps1_q2_golosov_foc} wrt t} \label{eq:pset_2023_24_ps1_q2_golosov_diff_foc} \\
+\end{align}
+
+Now, consider the envelope condition for \eqref{eq:pset_2023_24_ps1_q2_golosov_eq14}:
+
+\begin{align}
+    \rho V'(k(t)) &= V''(k(t))[f(k(t)) - c(t) - \delta k(t)] + V'(k(t))[f'(k(t))-\delta] \\
+    % substitute in \dot{k}
+    \Leftrightarrow \rho V'(k(t)) &= V''(k(t))\dot{k}(t) + V'(k(t))[f'(k(t))-\delta] && \text{Substituting in \eqref{eq:pset_2023_24_ps1_q2_golosov_dotk}}  \\
+    % substitute in \eqref{eq:pset_2023_24_ps1_q2_golosov_foc}
+    \Leftrightarrow \rho u'(c(t)) &= V''(k(t))\dot{k}(t) + u'(c(t))[f'(k(t))-\delta] && \text{Substituting in \eqref{eq:pset_2023_24_ps1_q2_golosov_foc}} \\
+    % substitute in \eqref{eq:pset_2023_24_ps1_q2_golosov_diff_foc} to eliminate V
+    \Leftrightarrow \rho u'(c(t)) &= u''(c(t))\dot{c}(t) + u'(c(t))[f'(k(t))-\delta] && \text{Substituting in \eqref{eq:pset_2023_24_ps1_q2_golosov_diff_foc}} \\
+    %rearrange in to make \frac{\dot{c}}{c} the only thing on the LHS
+    \Leftrightarrow \frac{\dot{c}(t)}{c(t)} &= -\frac{u'(c(t))}{u''(c(t))c(t)}[f'(k(t))-\rho - \delta] && \text{Rearranging}
+\end{align}
+
+Thus, we have Equation (13) from Lecture 0.

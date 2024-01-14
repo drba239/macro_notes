@@ -1,0 +1,63 @@
+Show that Equation (8) implies Equation (5).
+\\
+
+\deepersection{Solution}
+
+Note that Equation (8) from Lecture 0 is:
+
+\begin{align}
+    V(k) = \underset{c, k'}{\text{max }} u(c) + \beta V(k') 
+\end{align}
+
+subject to
+
+\begin{align}
+    c + k' \leq f(k) + (1 - \delta)k
+\end{align}
+
+Consider the Lagrangian for this equation:
+
+\begin{align}
+    \mathcal{L} = u(c) + \beta V(k_+) + \lambda(f(k) + (1-\delta)k - c - k_+)
+\end{align}
+
+Now, we take the FOCs:
+
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial c} &= u'(c) - \lambda = 0 \label{eq:pset_2023_24_ps1_q1_golosov_foc1} \\
+    \frac{\partial \mathcal{L}}{\partial k_+} &= \beta V'(k_+) - \lambda = 0 \label{eq:pset_2023_24_ps1_q1_golosov_foc2}
+\end{align}
+
+The envelope condition\footnote{\href{https://www.sfu.ca/~wainwrig/Econ331/env-theorem2.pdf}{Notes on Envelope Theorem}; \href{https://en.wikipedia.org/wiki/Envelope_theorem}{Wikipedia Page on Envelope Theorem}} is:
+
+\begin{align}
+    V'(k) = \frac{\partial \mathcal{L}}{\partial k} = \lambda f'(k) + \lambda(1-\delta) = \lambda[f'(k) + (1 - \delta)]
+\end{align}
+
+From \eqref{eq:pset_2023_24_ps1_q1_golosov_foc1} and \eqref{eq:pset_2023_24_ps1_q1_golosov_foc2}, we have:
+
+\begin{align}
+    \lambda = u'(c) = \beta V'(k_+) \label{eq:pset_2023_24_ps1_q1_golosov_lambda}
+\end{align}
+
+Applying them to one period earlier gives:
+
+\begin{align}
+    \lambda = u'(c_-) = \beta V'(k) \label{eq:pset_2023_24_ps1_q1_golosov_lambda_earlier}
+\end{align} 
+
+Now, use \eqref{eq:pset_2023_24_ps1_q1_golosov_lambda} and \eqref{eq:pset_2023_24_ps1_q1_golosov_lambda_earlier} to
+replace $\lambda$ and $V'(k)$ in the envelope condition:
+
+\begin{align}
+    &\frac{u'(c_{-})}{\beta} = u'(c)(f'(k) + (1 - \delta)) \\
+    \Leftrightarrow & u'(c_{-}) = \beta u'(c)(f'(k) + (1 - \delta))
+\end{align}
+
+By re-arranging terms and moving our time indicators up by 2 periods, this gives:
+
+\begin{align}
+    u'(c_t) = \beta[1 + f'(k_{t+1}) - \delta]u'(c_{t+1})
+\end{align}
+
+which is Equation (5).

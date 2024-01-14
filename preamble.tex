@@ -1,0 +1,104 @@
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[version=4]{mhchem}
+\usepackage{amssymb}
+%\\usepackage{stmaryrd}
+\setlength\parindent{0pt}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\setcounter{tocdepth}{4}
+
+% Set the length of \parskip to add a line between paragraphs
+\setlength{\parskip}{1em}
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs=true}
+
+
+\DeclareMathSymbol{\Perp}{\mathrel}{symbols}{"3F}
+
+\newtheorem{theorem}{Theorem}[section]  % Numbered within sections
+\newtheorem{definition}[theorem]{Definition} % Definitions share numbering with theorems
+\newtheorem{proposition}[theorem]{Proposition}  % Propositions share numbering with theorems
+
+
+
+\newcounter{example}
+
+\newenvironment{example}
+{
+  \stepcounter{example}
+  \noindent\textbf{Example \thesection.\theexample.}
+}
+{
+  \par
+}
+
+
+% deeper section command
+% This will let you go one level deeper than whatever section level you're on.
+\makeatletter
+\newcommand{\deepersection}[1]{%
+  \ifnum\value{subparagraph}>0
+    % Already at the deepest standard level (\subparagraph), cannot go deeper
+    \subparagraph{#1}
+  \else
+    \ifnum\value{paragraph}>0
+      \subparagraph{#1}
+    \else
+      \ifnum\value{subsubsection}>0
+        \paragraph{#1}
+      \else
+        \ifnum\value{subsection}>0
+          \subsubsection{#1}
+        \else
+          \ifnum\value{section}>0
+            \subsection{#1}
+          \else
+            \section{#1}
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\makeatother
+
+
+
+% same section command
+% This will let create a section at the same level as whatever section level you're on.
+\makeatletter
+\newcommand{\samesection}[1]{%
+  \ifnum\value{subparagraph}>0
+    \subparagraph{#1}
+  \else
+    \ifnum\value{paragraph}>0
+      \paragraph{#1}
+    \else
+      \ifnum\value{subsubsection}>0
+        \subsubsection{#1}
+      \else
+        \ifnum\value{subsection}>0
+          \subsection{#1}
+        \else
+          \ifnum\value{section}>0
+            \section{#1}
+          \else
+            % Default to section if outside any sectioning
+            \section{#1}
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\makeatother
+
+
+
+
