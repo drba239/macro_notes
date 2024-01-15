@@ -116,8 +116,140 @@ $B$ does not change.
 
 \begin{align}
     \max_{l_t,k_{t+1}} \sum_{t \geq 0} Q_td_t, \\
-    \text{with } d_t = F(k_t, l_t) - w_tl_t - i_t \\
-    \text{and } i_t = k_{t+1} - k_t + \delta k_t
+    \text{with } d_t = F(k_t, l_t) - w_tl_t - i_t \label{eq:pset_2023_24_ps1_q4_golosov_firm_dividends} \\
+    \text{and } i_t = k_{t+1} - k_t + \delta k_t \label{eq:pset_2023_24_ps1_q4_golosov_firm_investment}
 \end{align}
 
 \samesection{Part C Solution}
+
+Competitive equilibrium in this economy can be 
+characterized by the 
+sequence of prices, $\{R_t, w_t\}_{t \geq 0}$, 
+and allocations, $\{c_t, b_t, d_t, \hat{l}_t, \hat{k}_{t}\}_{t \geq 0}$,
+such that
+
+\begin{enumerate}
+    \item $\{c_t, b_t\}_{t \geq 0}$ solves the below consumer/household problem,
+    taking $\{R_t, w_t, d_t\}_{t \geq 0}$ as given.
+
+\begin{align}
+    &\max_{\{c_t, b_t\}_{t \geq 0}} \sum_{t \geq 0} \beta^t u\left(c_t\right) \\
+    &\text{s.t. } c_t + b_{t+1} \leq w_t + R_tb_t + d_t \text{ for all } t \geq 0 \\
+    &\text{and } \underset{t \rightarrow \infty}{\text{lim}} Q_tb_t \geq 0
+\end{align}
+
+    \item $\{d_t, \hat{l}_t, \hat{k}_t\}_{t \geq 0}$ solves the firm's problem defined in Part B, taking $\{R_t, w_t\}_{t \geq 0}$ as given.
+    \item Markets clear: that is, $\hat{l}_t = 1$, $b_t = 0$, $c_t + i_t = F(k_t, 1)$ $\forall t$.
+\end{enumerate}
+
+Our goal is to prove that the competitive equilibrium is efficient, i.e.,
+that it aligns with the allocation that solves the social planner's problem,
+and to analyze the dividends.
+
+Consider the Lagrangian for the firm's problem:
+
+\begin{align}
+    \mathcal{L} &= \sum_{t \geq 0} Q_t[F(k_t, l_t) - w_tl_t - k_{t+1} + k_t - \delta k_t] \label{eq:pset_2023_24_ps1_q4_golosov_firm_lagrangian}
+\end{align}
+
+Then consider the FOCs for \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_lagrangian} wrt $k_t$ and $k_{t+1}$:
+
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial k_{t+1}} &= Q_t = 0 \label{eq:pset_2023_24_ps1_q4_golosov_firm_foc_ktp1_first} \\
+    \frac{\partial \mathcal{L}}{\partial k_{t}} &= Q_t[F_k(k_t, l_t) + (1 - \delta)] = 0 \label{eq:pset_2023_24_ps1_q4_golosov_firm_foc_kt}
+\end{align}
+
+where \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_foc_kt} also gives:
+
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial k_{t+1}} &= Q_{t+1}[F_k(k_{t+1}, l_{t+1}) + (1 - \delta)] = 0 \label{eq:pset_2023_24_ps1_q4_golosov_firm_foc_ktp1_second}
+\end{align}
+
+Thus, from \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_foc_ktp1_first} and \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_foc_ktp1_second}, we have:
+
+\begin{align}
+    Q_{t+1}[F_k(k_{t+1}, l_{t+1}) + (1 - \delta)] = Q_t \label{eq:pset_2023_24_ps1_q4_golosov_firm_foc_result}
+\end{align}
+
+Then, consider the consumer's Lagrangian:
+
+\begin{align}
+    \mathcal{L} = \sum_{t \geq 0}[ \beta^t u(c_t) - \lambda_t(c_t + b_{t+1} - w_t - R_tb_t - d_t)]
+\end{align}
+
+Consider the FOCs for $c_t$ and $b_{t+1}$:
+
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial c_t} = \beta^t u'(c_t) - \lambda_t = 0 \Rightarrow \beta^t u'(c_t) = \lambda_t \label{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_ct} \\
+    &\frac{\partial \mathcal{L}}{\partial b_{t+1}} = -\lambda_t R_t + \lambda_{t+1} = 0 \Rightarrow \lambda_t = R_t \lambda_{t+1} \label{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_bt1}
+\end{align}
+
+From \eqref{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_ct}, we can also get:
+
+\begin{align}
+    \beta^{t+1} u'(c_{t+1}) = \lambda_{t+1} \label{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_ctp1}
+\end{align}
+
+Then we have:
+
+\begin{align}
+    &\frac{\beta^t u'(c_t)}{\beta^{t+1} u'(c_{t+1})} = \frac{\lambda_t}{\lambda_{t+1}} && \text{By \eqref{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_ct} and \eqref{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_ctp1}} \\
+    \Rightarrow &\frac{u'(c_t)}{\beta u'(c_{t+1})} = \frac{\lambda_t}{\lambda_{t+1}} \\
+    \Rightarrow &u'(c_t)\lambda_{t+1} = \beta u'(c_{t+1})\lambda_t \\
+    \Rightarrow &u'(c_t)\lambda_{t+1} = \beta u'(c_{t+1})R_{t+1}\lambda_{t+1} && \text{By \eqref{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_bt1}} \\
+    \Rightarrow &u'(c_t) = \beta u'(c_{t+1})R_{t+1} && \text{Divide both sides by $\lambda_{t+1}$} \label{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_result}
+\end{align}
+
+Moreover, since $\frac{Q_t}{Q_{t+1}} = R_{t+1}$, we 
+can substitute \eqref{eq:pset_2023_24_ps1_q4_golosov_consumer_foc_result}
+into \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_foc_result} to get
+the Euler equation:
+
+\begin{align}
+    u'(c_t) = \beta u'(c_{t+1})[f'(k_t) + (1 - \delta)]
+\end{align}
+
+The resource constraint from the Social Planner's Problem can 
+then be obtained by substituting 
+$b_t = 0$, $l_t = 0$, $d_t = f(k_t) - w_t - k_{t+1} - k_t + \delta k_t$
+in the consumer's budget constraint.
+
+Regarding the dividends, let's first 
+compute $w_t$. By the firm's problem, we have
+
+\begin{align}
+    w_t = F_l(k_t, l_t) = f(k_t) - f'(k_t)k_t
+\end{align}
+
+If we take, $l = 1$, then we have 
+
+\begin{align}
+    0 = f(k_t) - f'(k_t)k_t
+    \Rightarrow f(k_t) = f'(k_t)k_t
+\end{align}
+
+and hence
+
+\begin{align}
+    F(k_t, l_t) = F(k_t, 1) = f(k_t) = f'(k_t)k_t \label{eq:pset_2023_24_ps1_q4_golosov_prod_equals}
+\end{align}
+
+Then, we can manipulate the expression for dividends, \eqref{eq:pset_2023_24_ps1_q4_golosov_firm_dividends}, to get:
+
+\begin{align}
+    d_t &= F(k_t, l_t) - w_tl_t - i_t \\
+    &= f(k_t) - w_t - i_t && \text{taking $l = 1$} \\
+    &= f'(k_t)k_t - f(k_t) - i_t && \text{by \eqref{eq:pset_2023_24_ps1_q4_golosov_prod_equals}} \\
+    &= [f'(k_t) + 1 - \delta]k_t - k_{t+1} \\
+    &= R_tk_t - k_{t+1}
+\end{align}
+
+Then total present value of profits is:
+
+\begin{align}
+    \sum_{t \geq 0} Q_t\left(R_t k_t-k_{t+1}\right) & =\sum_{t \geq 0}\left(Q_t R_t k_t-Q_t k_{t+1}\right) \\
+    & =\sum_{t \geq 0}\left(Q_{t-1} k_t-Q_t k_{t+1}\right) \\
+    & =k_0+\sum_{t \geq 1} Q_{t-1} k_t-\sum_{t \geq 0} Q_t k_{t+1} \\
+    & =k_0+\sum_{t \geq 0} Q_t k_{t+1}-\sum_{t \geq 0} Q_t k_{t+1} \\
+    & =k_0>0
+\end{align}
