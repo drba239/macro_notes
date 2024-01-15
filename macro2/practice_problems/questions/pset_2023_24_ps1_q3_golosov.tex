@@ -1,63 +1,196 @@
-Show that Equation (8) implies Equation (5).
-\\
+(a) Prove that competitive equilibrium in the economy defined above is efficient (i.e., that competitive equilibrium allocation solves social planner's problem). What are the equilibrium dividends in this economy?
 
-\deepersection{Solution}
+(b) Let $\left\{c_t^*, k_t^*\right\}_t$ be the solution to the social planner problem. Use these allocations to construct competitive equilibrium prices $\left\{r_t^{c e}, R_t^{c e}, w_t^{c e}\right\}_t$.
 
-Note that Equation (8) from Lecture 0 is:
+Hint (listed beside exercise in notes, not in pset):
+Remember that for any constant return function $G(x_1, ..., x_n)$
+we have $G(x_1, ..., x_n) = \sum_{i=1}^n G_ix_i$
+where $G_i$ is the partial derivative of $G(x_1, ..., x_n)$ wrt $x_i$.
+
+\deepersection{Part A Solution}
+
+As our premise, recall several components of building a competitive equilibrium.
+
+First the household/consumer problem:
 
 \begin{align}
-    V(k) = \underset{c, k'}{\text{max }} u(c) + \beta V(k') 
+    \underset{\left\{c_t^{ce}, k_{t+1}^{ce}, b_{t+1}^{ce}\right\}_t}{\text{max }} \sum_{t=0}^\infty \beta^t u(c_t^{ce}) \\
+\end{align}
+s.t.
+\begin{align}
+    c_t^{ce} + k_{t+1}^{ce} + b_{t+1}^{ce} &\leq w_t^{ce} + R_t^{ce}b_t^{ce} + r_t^{ce}k_t^{ce} + (1 - \delta)k_t^{ce} + d_t^{ce} \quad \forall t \label{eq:pset_2023_24_ps1_q3_golosov_hh_budget_constraint} \\
+    b_{t+1} &\text{ is bounded below}
 \end{align}
 
-subject to
+where $c_t^{ce} \geq 0$, $k_{t+1}^{ce} \geq 0$, $k_0$ is given, $b_0 = 0$,
+and, from the household's perspective, $w_t^[ce]$, $R_t^{ce}$, $r_t^{ce}$, and $d_t^{ce}$ are given.
+
+Next, the firm problem:
 
 \begin{align}
-    c + k' \leq f(k) + (1 - \delta)k
+    d_t = \underset{\hat{k}_t^{ce}, \hat{l}_t^{ce}}{\text{max }} F(\hat{k}_t^{ce}, \hat{l}_t^{ce}) - w_t^{ce}\hat{l}_t^{ce} - r_t^{ce}\hat{k}_t^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_firm_problem}
 \end{align}
 
-Consider the Lagrangian for this equation:
+Then, our competitive equlibrium can be characterized as the 
+sequence of prices, $\{r_t^{ce}, R_t^{ce}, w_t^{ce}\}_t$,
+and allocations, $\{c_t^{ce}, k_{t}^{ce}, b_{t}^{ce}, d_t^{ce}, \hat{k}_t^{ce}, \hat{l}_t^{ce}\}_t$,
+such that:
+
+\begin{enumerate}
+    \item $\{c_t^{ce}, k_{t}^{ce}, b_{t}^{ce}\}_t$ solves the household problem, taking $\{r_t^{ce}, R_t^{ce}, w_t^{ce}, d_t^{ce}\}_t$ as given.
+    \item $\{d_t^{ce}, \hat{k}_t^{ce}, \hat{l}_t^{ce}\}_t$ solves the firm problem, taking $\{r_t^{ce}, w_t^{ce}\}_t$ as given.
+    \item All markets clear, i.e., $k_t^{ce} = \hat{k}_t^{ce}$, $l_t^{ce} = \hat{l}_t^{ce}$, and $b_t^{ce} = 0$ $\forall t$.
+\end{enumerate}
+
+We will begin by looking at the Lagrangian for the household problem.
+Note that the budget constraint holds with equality, given strictly 
+increasing utility. 
 
 \begin{align}
-    \mathcal{L} = u(c) + \beta V(k_+) + \lambda(f(k) + (1-\delta)k - c - k_+)
+    \mathcal{L} = \sum_{t=0}^\infty \left[\beta^t u(c_t^{ce}) + \lambda_t\left[w_t^{ce} + R_t^{ce}b_t^{ce} + r_t^{ce}k_t^{ce} + (1 - \delta)k_t^{ce} + d_t^{ce} - c_t^{ce} - k_{t+1}^{ce} - b_{t+1}^{ce}\right]\right]
 \end{align}
 
-Now, we take the FOCs:
+The FOCs are then:
 
 \begin{align}
-    \frac{\partial \mathcal{L}}{\partial c} &= u'(c) - \lambda = 0 \label{eq:pset_2023_24_ps1_q1_golosov_foc1} \\
-    \frac{\partial \mathcal{L}}{\partial k_+} &= \beta V'(k_+) - \lambda = 0 \label{eq:pset_2023_24_ps1_q1_golosov_foc2}
+    &\frac{\partial \mathcal{L}}{\partial c_t^{ce}} = \beta^t u'(c_t^{ce}) - \lambda_t = 0 \quad \Rightarrow \beta^t u'(c_t^{ce}) =\lambda_t \label{eq:pset_2023_24_ps1_q3_golosov_foc1} \\
+    &\frac{\partial \mathcal{L}}{\partial k_{t+1}^{ce}} = -\lambda_t + \lambda_{t+1}\left[r_{t+1}^{ce} + (1 - \delta)\right] = 0 \quad \Rightarrow \lambda_t = \lambda_{t+1}\left[r_{t+1}^{ce} + (1 - \delta)\right] \label{eq:pset_2023_24_ps1_q3_golosov_foc2} \\
+    &\frac{\partial \mathcal{L}}{\partial b_{t+1}^{ce}} = -\lambda_t + \lambda_{t+1}R_{t+1}^{ce} = 0 \quad \Rightarrow \lambda_t = \lambda_{t+1}R_{t+1}^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_foc3} \\
+    &\frac{\partial \mathcal{L}}{\partial \lambda_t} = 0 \quad \Rightarrow w_t^{ce} + R_t^{ce}b_t^{ce} + r_t^{ce}k_t^{ce} + (1 - \delta)k_t^{ce} + d_t^{ce} - c_t^{ce} - k_{t+1}^{ce} - b_{t+1}^{ce} = 0 \label{eq:pset_2023_24_ps1_q3_golosov_foc4} \\
 \end{align}
 
-The envelope condition\footnote{\href{https://www.sfu.ca/~wainwrig/Econ331/env-theorem2.pdf}{Notes on Envelope Theorem}; \href{https://en.wikipedia.org/wiki/Envelope_theorem}{Wikipedia Page on Envelope Theorem}} is:
+and the transversality conditions are:
 
 \begin{align}
-    V'(k) = \frac{\partial \mathcal{L}}{\partial k} = \lambda f'(k) + \lambda(1-\delta) = \lambda[f'(k) + (1 - \delta)]
+    \lim_{T \to \infty} \beta^Tu'(c_T)l_{T+1} \leq 0\\
+    \lim_{T \to \infty} \beta^Tu'(c_T)b_{T+1} \leq 0
 \end{align}
 
-From \eqref{eq:pset_2023_24_ps1_q1_golosov_foc1} and \eqref{eq:pset_2023_24_ps1_q1_golosov_foc2}, we have:
+Note that from \eqref{eq:pset_2023_24_ps1_q3_golosov_foc2} and \eqref{eq:pset_2023_24_ps1_q3_golosov_foc3}, we have:
 
 \begin{align}
-    \lambda = u'(c) = \beta V'(k_+) \label{eq:pset_2023_24_ps1_q1_golosov_lambda}
+    \lambda_t = \lambda_{t+1}\left[r_{t+1}^{ce} + (1 - \delta)\right] = \lambda_{t+1}R_{t+1}^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_lambda} \\
+    \Rightarrow R_{t+1}^{ce} = r_{t+1}^{ce} + (1 - \delta) \label{eq:pset_2023_24_ps1_q3_golosov_lambda2}
 \end{align}
 
-Applying them to one period earlier gives:
+
+Moreover, consider that 
 
 \begin{align}
-    \lambda = u'(c_-) = \beta V'(k) \label{eq:pset_2023_24_ps1_q1_golosov_lambda_earlier}
-\end{align} 
-
-Now, use \eqref{eq:pset_2023_24_ps1_q1_golosov_lambda} and \eqref{eq:pset_2023_24_ps1_q1_golosov_lambda_earlier} to
-replace $\lambda$ and $V'(k)$ in the envelope condition:
-
-\begin{align}
-    &\frac{u'(c_{-})}{\beta} = u'(c)(f'(k) + (1 - \delta)) \\
-    \Leftrightarrow & u'(c_{-}) = \beta u'(c)(f'(k) + (1 - \delta))
+    &\lambda_t = \beta^t u'(c_t^{ce}) && \text{by \eqref{eq:pset_2023_24_ps1_q3_golosov_foc1}} \\
+    &\lambda_{t+1} = \beta^{t+1} u'(c_{t+1}^{ce}) && \text{by \eqref{eq:pset_2023_24_ps1_q3_golosov_foc1}} \\
 \end{align}
 
-By re-arranging terms and moving our time indicators up by 2 periods, this gives:
+Then
 
 \begin{align}
-    u'(c_t) = \beta[1 + f'(k_{t+1}) - \delta]u'(c_{t+1})
+    \frac{\lambda_{t+1}}{\lambda_t} = \frac{\beta^{t+1} u'(c_{t+1}^{ce})}{\beta^t u'(c_t^{ce})} = \beta \frac{u'(c_{t+1}^{ce})}{u'(c_t^{ce})} \label{eq:pset_2023_24_ps1_q3_golosov_lambda_ratio}
 \end{align}
 
-which is Equation (5).
+Additionally,
+
+\begin{align}
+    \frac{\lambda_{t+1}}{\lambda_t}&= \frac{\lambda_{t+1}}{\lambda_{t+1}R_{t+1}^{ce}} && \text{by \eqref{eq:pset_2023_24_ps1_q3_golosov_foc3}} \\
+    &= \frac{1}{R_{t+1}^{ce}} \\
+    &= \frac{1}{r_{t+1}^{ce} + (1 - \delta)} && \text{by \eqref{eq:pset_2023_24_ps1_q3_golosov_lambda2}} \\
+\end{align}
+
+Then,
+
+\begin{align}
+    \frac{1}{r_{t+1}^{ce} + (1 - \delta)} = \beta \frac{u'(c_{t+1}^{ce})}{u'(c_t^{ce})} \\
+    \Rightarrow u'(c_t) = \beta u'(c_{t+1})[r_{t+1}^{ce} + (1 - \delta)] \label{eq:pset_2023_24_ps1_q3_golosov_euler}
+\end{align}
+
+which reflects our standard Euler equation.
+
+Now, we return to the firm's problem in \eqref{eq:pset_2023_24_ps1_q3_golosov_firm_problem}. 
+
+We have assumed the $F$ is continuous and differentiable
+and corresponds to positive, diminishing marginal product,
+and constant returns to scale in $l$ and $k$. 
+Thus, we have that our problem is concave.
+
+Moreover, we have assumed the existence of a representative firm, taking 
+all firms to make identical decisions and maximize dividends paid 
+to their owners.
+
+Then, our FOCS yield:
+
+\begin{align}
+    F_k(\hat{k}_t^{ce}, \hat{l}_t^{ce}) = r_t^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_firm_foc1} \\
+    F_l(\hat{k}_t^{ce}, \hat{l}_t^{ce}) = w_t^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_firm_foc2}
+\end{align}
+
+Then, by properties of CRS functions, we have 
+
+\begin{align}
+    F(\hat{k}_t^{ce}, \hat{l}_t^{ce}) &= \hat{k}_t^{ce}F_k(\hat{k}_t^{ce}, \hat{l}_t^{ce}) + \hat{l}_t^{ce}F_l(\hat{k}_t^{ce}, \hat{l}_t^{ce}) \\
+    &= \hat{k}_t^{ce}r_t^{ce} + \hat{l}_t^{ce}w_t^{ce} \label{eq:pset_2023_24_ps1_q3_golosov_firm_foc3}
+\end{align}
+
+From this, we have $d_t = 0$, which is logical, since 
+positive dividends would imply that firms should demand 
+arbitrarily large amounts of capital and labor.
+
+Finally, we return to the market clearing conditions and enforce
+
+\begin{align}
+    k_t^{ce} = \hat{k}_t^{ce} = k^* \\
+    1 = l_t^{ce} = \hat{l}_t^{ce} = l^* \\
+    b_t = 0
+\end{align}
+
+Again by CRS properties, we have 
+
+\begin{align}
+    r_t = f'(k_t)
+\end{align}
+
+where $k$ reflects the capital-labor ratio. This implies 
+that $r_{t+1} = f'(k_{t+1})$. If we then plug this into our 
+Euler equation, \eqref{eq:pset_2023_24_ps1_q3_golosov_euler}, we get:
+
+\begin{align}
+    u'(c_t) = \beta u'(c_{t+1})[f'(k_{t+1}) + (1 - \delta)] \label{eq:pset_2023_24_ps1_q3_golosov_euler2}
+\end{align}
+
+If we then enforce equality and substitute $f(k^*_{t}) = r^{*ce}_t k_t^* + w^{*ce}_t$, $d_t = 0$,
+and $b^*_t = b^*_{t+1} = 0$ into our household budget constraint, \eqref{eq:pset_2023_24_ps1_q3_golosov_hh_budget_constraint},
+we get:
+
+\begin{align}
+    c_t^* + k_{t+1}^* &= f(k^*_{t}) + (1 - \delta)k_t^* \\
+\end{align}
+
+Recall that the social planner's problem is:
+
+\begin{align}
+    \underset{\left\{c_t, k_t\right\}}{\text{max}} \sum_{t = 0}^\infty \beta^t u(c_t) \\
+\end{align}
+s.t.
+
+\begin{align}
+    c_t + k_{t+1} &\leq f(k_t) + (1 - \delta)k_t \quad \forall t
+\end{align}
+
+or, via the Lagrangian,
+
+\begin{align}
+    \max_{\left\{c_t, k_t\right\}} \sum_{t = 0}^\infty \beta^t u(c_t) + \sum_{t=0}^\infty \lambda_t\left[f(k_t) + (1 - \delta)k_t - c_t - k_{t+1}\right]
+\end{align}
+
+which, via the FOCs, yields: 
+
+\begin{align}
+    u'(c_t) = \beta u'(c_{t+1})[f'(k_{t+1}) + (1 - \delta)] 
+\end{align}
+
+Thus, the two maximization problems are the same, and, assuming based 
+on the phrasing the of the question that the social planner's 
+solution is taken to be efficient, the result of the 
+competitive equilibrium is efficient.
+
+
+
+\samesection{Part B Solution}
