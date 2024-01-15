@@ -1,0 +1,123 @@
+(a) Show that any sequences of dividends $\left\{d_t\right\}_t$ consumers value as $\sum_{t=0}^{\infty} Q_t d_t$, where $Q_t=R_1^{-1} \times$ $\ldots \times R_t^{-1}$, that is consumers obtain the same utility for any two sequences $\left\{d_t^{\prime}\right\}_t,\left\{d_t^{\prime \prime}\right\}_t$ with the same present value $\sum_{t=0}^{\infty} Q_t d_t^{\prime}=\sum_{t=0}^{\infty} Q_t d_t^{\prime \prime}$
+
+[Hint: Note that you can assume that NPG and TVC are satisfied. If useful, you can assume $\lim _{t \rightarrow \infty}\left(\prod_{j=0}^{t-1} R_j^{-1}\right) b_t \geq 0$.]
+
+(b) Define a firm optimization problem in which firms own initial capital, make all investment decisions, and hire labor to maximize the present value stream of dividends $\sum_{t=0}^{\infty} Q_t d_t$.
+
+(c) Define competitive equilibrium in this economy and show that it is efficient. How do dividends in this equilibrium compare to the dividends in the equilibrium that was set up in Definition 1?
+
+\deepersection{Part A Solution}
+
+First, consider the household's budget set:
+
+\begin{align}
+    A = &\{\{c_t\}_{t \geq 0} \mid \exists \{b_t\}_{t \geq 0} \text{ s.t. } \\
+    &c_t + b_{t+1} \leq w_t + R_tb_t + d_t \text{ for all } t \geq 0 \label{eq:pset_2023_24_ps1_q4_golosov_cond1} \\
+    &\text{ and } \underset{t \rightarrow \infty}{\text{lim}} (\prod_{j=0}^{t-1} R_j^{-1})b_t \geq 0\} \label{eq:pset_2023_24_ps1_q4_golosov_cond2}
+\end{align}
+
+Next, consider the lifetime budget constraint set:
+
+\begin{align}
+    B=\left\{\left\{c_t\right\}_{t \geq 0} \mid \sum_{t=0}^{\infty}\left(\prod_{j=0}^t R_j^{-1}\right) c_t \leq \sum_{t=0}^{\infty}\left(\prod_{j=0}^t R_j^{-1}\right) w_t+\sum_{t=0}^{\infty}\left(\prod_{j=0}^t R_j^{-1}\right) d_t\right\}
+\end{align}
+
+Our goal is to prove that sets $A$ and $B$ are equivalent.
+
+First, we will show that $A \subseteq B$. 
+
+Suppose $\{c_t\}_{t \geq 0} \in A$. 
+Then, by repeatedly applying \eqref{eq:pset_2023_24_ps1_q4_golosov_cond1}, we have:
+
+\begin{align}
+    b_t &\leq R_{t-1}b_{t-1} + w_{t-1} + d_{t-1} - c_{t-1} \\
+    &\leq R_{t-1}[R_{t-2}b_{t-2} + w_{t-2} + d_{t-2} - c_{t-2}] + w_{t-1} + d_{t-1} - c_{t-1} \\
+    &= R_{t-1}R_{t-2}b_{t-2} + R_{t-1}(w_{t-2} + d_{t-2} - c_{t-2}) + w_{t-1} + d_{t-1} - c_{t-1} \\
+    &\leq R_{t-1}R_{t-2}[R_{t-3}b_{t-3} + w_{t-3} + d_{t-3} - c_{t-3}] + R_{t-1}(w_{t-2} + d_{t-2} - c_{t-2}) + w_{t-1} + d_{t-1} - c_{t-1} \\
+    &\vdots \\
+    &\leq \left(\prod_{j=0}^{t-1} R_j\right) b_0+\sum_{s=0}^{t-2}\left(\prod_{j=0}^{t-2-s} R_{t-1-j}\right)\left[w_s+d_s-c_s\right]+\left(w_{t-1}+d_{t-1}-c_{t-1}\right)
+\end{align}
+
+That is,
+
+\begin{align}
+    b_t \leq \left(\prod_{j=0}^{t-1} R_j\right) b_0+\sum_{s=0}^{t-2}\left(\prod_{j=0}^{t-2-s} R_{t-1-j}\right)\left[w_s+d_s-c_s\right]+\left(w_{t-1}+d_{t-1}-c_{t-1}\right)
+\end{align}
+
+Multiplying each side by $(\prod_{j=0}^{t-1} R_j^{-1})$, we have:
+
+\begin{align}
+    \begin{aligned}
+        \left(\prod_{j=0}^{t-1} R_j^{-1}\right) b_t & \leq b_0+\left(\prod_{j=0}^{t-1} R_j^{-1}\right) \sum_{s=0}^{t-2}\left(\prod_{j=0}^{t-2-s} R_{t-1-j}\right)\left[w_s+d_s-c_s\right]+\left(\prod_{j=0}^{t-1} R_j^{-1}\right)\left(w_{t-1}+d_{t-1}-c_{t-1}\right) \\
+        & =b_0+\sum_{s=0}^{t-2}\left(\prod_{j=0}^s R_j^{-1}\right)\left[w_s+d_s-c_s\right]+\left(\prod_{j=0}^{t-1} R_j^{-1}\right)\left(w_{t-1}+d_{t-1}-c_{t-1}\right) \\
+        & =b_0+\sum_{s=0}^{t-1}\left(\prod_{j=0}^s R_j^{-1}\right)\left[w_s+d_s-c_s\right] \\
+        & = \sum_{s=0}^{t-1}\left(\prod_{j=0}^s R_j^{-1}\right)\left[w_s+d_s-c_s\right]
+    \end{aligned}
+\end{align}
+
+where the last equality comes from $b_0=0$.
+
+Combining this inequality with \eqref{eq:pset_2023_24_ps1_q4_golosov_cond2}, we have:
+
+\begin{align}
+    \sum_{s=0}^{\infty}\left(\prod_{j=0}^s R_j^{-1}\right)\left[w_s+d_s-c_s\right] \geq 0
+\end{align}
+
+which, if we distribute and re-arrange around the inequality sign, is equivalent to the 
+requirement to be included in $B$. Thus, for any $\{c_t\}_{t \geq 0} \in A$, we have $\{c_t\}_{t \geq 0} \in B$, so $A \subseteq B$.
+
+Next, we will show that $B \subseteq A$.
+
+Suppose $\{c_t\}_{t \geq 0} \in B$. 
+
+Define a sequence $\{b_t\}_{t \geq 0}$ as:
+
+\begin{align}
+    b_t = R_{t-1}b_{t-1} + w_{t-1} + d_{t-1} - c_{t-1}
+\end{align}
+
+Then we've met \eqref{eq:pset_2023_24_ps1_q4_golosov_cond1} by construction.
+
+Furthermore, from the earlier direction, we have that 
+
+\begin{align}
+    \underset{t \rightarrow \infty}{\text{lim}} (\prod_{j=0}^{t-1} R_j^{-1})b_t = \sum_{s =0}^{\infty}( \prod_{j=0}^s R_j^{-1})[w_s + d_s - c_s]
+\end{align}
+
+Substituting this into our requirement for inclusion in set B immediately 
+gives \eqref{eq:pset_2023_24_ps1_q4_golosov_cond2}, so $\{c_t\}_{t \geq 0} \in A$
+and hence $B \subseteq A$.
+
+Thus, since $A \subseteq B$ and $B \subseteq A$, we have $A = B$.
+
+Thus, we can express the household optimization problem equivalently as
+either 
+
+\begin{align}
+    \max_{\left\{c_t\right\}_{t \geq 0} \in A} \sum_{t \geq 0} \beta^t u\left(c_t\right)
+\end{align}
+
+or 
+
+\begin{align}
+    \max_{\left\{c_t\right\}_{t \geq 0} \in B} \sum_{t \geq 0} \beta^t u\left(c_t\right)
+\end{align}
+
+Finally, note that 
+if we replace $\{d_t\}_t$ with $\{d_t^{\prime}\}_t$ such that 
+
+\begin{align}
+    \sum_{t=0}^{\infty}\left(\prod_{j=0}^t R_j^{-1}\right) d_t=\sum_{t=0}^{\infty}\left(\prod_{j=0}^t R_j^{-1}\right) d'_t
+\end{align}
+
+$B$ does not change.
+
+\samesection{Part B Solution}
+
+\begin{align}
+    \max_{l_t,k_{t+1}} \sum_{t \geq 0} Q_td_t, \\
+    \text{with } d_t = F(k_t, l_t) - w_tl_t - i_t \\
+    \text{and } i_t = k_{t+1} - k_t + \delta k_t
+\end{align}
+
+\samesection{Part C Solution}
