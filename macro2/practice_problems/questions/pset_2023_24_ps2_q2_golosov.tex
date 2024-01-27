@@ -1,0 +1,177 @@
+(Intertemporal optimality conditions)
+
+Lecture 2 Slide 21
+
+Show that optimality conditions for consumers imply
+$$
+\begin{gathered}
+\frac{1}{\sigma}(r-\delta-\rho)=\frac{\dot{c}^M(t)}{c^M(t)}=\frac{\dot{c}(t)}{c(t)} \\
+\frac{\dot{c}^M}{c^M}=\frac{\dot{c}^A}{c^A+\gamma^A}=\frac{\dot{c}^S}{c^S+\gamma^S} .
+\end{gathered}
+$$
+
+
+\deepersection{Solution}
+
+The consumer maximizes their preferences:
+
+\begin{align}
+    &\int_0^{\infty} \exp (-\rho t) \frac{c(t)^{1-\sigma}-1}{1-\sigma} d t \\
+    \text{with} \\
+    c(t) & =\left(c^A(t)+\gamma^A\right)^{\eta^A} c^M(t)^{\eta^M}\left(c^S(t)+\gamma^S\right)^{\eta^S} \\
+    \eta^i & >0, \sum_{i \in\{A, M, S\}} \eta^i=1 \\
+    \gamma^A & <0, \gamma^S>0
+\end{align}
+
+subject to the budget constraint:
+
+\begin{align}
+    \sum_{i \in\{A, M, S\}} p^i(t) c^i(t)+\dot{K}(t)=w(t)+(r(t)-\delta) K(t)
+\end{align}
+
+Thus, the current-value Hamiltonian is:
+
+\begin{align}
+    H & = \frac{c^{1-\sigma}-1}{1-\sigma} + \lambda[w+(r-\delta) K -  \sum_{i \in\{A, M, S\}} p^i c^i]
+\end{align}
+
+Our FOCs are then:
+
+\begin{align}
+    \frac{\partial H}{\partial c^A} &= c^{-\sigma} \frac{\partial c}{\partial c^A} - \lambda p^A \\
+    &= c^{-\sigma}\frac{c}{c^A+\gamma^A} \eta^A-\lambda p^A=0 \footnotemark \label{eq:pset_2023_24_ps2_q2_golosov_foc_cA} \\
+    & \Rightarrow \frac{c^{1-\sigma}}{c^A+\gamma^A} \eta^A=\lambda p^A \label{eq:pset_2023_24_ps2_q2_golosov_foc_cA_2} \\
+    \frac{\partial H}{\partial c^S} &= c^{-\sigma} \frac{\partial c}{\partial c^S} - \lambda p^S \\
+    &= c^{-\sigma}\frac{c}{c^S+\gamma^S} \eta^S-\lambda p^S=0 \label{eq:pset_2023_24_ps2_q2_golosov_foc_cS} \\
+    & \Rightarrow \frac{c^{1-\sigma}}{c^S+\gamma^S} \eta^S=\lambda p^S  \label{eq:pset_2023_24_ps2_q2_golosov_foc_cS_2} \\
+    \frac{\partial H}{\partial c^M} &= c^{-\sigma} \frac{\partial c}{\partial c^M} - \lambda p^M \\
+    &= c^{-\sigma}\frac{c}{c^M} \eta^M-\lambda p^M=0 \label{eq:pset_2023_24_ps2_q2_golosov_foc_cM} \\
+    & \Rightarrow \frac{c^{1-\sigma}}{c^M} \eta^M=\lambda p^M \label{eq:pset_2023_24_ps2_q2_golosov_foc_cM_2} \\
+    \frac{\partial H}{\partial \lambda} &= \dot{K} = w+(r-\delta) K -  \sum_{i \in\{A, M, S\}} p^i c^i \label{eq:pset_2023_24_ps2_q2_golosov_foc_lambda} \\
+    -\frac{\partial H}{\partial K} &= -\lambda(r-\delta) = \dot{\lambda} - \rho \lambda \label{eq:pset_2023_24_ps2_q2_golosov_foc_k} \\
+    & \Rightarrow \dot{\lambda} = \lambda(\rho - r +\delta ) \label{eq:pset_2023_24_ps2_q2_golosov_foc_k_2}
+\end{align}
+
+\footnotetext{To see how this step works, consider that
+$\frac{\partial c}{\partial c^A}=\eta^A\left(c^A(t)+\gamma^A\right)^{\eta^A-1} \cdot c^M(t)^{\eta^M} \cdot\left(c^S(t)+\gamma^S\right)^{\eta^S}
+= \frac{\eta^A\left(c^A(t)+\gamma^A\right)^{\eta^A} \cdot c^M(t)^{\eta^M} \cdot\left(c^S(t)+\gamma^S\right)^{\eta^S}}{\left(c^A(t)+\gamma^A\right)}
+= \eta^A\frac{c}{c^A + \gamma^A}$}
+
+First, we will show that
+
+\begin{align}
+    \frac{\dot{c}^M}{c^M}=\frac{\dot{c}^A}{c^A+\gamma^A}=\frac{\dot{c}^S}{c^S+\gamma^S}
+\end{align}
+
+We can begin by attaining the intratemporal rates of substitution.
+Consider dividing \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_2} by \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cA_2}:
+
+\begin{align}
+    \frac{\frac{c}{c^M} \eta^M}{\frac{c}{c^A+\gamma^A} \eta^A} &= \frac{\lambda p^M c^{\sigma}}{\lambda p^A c^{\sigma}} \\
+    \Rightarrow \frac{c^A+\gamma^A}{c^M} \frac{\eta^M}{\eta^A} &= \frac{p^M}{p^A}  \\
+    \Rightarrow \frac{p^A (c^A + \gamma^A)}{\eta^A} &= \frac{p^M c^M}{\eta^M} \\
+    \Rightarrow \frac{p^A (c^A + \gamma^A)}{\eta^A} &= \frac{c^M}{\eta^M} && \text{since $p^M =1$} \label{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cA}
+\end{align}
+
+Similarly, dividing \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_2} by \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cS_2} yields:
+
+\begin{align}
+    \frac{\frac{c}{c^M} \eta^M}{\frac{c}{c^S+\gamma^S} \eta^S} &= \frac{\lambda p^M c^{\sigma}}{\lambda p^S c^{\sigma}} \\
+    \Rightarrow \frac{c^S+\gamma^S}{c^M} \frac{\eta^M}{\eta^S} &= \frac{p^M}{p^S}  \\
+    \Rightarrow \frac{p^S (c^S + \gamma^S)}{\eta^S} &= \frac{p^M c^M}{\eta^M} \\
+    \Rightarrow \frac{p^S (c^S + \gamma^S)}{\eta^S} &= \frac{c^M}{\eta^M} && \text{since $p^M =1$} \label{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cS}
+\end{align}
+
+Thus, combining \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cA} and \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cS} yields:
+
+\begin{align}
+    \frac{p^A (c^A + \gamma^A)}{\eta^A} &= \frac{c^M}{\eta^M} = \frac{p^S (c^S + \gamma^S)}{\eta^S} \\
+\end{align}
+
+Note that this also gives:
+
+\begin{align}
+    c^i + \gamma^i = \frac{\eta^i c^M}{p^i \eta^M} && \text{for $i \in \{A, S\}$} \label{eq:pset_2023_24_ps2_q2_golosov_itr}
+\end{align}
+
+Consider then differentiating \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cA} and \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cS}
+with respect to $t$ yields:
+
+\begin{align}
+    &d\left(\frac{p^i\left(c^i+\gamma^i\right)}{\eta^i}\right) / d t  =d\left(\frac{c^M}{\eta^M}\right) / d t \\
+    \Rightarrow \quad &\frac{\dot{p}^i\left(c^i+\gamma^i\right)+p^i \dot{c}^i}{\eta^i} =\frac{\dot{c}^M}{\eta^M} \\
+    \Rightarrow \quad &\frac{p^i \dot{c}^i}{\eta^i} =\frac{\dot{c}^M}{\eta^M} && \text{since $\dot{p^i} = 0$} \\
+    \Rightarrow \quad &\dot{c}^i  =\frac{\eta^i \dot{c}^M}{p^i \eta^M} \label{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cA_2}
+\end{align}
+
+Thus,
+
+\begin{align}
+    \frac{\dot{c^i}}{c^i + \gamma^i} &= \dot{c^i} \cdot \frac{1}{c^i + \gamma^i} \\
+    &= \frac{\eta^i \dot{c}^M}{p^i \eta^M} \cdot \frac{p^i \eta^M}{\eta^i c^M} && \text{by \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_cA_2} and \eqref{eq:pset_2023_24_ps2_q2_golosov_itr}} \\
+    &= \frac{\dot{c}^M}{c^M} && \text{cancelling terms}
+\end{align}
+
+Now, we will proceed to show:
+
+\begin{align}
+    \frac{1}{\sigma}(r-\delta-\rho)=\frac{\dot{c}^M(t)}{c^M(t)}=\frac{\dot{c}(t)}{c(t)}
+\end{align}
+
+Recall from \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_k_2} that 
+
+\begin{align}
+    \dot{\lambda} = \lambda(\rho - r +\delta ) \\
+    \Rightarrow \frac{\dot{\lambda}}{\lambda} = \rho - r +\delta \label{eq:pset_2023_24_ps2_q2_golosov_lambda_2}
+\end{align}
+
+Additionally, 
+
+\begin{align}
+    \lambda = \frac{\eta^M}{p^M} \frac{c^{1-\sigma}}{c^M} && \text{by \eqref{eq:pset_2023_24_ps2_q2_golosov_foc_cM_2}} \\
+    \Rightarrow \lambda c^M p^M = \eta^M c^{1-\sigma} \label{eq:pset_2023_24_ps2_q2_golosov_lambda} \\
+    \Rightarrow \lambda c^M p^M + \lambda \gamma^M p^M = \eta^M c^{1-\sigma} \\
+    \Rightarrow \dot{\lambda} c^M p^M + \lambda \dot{c}^M p^M + \lambda \gamma^M \dot{p}^M = (1-\sigma) \eta^M c^{-\sigma} \dot{c} && \text{derivative wrt t} \\
+    \Rightarrow \dot{\lambda} c^M p^M + \lambda \dot{c}^M p^M = (1-\sigma) \eta^M c^{-\sigma} \dot{c} && \text{since $\dot{p}^M = 0$} \\
+    \Rightarrow \frac{\dot{\lambda}c^M p^M}{\lambda} + \dot{c}^M p^M = \frac{(1-\sigma) \eta^M c^{-\sigma} \dot{c}}{\lambda} && \text{divide by $\lambda$} \\
+    \Rightarrow \frac{\dot{\lambda}}{\lambda} + \frac{\dot{c}^M}{c^M} = \frac{(1-\sigma) \eta^M c^{-\sigma} \dot{c}}{\lambda c^M p^M} && \text{divide by $c^M$} \\
+    = \frac{(1-\sigma) \eta^M c^{-\sigma} \dot{c}}{\eta^M c^{1-\sigma}} && \text{by \eqref{eq:pset_2023_24_ps2_q2_golosov_lambda}} \\
+    = \frac{(1-\sigma) \eta^M \dot{c}}{\eta^M c} \\
+    = \frac{(1-\sigma) \dot{c}}{c} \\
+    \Rightarrow (1-\sigma) \frac{\dot{c}}{c}-\frac{\dot{c}^M}{c^M}= \frac{\dot{\lambda}}{\lambda} = \rho - r +\delta && \text{by \eqref{eq:pset_2023_24_ps2_q2_golosov_lambda_2}} \label{eq:pset_2023_24_ps2_q2_golosov_lambda_3}
+\end{align}
+
+
+As a useful interlude, take the log of $c$ and then differentiate with respect to $t$:
+
+\begin{align}
+    \ln c(t) &= \eta^A \ln (c^A(t)+\gamma^A) + \eta^M \ln c^M(t) + \eta^S \ln (c^S(t)+\gamma^S) \\
+    \Rightarrow \frac{\dot{c}}{c} &= \eta^A \frac{\dot{c}^A}{c^A+\gamma^A} + \eta^M \frac{\dot{c}^M}{c^M} + \eta^S \frac{\dot{c}^S}{c^S+\gamma^S} \\
+    &= (\eta^A + \eta^M + \eta^S) \frac{\dot{c}^M}{c^M} \\
+    &= \frac{\dot{c}^M}{c^M} && \text{since } \sum_{i \in\{A, M, S\}} \eta^i=1
+\end{align}
+
+That is,
+
+\begin{align}
+    \frac{\dot{c}}{c} = \frac{\dot{c}^M}{c^M} \label{eq:pset_2023_24_ps2_q2_golosov_log}
+\end{align}
+
+Now, returning to \eqref{eq:pset_2023_24_ps2_q2_golosov_lambda_3}:
+
+\begin{align}
+    (1-\sigma) \frac{\dot{c}}{c}-\frac{\dot{c}^M}{c^M} = \rho - r +\delta \\
+    \Rightarrow (1-\sigma) \frac{\dot{c}}{c}-\frac{\dot{c}}{c} = \rho - r +\delta && \text{by \eqref{eq:pset_2023_24_ps2_q2_golosov_log}} \\
+    \Rightarrow -\sigma \frac{\dot{c}}{c} = \rho - r +\delta \\
+    \Rightarrow \frac{\dot{c}}{c} = \frac{1}{\sigma}(r-\delta-\rho)
+\end{align}
+
+That is,
+
+\begin{align}
+    \frac{\dot{c}}{c} = \frac{\dot{c}^M}{c^M} = \frac{1}{\sigma}(r-\delta-\rho)
+\end{align}
+
+Thus, we have achieved all of our desired results.
+
+

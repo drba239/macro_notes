@@ -1,16 +1,29 @@
 SHELL = bash
 include ../../../../shell_functions.make
 
-psets =	pset_2023_24_ps1_golosov
+pset_2023_24_ps1_golosov_input := $(shell grep --no-filename '\\input' ../tex_files/pset_2023_24_ps1_golosov.tex | grep -v '^%' | grep -o 'input{[A-Za-z0-9_\/\.]*}'  | sed 's/input{//' | sed 's/}$$//')
+pset_2023_24_ps2_golosov_input := $(shell grep --no-filename '\\input' ../tex_files/pset_2023_24_ps2_golosov.tex | grep -v '^%' | grep -o 'input{[A-Za-z0-9_\/\.]*}'  | sed 's/input{//' | sed 's/}$$//')
 
-psets_output = $(addsuffix .pdf, $(psets))
+pset_input = $(pset_2023_24_ps1_golosov_input) $(pset_2023_24_ps2_golosov_input)
 
-all:	$(psets_output)
+psets =	pset_2023_24_ps1_golosov pset_2023_24_ps2_golosov
+psets_all = $(addsuffix .pdf, $(psets))
 
-$(foreach pset, $(psets), $(pset).pdf): %.pdf: ../tex_files/%.tex
-	pdflatex -shell-escape $<
-	pdflatex -shell-escape $<
-	pdflatex -shell-escape $<
-	rm $(basename $@).log $(basename $@).aux $(basename $@).toc $(basename $@).out || true
+all:	$(psets_all)
+
+define latex_compile_rule
+$(pset).pdf: ../tex_files/$(pset).tex $($(pset)_input)
+	pdflatex -shell-escape $$<
+	pdflatex -shell-escape $$<
+	pdflatex -shell-escape $$<
+	rm $(basename $(pset)).log $(basename $(pset)).aux $(basename $(pset)).toc $(basename $(pset)).out || true
+endef
+
+$(foreach pset, $(psets), \
+	$(eval $(latex_compile_rule)) \
+)
+
+$(pset_input): ../input/%: ../../questions/% | ../input/
+	ln -sf $< $@
 
 #include ../../../../generic.make
