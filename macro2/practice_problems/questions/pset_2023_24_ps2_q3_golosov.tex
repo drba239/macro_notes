@@ -1,6 +1,6 @@
 (Intertemporal optimality conditions)
 
-Lecture 3 Slide 21
+Lecture 3 Slide 14
 
 Let $\lambda$ be multiplier on the consumer's budget constraint and
 
@@ -17,3 +17,88 @@ and
 $$
 \frac{\dot{\lambda}}{\lambda}=-\left(\alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha}-\delta-\rho\right)
 $$
+
+\deepersection{Solution}
+
+Preferences are given by:
+
+\begin{align}
+    \int_0^{\infty} \exp (-\rho t) \frac{c(t)^{1-\theta}-1}{1-\theta} d t
+\end{align}
+
+with 
+
+\begin{align}
+    c(t)=\left(\sum_{i \in\{A, S, M\}} \eta^i c^i(t)^{(\sigma-1) / \sigma}\right)^{\sigma /(\sigma-1)}
+\end{align}
+
+and the budget constraint:
+
+\begin{align}
+    \sum_{i \in\{A, M, S\}} p^i c^i+\dot{K}=X^M(K)^\alpha(\bar{L})^{1-\alpha}-\delta K
+\end{align}
+
+Thus, consider the current-value Hamiltonian:
+
+\begin{align}
+    H(t) = \frac{c^{1-\theta}-1}{1-\theta} + \lambda \left(X^M K^{\alpha} \bar{L}^{1-\alpha}-\delta K - \sum_{i \in\{A, M, S\}} p^i c^i\right)
+\end{align}
+
+Thus, our FOCs are 
+
+\begin{align}
+    \frac{\partial H}{\partial c^i} &= c^{-\theta} \frac{\partial c}{\partial c^i} - \lambda p^i = 0 \\
+    &\Rightarrow c^{-\theta}\frac{\partial c}{\partial c^i} = \lambda p^i \\
+    & \dot{\lambda} = \rho \lambda - \frac{\partial H}{\partial K} = \rho \lambda - \lambda \alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha} + \lambda \delta \\
+\end{align}
+
+where $\frac{\partial c}{\partial c^i}$:
+
+\begin{align}
+    \frac{\partial c}{\partial c^i} &= \frac{\sigma}{\sigma - 1} \left(\sum_{i \in\{A, S, M\}} \eta^i c^{i (\sigma-1) / \sigma}\right)^{\frac{1}{\sigma-1}} \cdot \left(\frac{\sigma -1}{\sigma}\right) \left( \eta^i c^{i \frac{-1}{\sigma}} \right) \\
+    &= \left(\sum_{i \in\{A, S, M\}} \eta^i c^{i (\sigma-1) / \sigma}\right)^{\frac{1}{\sigma-1}} \cdot \left( \eta^i c^{i \frac{-1}{\sigma}} \right) \\
+    &= c^{\frac{1}{\sigma}} \cdot \eta_i (\frac{1}{c^i})^{\frac{1}{\sigma}} \\
+    &= (\frac{c}{c^i})^{\frac{1}{\sigma}} \eta_i
+\end{align}
+
+We can multiply our first FOC by $c_i$:
+
+\begin{align}
+    \lambda p^i c^i = c^{-\theta} c^i \eta^i (\frac{c}{c^i})^{\frac{1}{\sigma}} = c^{-\theta} \eta^i (c^i)^{\frac{\sigma - 1}{\sigma}} c^{\frac{1}{\sigma}}
+\end{align}
+
+Summing over $i$, this yields:
+
+\begin{align}
+    \lambda \sum_{i \in\{A, M, S\}} p^i c^i &= c^{-\theta} \sum_{i \in\{A, M, S\}} \eta^i (c^i)^{\frac{\sigma - 1}{\sigma}} c^{\frac{1}{\sigma}} \\
+    &= c^{-\theta} c^{\frac{\sigma -1}{\sigma}} c^{\frac{1}{\sigma}} \\
+    &= c^{-\theta} c^{\frac{\sigma -1 + 1}{\sigma}} \\
+    &= c^{-\theta} c\\
+    &= c^{1-\theta}
+\end{align}
+
+Thus,
+
+\begin{align}
+    \lambda C = c^{1-\theta} && \text{since } C = \sum_{i \in\{A, M, S\}} p^i c^i
+\end{align}
+
+From here,
+
+\begin{align}
+    & \lambda C = c^{1-\theta} \\
+    \Rightarrow \ln \lambda + \ln C &= (1-\theta) \ln c && \text{take natural log} \\
+    \Rightarrow \frac{\dot{\lambda}}{\lambda} + \frac{\dot{C}}{C} &= (1-\theta) \frac{\dot{c}}{c} && \text{derivative wrt t}
+\end{align}
+
+which is the first condition we wanted to show.
+
+Now, from our second derivative:
+
+\begin{align}
+    \dot{\lambda} &= \rho \lambda - \lambda \alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha} + \lambda \delta \\
+    \frac{\dot{\lambda}}{\lambda} &= \rho - \alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha} + \delta \\
+    &= -(\alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha} - \delta - \rho)
+\end{align}
+
+which is the second condition we wanted to show.
