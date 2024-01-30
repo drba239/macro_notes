@@ -28,3 +28,117 @@ Since we abstract from capital, we will focus on the static economy.
 In a series of papers, Nathan Nunn, Nancy Qian and co-authors study an exogenous agricultural technical change: introduction of potatoes to Europe during the Columbian exchange. Potatoes are much superior in their nutritional characteristics to native European staples such as turnips. By exploiting variation in European regional variation in suitability for cultivating potatoes, the authors provide causal evidence that introduction of potatoes in Europe increase urbanization and reduced the incidence of European military conflict.
 
 3. Explain how these findings can be rationalized by the standard two-sector growth model?
+
+\deepersection{Answer}
+
+
+\deepersection{Part 1}
+The competitive equilibrium is the set of prices $\{p^A, p^M, w, r\}$ and quantities $\{C_w^A, C_w^M, L^A, L^M, C_a^A, C_a^M, Z, Y^A, Y^M\}$ where
+
+\begin{enumerate}
+    \item Workers and aristocrats maximize utility (subject to budget constraint)
+    \item Firms in $M$ and $S$ maximize profits 
+    \item Markets clear
+\end{enumerate}
+
+Given prices, consumers and firms solve the following problems.
+
+\textbf{1. Consumer}
+
+\textit{Aristocrat}
+\begin{align}
+\max _{C_i^A, C_i^M} & {\left[\left(C_i^A\right)^{\frac{\sigma-1}{\sigma}}+\left(C_i^M\right)^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}} } \\
+\text { s.t. } & p^A C_i^A+p^M C_ikM \leq r \bar{Z}
+\end{align}
+
+\textit{Worker}
+\begin{align}
+\max _{C_w^A, C_w^M} & {\left[\left(C_w^A\right)^{\frac{\sigma-1}{\sigma}}+\left(C_w^M\right)^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}} } \\
+\text { s.t. } & p^A C_w^A+p^M C_w^M \leqslant wL
+\end{align}
+
+\textbf{2. Firm}
+
+\textit{Manufacturing}
+\begin{align}
+\max _{Y^M, L^M} & p^M Y^M-w L^M \\
+\text { s.t. } & Y^M=X^M L^M
+\end{align}
+
+\textit{Agriculture}
+\begin{align}
+\max _{L^A, Z, Y^A} p^A Y^A-w L^A-r Z \\
+\text { s.t. } \quad Y^A=X^A\left(L^A\right)^\alpha(Z)^{1-\alpha}
+\end{align}
+
+\textbf{3. Markets clear}
+
+Labor, land, and goods markets clear, so
+\begin{align}
+    L^A+L^M & =1 \\
+    Z & =\bar{Z} \\
+    C_w^M+C_a^M & =Y^M \\
+    C_w^A+C_a^A & =Y^A
+\end{align}
+
+
+\samesection{Part 2}
+We set up the Lagrangian for worker as follows
+\begin{align}
+    \mathcal{L}_w=\left[\left(C_w^A\right)^{\frac{\sigma-1}{\sigma}}+\left(C_w^M\right)^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}}+\lambda_w\left(wL-p^A C_w^A-p^M C_w^M\right)
+\end{align}
+
+and the Lagrangian for aristocrat as follows
+\begin{align}
+    \mathcal{L}_i=\left[\left(C_i^A\right)^{\frac{\sigma-1}{\sigma}}+\left(C_i^M\right)^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}}+\lambda_i\left(r\bar{Z}-p^A C_i^A-p^M C_i^M\right)
+\end{align}
+
+We can then solve the FOCs for workers and aristocrats as follows
+\begin{align}
+    \frac{\partial \mathcal{L}_w}{\partial C_w^A} & =\frac{\sigma}{\sigma-1}\left[\left(C_w^A\right)^{\frac{1}{\sigma}}+\left(C_w^M\right)^{\frac{1}{\sigma}}\right]^{\frac{1}{\sigma-1}}\left(C_w^A\right)^{-\frac{1}{\sigma}}-\lambda_w p^A=0 \\
+    \frac{\partial \mathcal{L}_w}{\partial C_w^M} & =\frac{\sigma}{\sigma-1}\left[\left(C_w^A\right)^{\frac{1}{\sigma}}+\left(C_w^M\right)^{\frac{1}{\sigma}}\right]^{\frac{1}{\sigma-1}}\left(C_w^M\right)^{-\frac{1}{\sigma}}-\lambda_w p^M=0 \\
+    \frac{\partial \mathcal{L}_w}{\partial \lambda_w} & =wL-p^A C_w^A-p^M C_w^M=0
+\end{align}
+
+\begin{align}
+    \frac{\partial \mathcal{L}_i}{\partial C_i^A} & =\frac{\sigma}{\sigma-1}\left[\left(C_i^A\right)^{\frac{1}{\sigma}}+\left(C_i^M\right)^{\frac{1}{\sigma}}\right]^{\frac{1}{\sigma-1}}\left(C_i^A\right)^{-\frac{1}{\sigma}}-\lambda_i p^A=0 \\
+    \frac{\partial \mathcal{L}_i}{\partial C_i^M} & =\frac{\sigma}{\sigma-1}\left[\left(C_i^A\right)^{\frac{1}{\sigma}}+\left(C_i^M\right)^{\frac{1}{\sigma}}\right]^{\frac{1}{\sigma-1}}\left(C_i^M\right)^{-\frac{1}{\sigma}}-\lambda_i p^M=0 \\
+    \frac{\partial \mathcal{L}_i}{\partial \lambda_i} & =r\bar{Z}-p^A C_i^A-p^M C_i^M=0
+\end{align}
+
+The FOCs for firms are as follows
+\begin{align}
+    \frac{\partial \mathcal{L}_M}{\partial Y^M} & =p^M-wX^M=0 \\
+    \frac{\partial \mathcal{L}_M}{\partial L^M} & =-p^M+wX^M=0
+\end{align}
+
+\begin{align}
+    \frac{\partial \mathcal{L}_A}{\partial Y^A} & =p^A-rX^A\left(L^A\right)^{\alpha}\left(Z\right)^{1-\alpha}=0 \\
+    \frac{\partial \mathcal{L}_A}{\partial L^A} & =-rX^A\alpha\left(L^A\right)^{\alpha-1}\left(Z\right)^{1-\alpha}=0 \\
+    \frac{\partial \mathcal{L}_A}{\partial Z} & =-rX^A\left(L^A\right)^{\alpha}\left(1-\alpha\right)\left(Z\right)^{-\alpha}=0
+\end{align}
+
+We want to know what happens to labor income if agricultural productivity $X^A$ increases. Notice that from the FOC for the manufacturing firm we have that labor income does not change. From the FOCs for the agriculture firm, $L^A$ and $r$ increase or decrease together. Notice that the consumer FOCs give us that 
+\begin{align}
+    \frac{p^A}{p^M}=\left(\frac{C_i^A}{C_i^M}\right)^{\frac{-1}{\sigma}}
+\end{align}
+which then gives us that $(p^A)^\sigma C^A = (p^M)^\sigma C^M$
+
+and so a bit of algebra gives us that 
+\begin{align}
+    (X^A)^{1-\sigma}(Z)^{(1-\alpha)(1-\sigma)} = (X^M)^{1-\sigma}\alpha^\sigma (1-L^A)(L^A)^{-\sigma(1-\alpha)-\alpha}.
+    \end{align}
+
+    Taking the derivative of the RHS with respect to $L^A$ gives us that
+    \begin{align}
+        \frac{\partial}{\partial L^A}  = A_0((1-\alpha)(1-\sigma)(1-L^A)-1)(L^A)^{\sigma(1-\alpha)-\alpha-1}<0
+    \end{align}
+    and we notice that the LHS of is increasing in $X^A$.
+    
+    This gives us that $L^A$ decreases, $L^M$ increases, and $r$ decreases as $X^A$ increases.
+
+\samesection{Part 3}
+
+Improved agricultural productivity (i.e. through the introduction of potatoes and 
+suitable land for their cultivation), leads to a reduction in rents ($r\overline{Z}$) 
+from land ownership. As the value of land ownership decreases, people would be less likely to fight over land. 

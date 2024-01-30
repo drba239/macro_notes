@@ -32,3 +32,407 @@ In his best-selling book "Capital in the Twenty-First Century" Thomas Piketty do
 5. Show that in the balance growth path we must necessarily have $r>g$.
 
 6. For concreteness, let use Gini as a measure of inequality. What happens to inequality over time on the balanced growth path?
+
+\deepersection{Solution}
+
+\deepersection{Part 1}
+
+Take the following terms
+
+\begin{align}
+    &A_t: \text{households' saving stock} \\
+    &S_t: \text{saving flow} \\
+    &r^s: \text{interest rate for savings} \\
+    &K^s: \text{supply of capital} \\
+    &L^s = \frac{1}{\pi^s}: \text{supply of labor} \\
+    &K^d: \text{demand of capital} \\
+    &L^d: \text{demand of labor} \\
+\end{align}
+
+The competitive equilibrium can be defined as the 
+set of prices $\{r^k_t, r^A_t, w_t\}$ and quantities \\
+$\{C^c_t, C^w_t, I_t, K^d_t, K^s_t, L_t^d, L^s, S_t^c, S_t^w\}$ such that
+
+\begin{enumerate}
+    \item $\{C_t^c, S_t^c, I_t\}$ solves the capitalist's problem
+    \item $\{C_t^w, S_t^w\}$ solves the worker's problem
+    \item $\{K_t, L_t\}$ solves the firm's problem
+    \item All markets clear
+\end{enumerate}
+
+in which these criteria are clarified below.
+
+The capitalist's problem is:
+
+\begin{align}
+    \underset{C^c_t, S^c_t, I_t}{\max} \int_0^{\infty} \exp (-\rho t) \ln C_t^c d t \\
+    \quad \\
+    \text{s.t.} \quad I_t + C_t^c + S_t^c = r_t^k K_t^c+ r_t^A A_t^c \label{eq:pset_2023_24_ps2_q1_golosov_cp_bc1} \\
+    \dot{A}_t^c = S_t^c \\
+    \dot{K}_t^c = I_t - \delta K_t^c \label{eq:pset_2023_24_ps2_q1_golosov_cp_kdot} \\
+    A^c(0) = A^c_0 \\
+    K^s(0) = K_0 \\
+    K_t^s \geq 0
+\end{align}
+
+The worker's problem is:
+
+\begin{align}
+    \underset{C^w_t, S^w_t}{\max} \int_0^{\infty} \exp (-\rho t) \ln C_t^w d t \\
+    \quad \\
+    \text{s.t.} \quad C_t^w + S_t^w = \frac{w_t}{\pi^w} + r_t^A A_t^w \\
+    \dot{A}_t^w = S_t^w \\
+    A^w(0) = A^w_0
+\end{align}
+
+The firm's problem is:
+
+\begin{align}
+    \underset{K_t, L_t}{\max} F(K^d_t, X_t L^d_t) - w_t L^d_t - r_t^k K^d_t \label{eq:pset_2023_24_ps2_q1_golosov_firm_problem} \\
+\end{align}
+
+The market clearing conditions are:
+
+\begin{align}
+    &\text{Labor market clears:} \quad L_t^d = \pi^w L^s_t = 1 \\
+    &\text{Capital market clears:} \quad K_t^d = \pi^c K_t^s \\
+    &\text{Goods market clears:} \quad \pi^c I_t + \pi^c C_t^c + \pi^w C_t^w = Y_t \label{eq:pset_2023_24_ps2_q1_golosov_goods_market_clears} \\
+    &\text{Bond market clears:} \quad \pi^w A_t^w + \pi^c A_t^c = 0 \label{eq:pset_2023_24_ps2_q1_golosov_bond_market_clears} \\
+\end{align}
+
+Let's consider the necessary conditions for each of the above criteria. 
+
+For simplicity, we will denote $K^s \equiv K$ and $K^d \equiv \pi^c K$.
+
+The current-value Hamiltonian for the capitalist's problem is:
+
+\begin{align}
+    \mathcal{H}(K_t, A_t^c, C_t^c, S_t^c, \lambda_t, \mu_t)
+    &= \ln(C_t^c) + \lambda_t (r_t^k K_t + r_t^A A_t^c - C_t^c - S_t^c - \delta K_t) + \mu_tS_t^c \\
+    &= \ln(C_t^c) + \lambda_t [(r_t^k - \delta) K_t + r_t^A A_t^c - C_t^c - S_t^c] + \mu_tS_t^c \\
+\end{align}
+
+The necessary conditions for the capitalists' problem are then:
+
+\begin{align}
+    \frac{\partial \mathcal{H}}{\partial C_t^c} &= \frac{1}{C_t^c} - \lambda_t = 0 \\
+    &\Rightarrow \lambda_t = \frac{1}{C_t^c} \label{eq:pset_2023_24_ps2_q1_golosov_c_foc1} \\
+    \frac{\partial \mathcal{H}}{\partial S_t^c} &= -\lambda_t + \mu_t = 0 \\
+    &\Rightarrow \lambda_t = \mu_t \label{eq:pset_2023_24_ps2_q1_golosov_c_foc2} \\
+    \dot{\lambda}_t - \rho \lambda_t &= -\frac{\partial \mathcal{H}}{\partial K_t} = -\lambda_t(r_t^k - \delta) \\
+    &\Rightarrow \frac{\dot{\lambda}_t}{\lambda} = \delta -r_t^k - \rho \label{eq:pset_2023_24_ps2_q1_golosov_c_foc3} \\
+    \dot{\mu}_t - \rho \mu_t &= -\frac{\partial \mathcal{H}}{\partial A_t^c} = 
+    -\lambda_t r_t^A \\ 
+    &\Rightarrow \dot{\mu}_t = \rho \mu_t - \lambda_t r_t^A \label{eq:pset_2023_24_ps2_q1_golosov_c_foc4} \\
+    \dot{K} &= \frac{\partial \mathcal{H}}{\partial \lambda} =  (r_t^k - \delta) K_t + r_t^A A_t^c - C_t^c - S_t^c \label{eq:pset_2023_24_ps2_q1_golosov_c_foc5} \\
+    \dot{A}_t^c &= \frac{\partial \mathcal{H}}{\partial \mu} = S_t^c \label{eq:pset_2023_24_ps2_q1_golosov_c_foc6} \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \lambda_t K_t &= 0 \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \lambda_t &\geq 0 \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \mu_t A_t^c &= 0 \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \mu_t &\geq 0 \\
+\end{align}
+
+The current-value Hamiltonian for the worker's problem is:
+
+\begin{align}
+    \mathcal{H}(A_t^w, S_t^w, \kappa_t) = \ln(\frac{w_t}{\pi^w} + r_t^A A_t^w - S_t^w) + \kappa_t S_t^w
+\end{align}
+
+The necessary conditions for the worker's problem are then:
+
+\begin{align}
+    \frac{\partial \mathcal{H}}{\partial S_t^w} &= \frac{-1}{\frac{w_t}{\pi^w} + r_t^A A_t^w - S_t^w} + \kappa_t = 0 \\
+    &\Rightarrow \kappa_t = \frac{1}{\frac{w_t}{\pi^w} + r_t^A A_t^w - S_t^w} \\
+    &\Rightarrow \kappa_t = \frac{1}{C_t^w} \label{eq:pset_2023_24_ps2_q1_golosov_w_foc1} \\
+    \dot{\kappa} - \rho \kappa &= - \frac{\partial \mathcal{H}}{\partial A_t^w} 
+    = -\frac{r_t^A}{\frac{w_t}{\pi^w} + r_t^A A_t^w - S_t^w} \\
+    &\Rightarrow \dot{\kappa} = \rho \kappa - \frac{r_t^A}{\frac{w_t}{\pi^w} + r_t^A A_t^w - S_t^w} \\
+    &\Rightarrow \dot{\kappa} = \rho \kappa - \frac{r_t^A}{C_t^w} \label{eq:pset_2023_24_ps2_q1_golosov_w_foc2} \\
+    \dot{A}_t^w &= \frac{\partial \mathcal{H}}{\partial \kappa} = S_t^w \label{eq:pset_2023_24_ps2_q1_golosov_w_foc3} \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \kappa_t A_t^w &= 0 \\
+    \underset{t \rightarrow \infty}{\lim} e^{-\rho t} \kappa_t &\geq 0 \\
+\end{align}
+
+For the firm's problem, the rates should correspond to the marginal product, and we require:
+
+\begin{align}
+    F_K = r_t^k \\
+    X_t F_L = w_t
+\end{align}
+
+Market clearing conditions:
+
+\begin{align}
+    & \pi^c I_t+\pi^c C_t^c+\pi^w C_t^w=Y_t \\
+    & \pi^w A_t^w+\pi^c A_t^c=0
+\end{align}
+
+\samesection{Part 2}
+
+We will begin by showing that if a BGP exists,
+then we must have \\
+$g = g_{c^w} = g_{c^c} = g_{k} = g_{y} = g_{A^w} = g_{A^c} = \frac{\dot{x}}{X}$.
+We will then proceed to show that a unique $k^*_0$ exists such that 
+the economy begins on this BGP.
+
+We begin with the capitalist's problem to get a value for $g_{c^c}$.
+
+We can make use of the capitalist's FOCs to get:
+
+\begin{align}
+    \frac{\dot{\lambda}_t}{\lambda} &= \frac{\dot{\mu}_t}{\mu} && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc2}} \label{eq:pset_2023_24_ps2_q1_golosov_c_eq1} \\
+    \frac{\dot{\mu}_t}{\mu} &= \rho - r_t^A && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc2} and \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc4}} \label{eq:pset_2023_24_ps2_q1_golosov_c_eq2} \\
+    \rho+\delta-r_t^k=\frac{\dot{\lambda}_t}{\lambda_t}&=\frac{\dot{\mu}_t}{\mu_t}=\rho-r_t^A && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc3}, \eqref{eq:pset_2023_24_ps2_q1_golosov_c_eq1}, and \eqref{eq:pset_2023_24_ps2_q1_golosov_c_eq2}} \\
+    \Rightarrow r_t^A &= r_t^k - \delta \quad \forall t
+\end{align}
+
+Note that 
+
+\begin{align}
+    \lambda_t C_t^c &= 1 && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc1}} \\
+    % differentiate wrt t
+    \Rightarrow \dot{\lambda}_t C_t^c + \lambda_t \dot{C}_t^c &= 0 && \text{differentiate wrt t} \\
+    % get rate of change on each side
+    \Rightarrow \frac{\dot{C}_t^c}{C_t^c}&= -\frac{\dot{\lambda}_t}{\lambda_t} \\
+    &= -\left(\rho+\delta-r_t^k\right) && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc3}} \\
+\end{align}
+
+Supposing a BGP exists, then 
+$\frac{\dot{C}^c}{C^c}=-\frac{\dot{\lambda}}{\lambda}=-\left(\rho+\delta-r_t^k\right)$ 
+should be constant. Thus, $r_t^k = r^k$ should be constant. Thus, 
+since $r_t^A$ is a function of $r_t^k$ and the constant $\delta$, 
+$r_t^A$ is also constant. Thus, we denote 
+$R = r^k - \delta = r_t^A$
+
+Then, note that 
+
+\begin{align}
+    -\left(\rho+\delta-r_t^k\right) &= R - \rho \\
+\end{align}
+
+Thus,
+
+\begin{align}
+    g_{C^c} = \frac{\dot{C}_t^c}{C_t^c} = R - \rho \\
+\end{align}
+
+Now, we consider the worker's problem to get a value for $g_{C^w}$.
+
+Due to the bond market clearing conditions\footnote{Note to self: R}, 
+we have that the interest rate earned by workers on saving is $R$, i.e., $r_A = R$.
+From there, we have 
+
+\begin{align}
+    \dot{\kappa} &= \rho \kappa - r_t^A \kappa && \text{by combining \eqref{eq:pset_2023_24_ps2_q1_golosov_w_foc1} and \eqref{eq:pset_2023_24_ps2_q1_golosov_w_foc2}} \\
+    \Rightarrow \frac{\dot{\kappa}}{\kappa} &= \rho - r_t^A = \rho - R \label{eq:pset_2023_24_ps2_q1_golosov_w_eq1} \\
+\end{align}
+
+
+Additionally, we have 
+
+\begin{align}
+    &\kappa_t C_t^w = 1 && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_w_foc1}} \\
+    % differentiate wrt t
+    \Rightarrow &\dot{\kappa}_t C_t^w + \kappa_t \dot{C}_t^w = 0 && \text{differentiate wrt t} \\
+    % get rate of change on each side
+    \Rightarrow &\frac{\dot{C}_t^w}{C_t^w}= -\frac{\dot{\kappa}_t}{\kappa_t} \\
+    % apply pset_2023_24_ps2_q1_golosov_w_eq1
+    \Rightarrow &\frac{\dot{C}_t^w}{C_t^w}= R - \rho && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_w_eq1}} \\
+\end{align}
+
+Thus, we have 
+
+\begin{align}
+    g_{C^w} = \frac{\dot{C}_t^w}{C_t^w} = R - \rho = g_{C^c} \\
+\end{align}
+
+Now, we consider the firm's problem.
+
+Consider that from \eqref{eq:pset_2023_24_ps2_q1_golosov_firm_problem}, we can 
+take the partial derivative wrt to k of 
+
+\begin{align}
+    F(K_t^d\pi_c, X_t L_t^d) - w_tL^d_t - r^k_t K_t^d \pi_c
+\end{align}
+
+to get
+
+\begin{align}
+    \pi_c F_k(K_t^d\pi_c, X_t L_t^d) - r^k_t \pi_c = 0 \\
+    \Rightarrow \pi_c F_k(K_t^d\pi_c, X_t L_t^d) = \pi_c r^k_t \\ 
+    \Rightarrow F_k(K_t^d\pi_c, X_t L_t^d) = r^k_t \\
+    \Rightarrow F_k(\frac{K_t^d\pi_c}{X_t},\frac{X_t L_t^d}{X_t}) = r^k_t && \text{since $F_k$ is H0} \\
+    \Rightarrow F_k(\frac{K_t^d\pi_c}{X_t}, L_t^d) = r^k_t \\
+    \Rightarrow F_k(\frac{K_t^d\pi_c}{X_t}, 1) = r^k_t && \text{since $L_t^d = 1$}  \\
+    \Rightarrow F_k(\frac{K_t^d\pi_c}{X_t}, 1) = r^k && \text{since $r^k_t = r^k$ is constant} \\
+\end{align}
+
+Thus, $\frac{K_t^d\pi_c}{X_t}$ must be constant, since $r^k$ is.
+
+Thus, since $g = \frac{\dot{X}}{X}$ and $\frac{K_t^d\pi_c}{X_t}$ is constant, we must have
+
+\begin{align}
+    g_{k} = g
+\end{align}
+
+Additionally, note that\footnote{Note to self: R}
+
+\begin{align}
+    Y &= X_t F(\frac{\pi_c K}{X_t}, 1) \\
+    \Rightarrow &F(\frac{\pi_c K_t}{X_t}, 1) = \frac{Y_t}{K_t}
+\end{align}
+
+Thus, $\frac{Y_t}{K_t}$ and hence, $\frac{\dot{Y}}{Y}$ must be constant and 
+equal to $\frac{\dot{X}}{X}$.
+
+That is, 
+
+\begin{align}
+    g_k = g_y = g
+\end{align}
+
+\begin{align}
+    &Y_t = \pi^c I_t+\pi^c C_t^c+\pi^w C_t^w \\
+    \Rightarrow &Y_t = \pi^c (\dot{K} + \delta K_t^s) + \pi^c C_t^c+\pi^w C_t^w && \text{substituting \eqref{eq:pset_2023_24_ps2_q1_golosov_cp_kdot} into \eqref{eq:pset_2023_24_ps2_q1_golosov_goods_market_clears}} \\
+    \Rightarrow &Y_t = \pi^c (g + \delta)K_t^s + \pi^c C_t^c+\pi^w C_t^w && \text{since $\dot{K} = gK^s_t$} \\
+    \Rightarrow &Y_0 \exp(gt) = C_0 \exp(g_ct) + \pi^c (g + \delta)\exp(gt) K_0^s && \text{since $\frac{\dot{x}}{x} = g \Leftrightarrow \exp(gt)x_t$} \\
+\end{align}
+
+Given $\pi^c(g+\delta), Y_0, C_0>0$, and $g_k = g_y = g$ and $g_{C^c} = g_{C^w} = g_C = \frac{\dot{C}_t}{C}$, this gives us the solution $g_c = g$; 
+this follows from Uzawa, but we have provided some direction above. 
+
+We will now look at debt.
+
+Consider the capitalist's budget constraints:
+
+\begin{align}
+    &\dot{K} = \left(r^k-\delta\right) K^s_t+r_t^A A_t^C-C_t^c-S_t^c && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_cp_bc1} and \eqref{eq:pset_2023_24_ps2_q1_golosov_cp_kdot}} \\
+    \Rightarrow &\dot{K}=R K^s_t+R A_t^C-C_t^c-S_t^c && \text{since } R = \left(r^k-\delta\right) = r_t^A \\
+    \Rightarrow &g K^s=R\left(K^s_t+A_t^C\right)-C_t^c-S_t^c && \text{since $\dot{K} = gK^s_t$ and $r_t^A = $} \\
+    \Rightarrow &g K^s=R\left(K^s_t+A_t^C\right)-C_t^c-\dot{A}_t^c && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_c_foc6}} \\
+\end{align}
+
+From Uzawa's Theorem, we then have $g_{A^c} = g$.
+
+This comes from taking $A_t^c$ to grow at a constant rate, $g_{A^c}$, on the BGP,
+then we have from the above:
+
+\begin{align}
+        &0= (R-g) K_0 e^{g t}-C_0 e^{g t}+\left(R-g_{A^c}\right) A_0^c e^{g_A c t} \\
+        \Rightarrow & \left(g_{A^c}-R\right) A_0^c=e^{\left(g-g_{A^c}\right) t}\left[(R-g) K_0-C_0\right] \\
+        \Rightarrow &g=g_{A^c} && \text {differentiate wrt time} 
+\end{align}
+
+To identify the growth rate of worker's assets on this prospective BGP,
+we have:
+
+\begin{align}
+    A_t^c &= -\frac{\pi^w}{\pi^c} A_t^w && \text{by \eqref{eq:pset_2023_24_ps2_q1_golosov_bond_market_clears}} \\
+\end{align}
+
+Thus, we need 
+
+\begin{align}
+    A_0^c=-\frac{\pi^w}{\pi^c} A_0^w
+\end{align}
+
+and from the BGP, we have:
+
+\begin{align}
+    A_0^c=-\frac{\pi^w}{\pi^c} A_0^w e^{\left(g_A w-g\right) t}
+\end{align}
+
+Differentiating wrt time yields:
+
+\begin{align}
+    g_{A^w}=g
+\end{align}
+
+Thus, we have 
+
+\begin{align}
+    g=g_{c^w}=g_{c^c}=g_k=g_y=g_{A^w}= g_{A^c}
+\end{align}
+
+Having shown the equivalence of all growth rates under 
+the supposed BGP, we want to show that a $k_o^*$ exists such that 
+the economy begins on this BGP.
+
+Consider that 
+
+\begin{align}
+    \frac{\dot{C}^c}{C^c}=g=r_t^k-(\rho+\delta)
+\end{align}
+
+gives 
+
+\begin{align}
+    r_t^k=g+\delta+\rho
+\end{align}
+
+which implies that 
+
+\begin{align}
+    F_k\left(\pi^c \frac{K_t}{X_t}, 1\right)=g+\delta+\rho
+\end{align}
+
+is fixed.
+
+Moreover, applying aforementioned growth rate facts, we have 
+
+\begin{align}
+    K_t&=k_0 e^{g t}\\
+    X_t&=x_0 e^{g t}
+\end{align}
+
+
+We define 
+
+\begin{align}
+    f(k) \equiv F_k(k, 1)
+\end{align}
+
+Then
+
+\begin{align}
+    f\left(\pi^c \frac{k_0}{x_0}\right)=g+\delta+\rho
+\end{align}
+
+Note that $f$ is strictly positive and monotonically decreasing,
+and thus, there exists a unique $k_0^*$ to satisfy the above equation.
+For this $k_0^*$, the economy begins on the BGP.
+
+
+\samesection{Part 3}
+The ratio is constant on the BGP.
+At equilibrium, 
+\begin{align} 
+    w_t&=X_t F_L\left(\pi^c K_t, X_t L_t\right) \\
+       &=X_t F_L\left(\pi^c \frac{K_t}{X_t}, 1\right) & \text{homogenous degree }0 \\
+\end{align}
+which is constant since $\pi^c \frac{K_t}{X_t}$. 
+Therefore, $\frac{\dot{w}}{w}=\frac{\dot{X}}{X}=g$ and the ratio in question is
+$$
+\frac{w}{r K}=\frac{w_0}{k_0 r} e^{(g-g) t}=\frac{w_0}{k_0 r}, \quad \forall t
+$$
+
+\samesection{Part 4}
+No, there is no trading in assets along the BGP, so our conclusion does not depend on the existence of this market.
+Our conclusion depends only constant interest rates, the FOCs for the firm's problem holding, and the market clearing conditions for $L$ and $K$.
+
+\samesection{Part 5}
+Recall that for the BGP $g=r-\delta-\rho$. We know $\delta,\rho > 0$, so $r > g$.
+
+\samesection{Part 6}
+The Gini coefficient is 
+$
+G=\frac{1}{2 \mu} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p(x) p(y)|x-y| d x d y
+$.
+where $p(x)$ is the density and $\mu$ is the mean of income.
+Income is $\frac{w_t}{\pi^w}$ with probability $\pi^w$ and $r_t K_t$ with probability $\pi^c$, so we can rewrite the expression above to get
+$$
+G_t=\frac{\pi^w \pi^C\left|r_t K_t-\left(w_t / \pi^w\right)\right|}{\pi^C r_t K_t+w_t}
+$$
+
+On the BGP, $r_t$ is constant and $K_t$ and $w_t$ grow at the same rate.
+Hence, inequality as measured by the Gini coefficient is constant over time.
