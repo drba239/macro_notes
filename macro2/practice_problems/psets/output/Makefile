@@ -3,10 +3,12 @@ include ../../../../shell_functions.make
 
 pset_2023_24_ps1_golosov_input := $(shell grep --no-filename '\\input' ../tex_files/pset_2023_24_ps1_golosov.tex | grep -v '^%' | grep -o 'input{[A-Za-z0-9_\/\.]*}'  | sed 's/input{//' | sed 's/}$$//')
 pset_2023_24_ps2_golosov_input := $(shell grep --no-filename '\\input' ../tex_files/pset_2023_24_ps2_golosov.tex | grep -v '^%' | grep -o 'input{[A-Za-z0-9_\/\.]*}'  | sed 's/input{//' | sed 's/}$$//')
+pset_2023_24_ps3_golosov_input := $(shell grep --no-filename '\\input' ../tex_files/pset_2023_24_ps3_golosov.tex | grep -v '^%' | grep -o 'input{[A-Za-z0-9_\/\.]*}'  | sed 's/input{//' | sed 's/}$$//')
 
-pset_input = $(pset_2023_24_ps1_golosov_input) $(pset_2023_24_ps2_golosov_input)
 
-psets =	pset_2023_24_ps1_golosov pset_2023_24_ps2_golosov
+pset_input = $(pset_2023_24_ps1_golosov_input) $(pset_2023_24_ps2_golosov_input) $(pset_2023_24_ps3_golosov_input)
+
+psets =	pset_2023_24_ps1_golosov pset_2023_24_ps2_golosov pset_2023_24_ps3_golosov
 psets_all = $(addsuffix .pdf, $(psets))
 
 all:	$(psets_all)
