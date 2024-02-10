@@ -7,7 +7,7 @@ docs_output = $(addsuffix .pdf, $(docs))
 
 all:	$(docs_output)
 
-$(foreach doc, $(docs), $(doc).pdf): %.pdf: ../tex_files/%.tex
+$(foreach doc, $(docs), $(doc).pdf): %.pdf: %.tex
 	pdflatex -shell-escape $<
 	pdflatex -shell-escape $<
 	pdflatex -shell-escape $<
