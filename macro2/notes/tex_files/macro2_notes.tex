@@ -1,0 +1,414 @@
+\documentclass[10pt]{article}
+\input{../../../preamble.tex}
+
+\title{Macro 2 Notes}
+
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+Much of this is directly quoted from Golosov's notes, slides, Ragini's notes,
+or the notes of past students (Jordan Rosenthal-Kay, Jingoo Kwon).
+
+\section{Lecture 0: Neoclassical Growth Model without Growth}
+
+This section pulls from Golosov's Lecture 0.
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $t$: period
+    \item $\beta$: discount factor
+    \item $c_t$: consumption in period $t$
+    \item $u(c_t)$: utility derived from consumption in period $t$
+    \item $k_t$: capital in period $t$
+    \item $f(k_t)$: production function
+    \item $\delta$: depreciation rate
+\end{itemize}
+
+\subsection{Setup}
+
+\subsubsection{Preferences}
+
+Continuum of identical, infinitely lived consumers with preferences
+
+$$
+\sum_{t=0}^{\infty} \beta^t u\left(c_t\right),
+$$
+
+where $c_t \geq 0$ is consumption in period $t$.
+
+\subsubsection{Technology}
+
+Technology
+Output produced with production function $f\left(k_t\right)$, where $k_t \geq 0$ is capital with initial $k_0>0$ given. Output can be costlessly transferred between consumption and capital for next period:
+
+$$
+    \begin{aligned}
+    c_t+k_{t+1} & \leq f\left(k_t\right)+(1-\delta) k_t \\
+    k_0 & >0 \text { is given. }
+    \end{aligned}
+$$
+
+for depreciation rate $\delta \in(0,1)$.
+
+\subsubsection{Assumptions}
+
+\begin{enumerate}
+    \item $u, f$ are strictly increasing, differentiable, $u$ is strictly concave, $f$ is concave;
+    \item $u, f$ are "nice"\footnote{Notes from earlier in Lecture 0 on niceness: There are multiple ways to assume niceness: bounded $u ; u$ bounded from below and $F$ is such that feasible $x$ are bounded; $u$ is CRRA and some assumption on the speed of change in derivatives of $F$ around $x=0$. The formal arguments are a bit tedious and not that insightful beyond the intuition that I gave here, so we will not talk about them.};
+    \item $u, f$ satisfy Inada conditions $\lim _{c \rightarrow 0} u^{\prime}(c)=\lim _{k \rightarrow 0} f^{\prime}(k)=\infty$.
+\end{enumerate}
+
+\subsection{Model}
+
+\subsubsection{Social Planner Problem}
+
+$$
+\max _{\left\{c_t, k_t\right\}_t} \sum_{t=0}^{\infty} \beta^t u\left(c_t\right)
+$$
+s.t.
+$$
+c_t+k_{t+1} \leq f\left(k_t\right)+(1-\delta) k_t,
+$$
+and $c_t \geq 0, k_t \geq 0, k_0$ is given.
+
+\subsubsection{Key Optimality Theorem}
+
+\begin{theorem}
+    
+    Suppose the assumptions above hold.
+(necessity) If $\left\{c_t^*, k_t^*\right\}_t$ solves (3) then $\left\{c_t^*, k_t^*\right\}_t$ satisfies
+$$
+\begin{gathered}
+c_t^*+k_{t+1}^*=f\left(k_t^*\right)+(1-\delta) k_t^*, \\
+u^{\prime}\left(c_t^*\right)=\beta\left[1+f^{\prime}\left(k_{t+1}^*\right)-\delta\right] u^{\prime}\left(c_{t+1}^*\right), \\
+\lim _{T \rightarrow \infty} \beta^T u^{\prime}\left(c_T^*\right) k_{T+1}^* \leq 0 .
+\end{gathered}
+$$
+(sufficiency) If $\left\{c_t^*, k_t^*\right\}_t$ satisfies (4), (5), and (6), then it is a solution to (3).
+
+\end{theorem}
+
+\section{Lecture 1}
+
+\subsection{Neoclassical Growth Model}
+
+\subsubsection{Terms}
+
+\begin{itemize}
+    \item $t$: period
+    \item $C_t$: consumption in period $t$
+    \item $I_t$: investment in period $t$
+    \item $K_t$: capital in period $t$
+    \item $Y_t$: output in period $t$, sum of factor income
+    \item $F_t$: production function
+    \item $X_t$: (labor-augmenting) technology in period $t$
+    \item $n$: growth rate of population
+    \item $\rho$: discount factor
+\end{itemize}
+
+\subsubsection{Basic Accounting Definitions}
+
+\begin{align}
+    &C_t+I_t=Y_t \\
+    &K_{t+1}=I_t+(1-\delta) K_t\\
+    &\text{$Y_t=$ sum of factor income}
+\end{align}
+
+\subsubsection{More Relationships}
+
+\begin{align}
+    &\dot{K}(t)=Y(t)-C(t)-\delta K(t) && \text{Feasibility}\\
+    &Y(t)=F(K(t), X(t) L(t)) \\
+    &L(t) =1 && \text{Feasibility: inelastic labor}
+\end{align}
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+    \item Perfectly competitive firms
+    \item $Y_t$ is produced by CRS technology $F_t$ (DRS is a CRS with a fixed factor, IRS is hard to model parsimoniously).
+    \item Two factors: capital and labor.
+    \item Inelastic Labor
+\end{itemize}
+
+\subsubsection{Setup}
+
+\textbf{Household}
+
+Infinitely lived representative household with preferences
+$$
+\int_0^{\infty} e^{-\rho t} \frac{C(t)^{1-\sigma}}{1-\sigma} d t
+$$
+and inelastic labor supply (for now)
+
+\subsubsection{Useful Normalization}
+
+Re-normalize everything per unit of $X$ :
+$$
+\begin{aligned}
+k(t) & \equiv \frac{K(t)}{X(t)} \\
+c(t) &\equiv \frac{C(t)}{X(t)} \\
+y(t) & \equiv \frac{Y(t)}{X(t)}=F(k(t), 1) \\
+\tilde{\rho} &\equiv \rho-(1-\sigma) g_X
+\end{aligned}
+$$
+
+In this case, the model becomes isomorphic to the neoclassical growth model
+without growth. Thus, we have 
+
+\begin{itemize}
+    \item Competitive equilibrium is efficient.
+    \item $k(t), c(t), y(t)$ converge to the steady state $k^{ss}, c^{ss}, y^{ss}$.
+\end{itemize}
+
+\subsubsection{Neoclassical Growth Model and Kaldor Facts}
+
+Steady state of the neoclassical growth model is consistent with Kaldor
+facts (presented just below)
+
+\begin{enumerate}
+    \item $y(t)=y^{ss}$ implies that $Y(t)$ grows at rate $g_X$.
+    \item Capital-output ratio is constant: $K(t) / Y(t)=k^{ss} / y^{ss}$.
+    \item Since consumption growth rate is constant, so are interest rates.
+    \item Factor shares are constant by labor-augmenting technical change + constant interest rate.
+\end{enumerate}
+
+
+\subsection{Kaldor Facts}
+
+\begin{enumerate}
+    \item Output per capita grows at a constant rate.
+    \item Capital-output ratio is roughly constant.
+    \item Interest rate is roughly constant.
+    \item Distribution of income between capital and labor is roughly constant.
+\end{enumerate}
+
+\subsection{Constant Growth}
+
+\begin{itemize}
+    \item $\frac{\dot{Y}(t)}{Y(t)}=g_Y>0$
+    \item $\frac{\dot{K}(t)}{K(t)}=g_K>0$
+    \item $\frac{\dot{C}(t)}{C(t)}=g_C>0$
+    \item $\frac{\dot{L}(t)}{L(t)}=n$
+\end{itemize}
+
+\subsection{Uzawa Theorem}
+
+With constant growth and CRS technology, we have
+
+\begin{enumerate}
+    \item Balanced growth: $g_Y=g_C=g_K \equiv g$
+    \item Labor-augmenting technical change: $\tilde{F}$ can be represented as $\tilde{F}(K(t), L(t), \tilde{X}(t))=F(K(t), X(t) L(t))$ for some CRS $F$ with $\frac{\dot{X}(t)}{X(t)}=g-n$
+\end{enumerate}
+
+\subsubsection{Implications of Uzawa}
+
+Some implications from Uzawa's Theorem:
+\begin{itemize}
+    \item With CRS, all constant growth must be balanced, i.e., all variables grow at the same rate. Moreover, per capita growth is driven by technology.
+    \item Technology must be either purely labor-augmenting or the elasticity of substitution between $K$ and $L$ equals 1.
+\end{itemize}
+
+\subsection{Uzawa Theorem - Part 2}
+
+With constant growth, CRS technology, 
+and constant factor shares\footnote{Jingoo's notes also 
+mention perfect competition, not sure if that's 
+implicit in Golosov's statement}, we have
+\begin{itemize}
+    \item Constant interest rate: $R(t)=R^* \quad \forall t$
+    \item Constant wage growth rate at the rate of technological growth: $\frac{\dot{w}(t)}{w(t)}=g_X=g_Y-n$
+\end{itemize}
+
+\subsection{Constant Interest Rates, Balanced Growth, and U Theorem}
+
+Constant interest rates and balanced growth implies that $U(C)$ must be, up to a linear tranformation,
+$$
+U(C)=\frac{C^{1-\sigma}}{1-\sigma}
+$$
+
+\subsection{Useful Facts}
+
+\subsubsection{Re-Expressing Growth Rates}
+
+If any variable $Z$ grows with rate $g$, $\frac{\dot{Z}(t)}{Z(t)}=g \Longleftrightarrow Z(t)=e^{(t-\tau) g} Z(\tau)$ for all $t, \tau$
+
+\section{Lecture 2: Structural Change - Demand Side}
+
+\subsection{Model}
+
+\subsubsection{Terms}
+
+\begin{itemize}
+    \item $t$: period
+    \item $c_t$: aggregate consumption in period $t$
+    \item $I(t)$: investment at time $t$
+    \item $K(t)$: capital at time $t$
+    \item $r(t)$: rental rate of capital at time $t$
+    \item $w(t)$: wage rate at time $t$
+    \item $\rho$: discount factor
+    \item $U_0$: Utility beginning at period 0
+    \begin{itemize}
+        \item $c^A(t) \in [\gamma^A, \infty)$ is the agricultural consumption at time $t$.
+        \item $c^M(t) \geq 0$ is the manufacturing consumption at time $t$.
+        \item $c^S(t) \geq 0$ is the services consumption at time $t$.
+    \end{itemize}
+    \item $\gamma^A < 0$: constant establishing a subsistence level of agricultural consumption
+    \begin{itemize}
+        \item The household must consume at least this much agricultural production (food) to survive
+    \end{itemize}
+    \item $\gamma^S >0$: constant establishing that consumption of services can be zero or negative
+    \item $\eta^i$: long-run share of consumption in sector $i$
+    \item $p^i(t)$ is the price of one unit of $c^i(t)$ for $i \in\{A, M, S\}$
+    \begin{itemize}
+        \item In general, we normalize s.t. $p^M(t)=1$, but we can choose any sector to normalize to 1 if useful
+    \end{itemize}
+    \item $Y^i(t)$: Output of sector $i$ at time $t$
+    \item $B^i$: Hicks-neutral productivity term for sector $i \in\{A, M, S\}$
+    \item $X(t)$ : Labor-augmenting productivity term affecting all sectors.
+    \item $g = \frac{\dot{X}(t)}{X(t)}$: growth rate of labor-augmenting productivity
+\end{itemize}
+
+\subsubsection{Model Setup}
+
+\paragraph{Preferences}
+
+\begin{align}
+    &U_0=\int_0^{\infty} \exp (-\rho t) \frac{c(t)^{1-\sigma}-1}{1-\sigma} d t \\
+    &\text{with} \\
+    &c(t)=\left(c^A(t)+\gamma^A\right)^{\eta^A} c^M(t)^{\eta^M}\left(c^S(t)+\gamma^S\right)^{\eta^S} \\
+    &\eta^i  >0, \sum_{i \in\{A, M, S\}} \eta^i=1, \\
+    &\gamma^A  <0, \gamma^S>0
+\end{align}
+
+Budget Constraint:
+
+\begin{align}
+    \sum_{i \in\{A, M, S\}} p^i(t) c^i(t)+\dot{K}(t)=w(t)+(r(t)-\delta) K(t)
+\end{align}
+
+\paragraph{Technology}
+
+Technology $F$ is CRS with
+
+\begin{align}
+    &Y^i(t) =B^i F\left(K^i(t), X(t) L^i(t)\right), \\
+    &\dot{X}(t) / X(t) =g .
+\end{align}
+
+with capital goods produced by sector $M$
+
+\subsubsection{Firm's Problem}
+
+$$
+\max p^i(t) Y^i(t)-w(t) L^i(t)-r(t) K^i(t)
+$$
+s.t.
+$$
+Y^i(t)=B^i F\left(K^i(t), X(t) L^i(t)\right)
+$$
+
+\paragraph{Optimality Conditions for Firm}
+
+Capital:
+
+$$
+p^i(t) B^i F_K\left(K^i(t), X(t) L^i(t)\right)=r(t)
+$$
+
+Labor:
+
+$$
+p^i(t) B^i F_L\left(K^i(t), X(t) L^i(t)\right) X(t)=w(t)
+$$
+
+
+\subsubsection{Market Clearing}
+
+\paragraph{Market Clearing for Labor and Capital}
+
+\begin{align}
+    &K^A(t)+K^M(t)+K^S(t)=K(t) \\
+    &L^A(t)+L^M(t)+L^S(t)=1
+\end{align}
+
+\paragraph{Market Clearing for Agricultural and Service Goods}
+
+\begin{align}
+    &c^A(t)=Y^A(t) \\
+    &c^S(t)=Y^S(t)
+\end{align}
+
+\paragraph{Manufacturing good is used in production of investment good}
+
+\begin{align}
+    &I(t)+c^M(t) =Y^M(t) \\ 
+    &\dot{K}(t) =I(t)-\delta K
+\end{align}
+
+\subsubsection{Competitive Equilibrium}
+
+Given initial $K_0$, collection of prices and quantities, such that
+\begin{enumerate}
+    \item Consumers choose their quantities optimally given prices.
+    \item Firms choose their quantities optimally given prices.
+    \item All markets clear.
+\end{enumerate}
+
+
+
+\subsubsection{Variable/Parameter Relationships}
+
+\paragraph{Nonhomothetic Preferences}
+
+Generally, allowing for nonhomothetic preferences:
+
+\begin{align}
+    \frac{p^i c^i}{p^M c^M}=\frac{\eta^i}{\eta^M}-\frac{p^i}{p^M} \frac{\gamma^i}{c^M}
+\end{align}
+
+Note that holding prices fixed, $p^i c^i$ growths faster (slower) than $p^M c^M$ if $\gamma^i>0\left(\right.$ if $\left.\gamma^i<0\right)$.
+
+\begin{itemize}
+    \item $\gamma^A < 0$: Consumption share of $A$ grows slower than $M$.
+    \item $\gamma^S > 0$: Consumption share of $S$ grows faster than $M$.
+\end{itemize}
+
+This is consistent with cross-sectional patterns in spending.
+
+\subsection{Useful Facts}
+
+\subsubsection{HD1 F}
+
+In our context, $F$ is HD1. That is,
+
+\begin{align}
+    F(\lambda K, \lambda L)=\lambda F(K, L)
+\end{align}
+
+\subsubsection{HD1 F Implications; HD0 Partials}
+
+If $F(K, L)$ is HD1 then
+
+\begin{align}
+    F(K, L)=F_K(K, L) K+F_L(K, L) L
+\end{align}
+
+and $F_K(K, L), F_L(K, L)$ are HD0.
+
+That is,
+
+\begin{align}
+    F_K(\lambda K,\lambda L) = F_K(K, L)\\
+    F_L(\lambda K,\lambda L) = F_L(K, L)
+\end{align}
+ 
+\end{document}
