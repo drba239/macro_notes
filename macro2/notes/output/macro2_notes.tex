@@ -320,15 +320,24 @@ $$
 
 Capital:
 
-$$
-p^i(t) B^i F_K\left(K^i(t), X(t) L^i(t)\right)=r(t)
-$$
+\begin{align}
+    p^i(t) B^i F_K\left(K^i(t), X(t) L^i(t)\right)=r(t) \label{eq:l2_firm_capital_optimality}
+\end{align}
 
 Labor:
 
-$$
-p^i(t) B^i F_L\left(K^i(t), X(t) L^i(t)\right) X(t)=w(t)
-$$
+\begin{align}
+    p^i(t) B^i F_L\left(K^i(t), X(t) L^i(t)\right) X(t)=w(t) \label{eq:l2_firm_labor_optimality}
+\end{align}
+
+Interpretation: 
+The rental rate of capital must be the marginal value 
+of capital to production multiplied by price 
+and the productivity term. 
+The wage rate must be the 
+marginal value of labor to production multiplied by price 
+and the productivity term and the labor-augmenting 
+technology. 
 
 
 \subsubsection{Market Clearing}
@@ -384,6 +393,248 @@ Note that holding prices fixed, $p^i c^i$ growths faster (slower) than $p^M c^M$
 
 This is consistent with cross-sectional patterns in spending.
 
+\paragraph{Equalization of capital-labor ratios}
+
+Since 
+
+\begin{align}
+    \frac{r(t)}{w(t)} = \frac{p^i(t) B_i F_K\left(K^i(t), X(t) L^i(t)\right)}{p^i(t) B_i F_L\left(K^i(t), X(t) L^i(t)\right) X(t)}
+\end{align}
+
+by \eqref{eq:l2_firm_capital_optimality} and \eqref{eq:l2_firm_labor_optimality},
+we have (by re-arranging and cancellation):
+
+\begin{align}
+    X(t) \frac{r(t)}{w(t)}=\frac{F_K\left(K^i(t), X(t) L^i(t)\right)}{F_L\left(K^i(t), X(t) L^i(t)\right)}
+\end{align}
+
+Notably:
+
+\begin{itemize}
+    \item Since $F_K, F_L$ are HD0, the RHS is a function of $\frac{K^i(t)}{X(t) L^i(t)}$.
+        \begin{itemize}
+            \item To be hyper-clear, I am saying that since (1) and HD0 
+            function maps to the same output for inputs with the same ratio 
+            and (2) since the RHS is a function of two functions with this quality 
+            and with the same 
+            inputs, it must be the case that the whole RHS is 
+            just a function of the ratio of these two inputs.
+        \end{itemize}
+    \item Since $r(t) / w(t)$ does not depend on $i$, there is some $k(t)$ s.t.
+\end{itemize}
+\begin{align}
+    \frac{K^i(t)}{X(t) L^i(t)}=k(t) \quad \text{for all $i$} \label{eq:l2_capital_labor_ratio}
+\end{align}
+\begin{itemize}
+    \item[]
+        \begin{itemize}
+            \item I am not totally sure why they don't reference whole LHS,
+            which also don't depend on $i$, but essentially, I believe they 
+            are just saying that since the LHS doesn't depend on $i$,
+            there must be some constant capital-labor ratio that characterizes 
+            the RHS across sectors.
+        \end{itemize}
+\end{itemize}
+
+\paragraph{Constant Relative Prices}
+
+From \eqref{eq:l2_capital_labor_ratio}, we have that:
+
+\begin{align}
+    F_K\left(K^i(t), X(t) L^i(t)\right)=F_K\left(K^j(t), X(t) L^j(t)\right) \equiv \bar{F}(t) \quad \forall i, j \in\{A, M, S\}
+\end{align}
+
+From \eqref{eq:l2_firm_capital_optimality} with $p^M = 1$, this gives 
+
+\begin{align}
+    B^M \bar{F}(t)=r(t) &\Rightarrow B_M = \frac{r(t)}{\bar{F}(t)} \\
+    p^A(t) B^A \bar{F}(t)=r(t) &\Rightarrow p^A = \frac{r(t)}{\bar{F}(t)} \frac{1}{B^A} = \frac{B^M}{B^A} \\
+    p^S(t) B^S \bar{F}(t)=r(t) &\Rightarrow p^S = \frac{r(t)}{\bar{F}(t)} \frac{1}{B^S} = \frac{B^M}{B^S}
+\end{align}
+
+where the last equality in the second and third lines follows from the first line.
+
+This leads to the conclusion that:
+
+\begin{itemize}
+    \item In CE prices determined by technology, not preferences
+        \begin{itemize}
+            \item same growth rate in all sectors $\Longleftrightarrow$ same relative prices
+        \end{itemize}
+\end{itemize}
+
+\paragraph{Optimality Conditions for Consumers}
+
+In Pset 2 or 3, we derive the following from the consumer optimality conditions:
+
+\begin{align}
+    \frac{1}{\sigma}(r-\delta-\rho)=\frac{\dot{c}^M(t)}{c^M(t)}=\frac{\dot{c}(t)}{c(t)} \\
+    \frac{\dot{c}^M}{c^M}=\frac{\dot{c}^A}{c^A+\gamma^A}=\frac{\dot{c}^S}{c^S+\gamma^S}
+\end{align}
+
+which implies sectoral reallocation (since $\gamma^A<0, \gamma^S>0$)
+
+\begin{align}
+    \frac{\dot{c}^A}{c^A}<\frac{\dot{c}^M}{c^M}<\frac{\dot{c}^S}{c^S}
+\end{align}
+
+\paragraph{Structural Change}
+
+Since $c^A(t)=Y^A(t)$ and $c^S(t)=Y^S(t)$, we must have
+$$
+\frac{\dot{Y}^A}{Y^A}<\frac{\dot{Y}^S}{Y^S}
+$$
+
+\paragraph{Aggregation}
+
+We want to aggregate up our economy:
+
+Start with three feasibility conditions
+
+\begin{align}
+    c^A(t) & =B^A F\left(K^A(t), X(t) L^A(t)\right) \\
+    c^S(t) & =B^S F\left(K^S(t), X(t) L^S(t)\right) \\
+    c^M(t)+\dot{K}(t) & =B^M F\left(K^M(t), X(t) L^M(t)\right)-\delta K(t)
+\end{align}
+
+We can then apply \eqref{eq:l2_hd1_lemma} to get:
+
+\begin{align}
+    c^A(t)= & B^A\left\{F_K^A(t) K^A(t)+F_L^A X(t) L^A(t)\right\} \\ 
+    c^S(t)= & B^S\left\{F_K^S(t) K^S(t)+F_L^S(t) X(t) L^S(t)\right\} \\ 
+    c^M(t)+\dot{K}(t)= & B^M\left\{F_K^M(t) K^M(t)+F_L^M(t) X(t) L^M(t)\right\} -\delta K(t) \\ 
+\end{align}
+
+Multiplying each $c^i$ by $p^i$ then gives:
+
+\begin{align}
+    p^A c^A(t)= & p^A B^A\left\{F_K^A(t) K^A(t)+F_L^A X(t) L^A(t)\right\} \\ 
+    p^S c^S(t)= & p^S B^S\left\{F_K^S(t) K^S(t)+F_L^S(t) X(t) L^S(t)\right\} \\ 
+    p^M c^M(t)+p^M \dot{K}(t)= & p^M B^M\left\{F_K^M(t) K^M(t)+F_L^M(t) X(t) L^M(t)\right\} -\delta p^M K(t) \\
+\end{align}
+
+Then, summing gives:
+
+\begin{align}
+    p^A c^A(t)+p^S c^S(t)+p^M c^M(t)= & p^A B^A\left\{F_K^A(t) K^A(t)+F_L^A X(t) L^A(t)\right\} \\
+    & +p^S B^S\left\{F_K^S(t) K^S(t)+F_L^S(t) X(t) L^S(t)\right\} \\
+    & +p^M B^M\left\{F_K^M(t) K^M(t)+F_L^M(t) X(t) L^M(t)\right\} -\delta p^M K(t) \\
+    = & r(t)(K^A(t)+K^S(t)+K^M(t)) + && \text{by \eqref{eq:l2_firm_capital_optimality}} \\
+    &w(t)(X(t) L^A(t)+X(t) L^S(t)+X(t) L^M(t)) -\delta p^M K(t) && \text{by \eqref{eq:l2_firm_labor_optimality}} \\
+    = & r(t) K(t) + w(t) \bar{L} -\delta p^M K(t) && \text{by market clearing}
+\end{align}
+
+We want to get rid of the $r(t)$ and $w(t)$. 
+We will do that in the next subsection.
+
+\subsection{CGP Growth Rates}
+
+Note that $\frac{K^i(t)}{X(t) L^i(t)}=k(t)$ for all $i$ implies
+$$
+\frac{K(t)}{X(t) \bar{L}}=k(t)
+$$
+
+Since $F_K$ and $F_L$ are HDO:
+$$
+\begin{aligned}
+r(t) & =B^M F_K\left(K^M(t), X(t) L^M(t)\right)=B^M F_K(k(t), 1) \\
+& =B^M F_K(K(t), X(t) \bar{L})
+\end{aligned}
+$$
+and same for $w(t)$
+
+Therefore, the sum of feasibility constraints is
+
+\begin{align}
+    p^A c^A(t)+c^M(t)+p^S c^S(t)+\dot{K}(t)=B^M F(K(t), X(t) \bar{L})-\delta K(t) \label{eq:l2_cgp_sum_i_prod}
+\end{align}
+
+\subsubsection{Constant Capital-Labor Output Ratio}
+
+If CGP exists, then $r(t)=r$ and therefore $k(t)=k$ so that all sectorial capital-labor ratios are constant
+$$
+K^i(t)=k \cdot X(t) L^i(t)
+$$
+
+Sum up across $i$:
+
+\begin{align}
+    K(t)=k \cdot X(t) \bar{L} \label{l2:cgp_sum_i_kl}
+\end{align}
+
+Therefore
+
+\begin{align}
+    &\frac{\dot{K}(t)}{K(t)}=g \\
+    \Rightarrow &\dot{K} = g K(t) \label{l2:cgp_k_dot}
+\end{align}
+
+since the only value changing on the RHS of \eqref{l2:cgp_sum_i_kl} is $X(t)$,
+and it's multiplied by the other two terms.
+
+Then plugging \eqref{l2:cgp_k_dot} into \eqref{eq:l2_cgp_sum_i_prod} gives the aggregate feasibility equation:
+
+\begin{align}
+    p^A c^A(t)+c^M(t)+p^S c^S(t)=B^M F(K(t), X(t) \bar{L})-(\delta+g) K(t) \label{eq:l2_agg_feas_eq_new_kdot}
+\end{align}
+
+\subsubsection{Existence of CGP}
+
+Then re-writing \eqref{eq:l2_agg_feas_eq_new_kdot} as 
+
+\begin{align}
+    & p^A\left(c^A(t)+\gamma^A\right)+c^M(t)+p^S\left(c^S(t)+\gamma^S\right) \\ 
+    & -\left[p^A \gamma^A+p^S \gamma^S\right] \\ 
+    = & B^M F(K(t), X(t) \bar{L})-(\delta+g) K(t)
+\end{align}
+
+implies that $p^A\left(c^A(t)+\gamma^A\right), c^M(t), p^S\left(c^S(t)+\gamma^S\right)$
+grow at the same rates.
+
+Apply Uzawa's arguments: can have balanced growth only if
+$$
+p^A \gamma^A+p^S \gamma^S=0
+$$
+
+
+\begin{proposition}
+    In the above-described economy a CGP exists if and only if
+
+    $$
+    \frac{\gamma^A}{B^A}+\frac{\gamma^S}{B^S}=0
+    $$
+
+    In a CGP $k(t)=k$ for all $t$, and moreover
+    $$
+    \frac{\dot{c}^A}{c^A}=g \frac{c^A+\gamma^A}{c^A}, \frac{\dot{c}^M}{c^M}=g, \frac{\dot{c}^S}{c^S}=g \frac{c^S+\gamma^S}{c^S}
+    $$
+
+    \begin{itemize}
+        \item Growth rate in $S$ starts high and asymptotes to $g$ as $c^S \rightarrow \infty$
+        \item Growth rate in $A$ starts low and asymptotes to $g$ as $c^A \rightarrow \infty$
+    \end{itemize}
+
+\end{proposition}
+
+\subsubsection{Labor Transition}
+
+We have
+$$
+c^i(t)=X(t) L^i(t) B^i F(k, 1) \text { for } i \in\{A, S\}
+$$
+
+This implies
+$$
+\frac{\dot{c}^i}{c^i}=\frac{\dot{X}}{X}+\frac{\dot{L}^i}{L^i}
+$$
+
+In Pset 2:
+
+We showed that this + previous equations imply in CGP
+$$
+\frac{\dot{L}^M}{L^M}=0, \frac{\dot{L}^A}{L^A}<0, \frac{\dot{L}^S}{L^S}>0 .
+$$
+
 \subsection{Useful Facts}
 
 \subsubsection{HD1 F}
@@ -399,7 +650,7 @@ In our context, $F$ is HD1. That is,
 If $F(K, L)$ is HD1 then
 
 \begin{align}
-    F(K, L)=F_K(K, L) K+F_L(K, L) L
+    F(K, L)=F_K(K, L) K+F_L(K, L) L \label{eq:l2_hd1_lemma}
 \end{align}
 
 and $F_K(K, L), F_L(K, L)$ are HD0.
@@ -410,5 +661,480 @@ That is,
     F_K(\lambda K,\lambda L) = F_K(K, L)\\
     F_L(\lambda K,\lambda L) = F_L(K, L)
 \end{align}
- 
+
+\section{Lecture 3: Structural Change - Supply Side}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $\rho$: discount rate 
+    \item $t$: time 
+    \item $c(t):$ consumption at time $t$
+    \item $i \in \{A, M, S\}$: sector
+    \item $c^i(t):$ consumption of good $i$ at time $t$
+    \item $\eta_i$: long-run share of consumption in sector $i$
+    \item $K^i(t)$: capital in sector $i$ at time $t$
+    \item $L^i(t)$: labor in sector $i$ at time $t$
+    \item $Y^i(t)$: output of sector $i$ at time $t$
+    \item $p^i(t)$: price of one unit of $c^i(t)$ at time $t$
+    \item $X^i(t)$: labor-augmenting technology in sector $i$ at time $t$
+    \item $g_i$: growth rate of labor-augmenting technology, $X$, in sector $i$
+    \item $\sigma$: price elasticity
+\end{itemize}
+
+\subsection{Setup}
+
+\subsubsection{Preferences}
+
+\begin{align}
+    \int_0^{\infty} \exp (-\rho t) \frac{c(t)^{1-\theta}-1}{1-\theta} dt
+\end{align}
+
+with 
+
+\begin{align}
+    c(t)=\left(\sum_{i \in\{A, S, M\}} \eta^i c^i(t)^{(\sigma-1) / \sigma}\right)^{\sigma /(\sigma-1)}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Technology with Unequal Growth}
+
+\begin{align}
+    Y^i(t) & =X^i(t) K^i(t)^\alpha L^i(t)^{1-\alpha} \\
+    \dot{X}^i(t) / X^i(t) & =g^i
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Additional Assumption}
+
+\begin{itemize}
+    \item Inelastic labor
+    \item $M$ produces all capital
+    \item price elasticity, $\sigma$, assumed to be same for all goods
+    \item Income elasticity is 1 for all goods
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Intratempotal optimality condition}
+
+\begin{align}
+    \frac{c^i}{c^j}=\left(\frac{\eta^i}{\eta^j}\right)^\sigma\left(\frac{p^i}{p^j}\right)^{-\sigma} \label{eq:l3_intratemporal_optimality}
+\end{align}
+
+If $p^i / p^j$ increases then relatively consumption shares $p^i c^i / p^j c^j$
+
+\begin{itemize}
+    \item decreases if $\sigma<1$
+    \item constant if $\sigma=1$
+    \item increases if $\sigma>1$
+\end{itemize}
+
+\color{red}
+I'm not sure that I understand why this is this way. 
+\color{black}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Feasibility Constraint}
+
+\begin{align}
+    c^M+\dot{K} & =X^M\left(K^M\right)^\alpha\left(L^M\right)^{1-\alpha}-\delta K \\
+    c^A & =X^A\left(K^A\right)^\alpha\left(L^A\right)^{1-\alpha} \\
+    c^S & =X^S\left(K^S\right)^\alpha\left(L^S\right)^{1-\alpha}
+\end{align}
+
+Multiply by $p^i$ and sum to get
+$$
+C+\dot{K}=X^M(K)^\alpha(\bar{L})^{1-\alpha}-\delta K
+$$
+where
+$$
+C \equiv \sum_{i \in\{A, M, S\}} p^i c^i
+$$
+
+To make progress, lets express dynamic conditions in terms of C
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{More Intertemporal Optimality}
+
+Let $\lambda$ be multiplier on the consumer's budget constraint and
+$$
+C(t) \equiv \sum_{i \in\{A, M, S\}} p^i(t) c^i(t)
+$$
+be total consumption expenditures. Show that optimality requires\footnote{
+    \color{red}
+    Not sure that I understand what little $c$ is with no superscript. 
+    \color{black}
+}
+$$
+\frac{\dot{\lambda}}{\lambda}+\frac{\dot{C}}{C}=(1-\theta) \frac{\dot{c}}{c}
+$$
+and
+$$
+\frac{\dot{\lambda}}{\lambda}=-\left(\alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha}-\delta-\rho\right)
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Euler Equation}
+
+So we have two conditions
+
+\begin{align}
+    &C+\dot{K}=X^M K^\alpha \bar{L}^{1-\alpha}-\delta K \\
+    &\frac{\dot{C}}{C}-(1-\theta) \frac{\dot{c}}{c}=\left(\alpha X^M K^{\alpha-1} \bar{L}^{1-\alpha}-\delta-\rho\right)
+\end{align}
+
+Note that if $\theta=1$, these are the optimality conditions of the neoclassical growth model
+
+\begin{itemize}
+    \item $\theta=1$ is a sufficient condition to deliver Kaldor facts
+    \item it also turns out to be a necessary condition
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Results}
+
+\subsubsection{Production efficiency}
+
+Firm's FOCS:
+
+\begin{align} 
+    p^i(t) X^i(t) \alpha\left(\frac{K^i(t)}{L^i(t)}\right)^{\alpha-1} & =r(t) \\ 
+    p^i(t) X^i(t)(1-\alpha)\left(\frac{K^i(t)}{L^i(t)}\right)^\alpha & =w(t)
+\end{align}
+
+From firm's optimization, capital-labor ratios are equalized across sectors
+$$
+\frac{K^i(t)}{L^i(t)}=k(t) \text { for all } i
+$$
+
+Relative prices reflect relative productivities
+
+\begin{align}
+    \frac{p^i(t)}{p^j(t)}=\frac{X^j(t)}{X^i(t)} \text { for } i, j \in\{A, S, M\} \label{eq:l3_rel_prices}
+\end{align}
+
+Notice, relative prices fall in sectors with higher productivity growth.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Consumption Side}
+
+Plug these into intratremporal optimality for consumers -- 
+that is combine \eqref{eq:l3_intratemporal_optimality} and \eqref{eq:l3_rel_prices} --
+to get:
+
+\begin{align}
+    \frac{p^i(t) c^i(t)}{p^j(t) c^j(t)}=\left(\frac{\eta^i}{\eta^j}\right)^\sigma\left(\frac{X^j(t)}{X^i(t)}\right)^{1-\sigma} \label{eq:l3_rel_lab_tech}
+\end{align}
+
+
+Consumption share $p^i c^i$ for the more stagnant sector
+
+\begin{itemize}
+    \item increases if $\sigma<1$ (empirically relevant case)
+    \item constant if $\sigma=1$
+    \item decreases if $\sigma>1$
+\end{itemize}
+
+That is, if demand is elastic, then 
+$1- \sigma$ is negative and an increase in the productivity of $j$
+means that the RHS is getting smaller, i.e., the share of 
+consumption of $i$ relative to $j$ is decreasing. This is sensible 
+as elastic demand would indicate that the increase in demand 
+for $j$ would be proportionally larger than its decrease in price. 
+The reverse is true for inelastic demand.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Labor Allocation}
+
+For $i, j \neq M$,
+
+$$
+c^i(t)=X^i(t) k(t)^\alpha L^i(t)
+$$
+
+Then, we have:
+
+\begin{align}
+    \frac{c^i(t)}{c^j(t)}&=\frac{X^i(t) k(t)^\alpha L^i(t)}{X^j(t) k(t)^\alpha L^j(t)} \\
+    &=\frac{X^i(t)}{X^j(t)}\frac{L^i(t)}{L^j(t)} \\
+    &= \frac{P^j(t)}{P^i(t)} \frac{L^i(t)}{L^j(t)} && \text{by \eqref{eq:l3_rel_prices}} \\
+    \Rightarrow \frac{c^i(t)}{c^j(t)}\frac{P^i(t)}{P^j(t)}&=\frac{L^i(t)}{L^j(t)} \\
+    \Rightarrow \frac{L^i(t)}{L^j(t)}&=\left(\frac{\eta^i}{\eta^j}\right)^\sigma\left(\frac{X^j(t)}{X^i(t)}\right)^{1-\sigma} && \text{by \eqref{eq:l3_rel_lab_tech}}
+\end{align}
+
+This gives\footnote{\color{red}
+Would need to think more about this 
+\color{black}}
+$$
+\frac{\dot{L}_i(t)}{L_i(t)}-\frac{\dot{L}_j(t)}{L_j(t)}=(1-\sigma)\left(g^j-g^i\right) \text { for } i \in\{A, S\}
+$$
+
+\subsubsection{Takeaways}
+
+\begin{itemize}
+    \item Suppose demand is inelastic $(\sigma<1)$
+        \begin{itemize}
+            \item prices of faster growing sector fall
+            \item consumption share of that sector falls
+            \item labor outflows from that sector
+        \end{itemize}
+    \item Same logic extends to arbitrary number of sectors
+        \begin{itemize}
+            \item asymptotically, everyone works in the most stagnant sector 
+            \item ``Baumol's cost disease''
+        \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lecture 11}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $\beta$: discount factor
+    \item $U(.)$: utility function
+    \item $C_t$: consumption in period $t$
+    \item $L_t$: labor in period $t$
+    \item $Y_t$: output in period $t$
+    \item $K_t$: capital in period $t$
+    \item $A_t$: technology in period $t$
+    \item $s_t$: exogenous state in period $t$
+    \item $s^t = (s_0, s_1, \ldots, s_t)$: history of exogenous states up to period $t$
+    \item $\operatorname{Pr}\left(s^t\right)$: the probability of the history of realizations comprising $s_t$
+    \item $\operatorname{Pr}\left(s^{t+1} \mid s^t\right)=\operatorname{Pr}\left(s^{t+1}\right) / \operatorname{Pr}\left(s^t\right)$: the conditional probability of $s^{t+1}$ given $s^t$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Setup}
+
+\subsubsection{Household}
+
+We have the representative consumer:
+
+\begin{align}
+    \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t U\left(C_t, L_t\right)
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Firm}
+
+We have the representative firm:
+\begin{align}
+    Y_t=F_t\left(K_t, L_t\right)=A_t K_t^\alpha L_t^{1-\alpha}
+\end{align}
+our feasibility constraint is given by:
+\begin{align}
+    C_t+K_{t+1}=Y_t+(1-\delta) K_t
+\end{align}
+
+$A_t$ is the only exogenous stochastic process here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Market Qualities}
+
+\begin{itemize}
+    \item The market is complete (for simplicity)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Conceptualization of Our Exogenous Shocks and Endogenous Variables}
+
+Let $s_t$ be exogenous state ($s_t=A_t$ in our RBC example with one shock, but more generally it is a vector of all exogenous shocks)
+
+Recall that we denote $s^t=\left(s_0, \ldots, s_t\right)$ to be a history of shocks up to period $t$
+
+Then:
+
+\begin{itemize}
+    \item $\operatorname{Pr}\left(s^t\right)$ is the probability of the history of realizations comprising $s_t$
+    \item $\operatorname{Pr}\left(s^{t+1} \mid s^t\right)=\operatorname{Pr}\left(s^{t+1}\right) / \operatorname{Pr}\left(s^t\right)$ is the conditional probability
+\end{itemize}
+
+Endogenous variables in period $t$ are functions of $s^t: X_t=X_t\left(s^t\right)$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Social Planner's Problem}
+
+The Social Planner's problem is given by:
+
+\begin{align}
+    &\max _{C_t, N_t, K_{t+1}} \sum_{t=0}^{\infty} \sum_{s^t} \operatorname{Pr}\left(s^t\right) \beta^t U\left(C_t\left(s^t\right), L_t\left(s^t\right)\right) \label{eq:l11_sp_problem_long} \\
+    &\text{s.t.} \\
+    &K_0 \text{ is given} \\
+    &C_t\left(s^t\right)+K_{t+1}\left(s^t\right)=A_t K_t\left(s^{t-1}\right)^\alpha L_t\left(s^t\right)^{1-\alpha}+(1-\delta) K_t\left(s^{t-1}\right)
+\end{align}
+
+\begin{itemize}
+    \item Let $\beta^t \operatorname{Pr}\left(s^t\right) \lambda_t\left(s^t\right)$ be the Lagrange multiplier on this constraint 
+        \begin{itemize}
+            \item Note that each Lagrange multiplier is specific to each possible history
+        \end{itemize}
+\end{itemize}
+
+Then our FOCs are:\footnote{
+    \color{red}
+    I'm a bit confused what the full Lagrangian looks like this in case.
+    \color{black}
+}
+
+\begin{align} 
+    & U_C\left(s^t\right)=\lambda_t\left(s^t\right) \\ 
+    & U_L\left(s^t\right)=-\lambda_t\left(s^t\right) F_L\left(s^t\right) \\ 
+    & \lambda_t\left(s^t\right)=\beta \sum_{s^{t+1}} \operatorname{Pr}\left(s^{t+1} \mid s^t\right)\left(1+F_K\left(s^{t+1}\right)-\delta\right) \lambda_{t+1}\left(s^{t+1}\right)
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Properties of SP's Problem}
+
+Combining our FOC's yields:
+
+\begin{align}
+    U_L\left(s^t\right) & =-U_C\left(s^t\right) F_L\left(s^t\right) \\
+    U_C\left(s^t\right) & =\beta \sum_{s^{t+1}} \operatorname{Pr}\left(s^{t+1} \mid s^t\right) U_C\left(s^{t+1}\right)\left(1+F_K\left(s^{t+1}\right)-\delta\right)
+\end{align}
+
+Together with feasibility (and TVC)
+$$
+C_t\left(s^t\right)+K_{t+1}\left(s^t\right)=A_t K_t\left(s^{t-1}\right)^\alpha L_t\left(s^t\right)^{1-\alpha}+(1-\delta) K_t\left(s^{t-1}\right)
+$$
+these three equations pin down (stochastic) solution $\left(C_t\left(s^t\right), K_{t+1}\left(s^t\right), L_t\left(s^t\right)\right)_{t, s^t}$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Shorthand Notation for the SP's Problem}
+
+It is common to use shorthand notation for the SP problem in \eqref{eq:l11_sp_problem_long} and write it as:
+
+\begin{align}
+    \max _{C_t, L_t, K_{t+1}} \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t U\left(C_t, L_t\right)
+\end{align}
+
+s.t. $K_0$ given and
+$$
+C_t+K_{t+1}=A_t K_t^\alpha L_t^{1-\alpha}+(1-\delta) K_t
+$$
+
+The corresponding short-hand FOCs are then:
+$$
+\begin{aligned}
+U_{L, t} & =-U_{C, t} F_{L, t} \\
+U_{C, t} & =\beta \mathbb{E}_t U_{C, t+1}\left(1+F_{K, t+1}-\delta\right) .
+\end{aligned}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Recursive Formulation}
+
+Suppose $A_t$ is an $\mathrm{AR}(1)$ process. Then the SP problem can be written as
+$$
+V(K, A)=\max _{C, L, K_{+}} U(C, L)+\sum_{A_{+}} \operatorname{Pr}\left(A_{+} \mid A\right) V\left(K_{+}, A_{+}\right)
+$$
+s.t.
+$$
+C+K_{+}=A K^\alpha L^{1-\alpha}+(1-\delta) K
+$$
+
+Solution is policy functions $\widetilde{X}(K, A)=\widetilde{C}(K, A), \widetilde{N}(K, A), \widetilde{K}_{+}(K, A)$ and for any history of shocks $s^t=A^t$ we can find $X_t\left(s^t\right)$ by substituting these policy functions recursively, e.g.
+$$
+\begin{aligned}
+& X_0\left(s_0\right)=\widetilde{X}\left(K_0, A_0\right) \\
+& X_1\left(s_0, s_1\right)=\widetilde{X}\left(\widetilde{K}_{+}\left(K_0, A_0\right), A_1\right) \\
+& \ldots
+\end{aligned}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Competitive Equilibrium (Simplest Version)}
+
+\paragraph{Setup}
+
+\begin{itemize}
+    \item The consumer
+        \begin{itemize}
+            \item own all capital
+            \item rent capital and labor to firms
+            \item trade risk-free bonds (a security that is bought in period $t$ at price $Q_t$ and pays 1 unit of consumption good in period $t+1$ )
+        \end{itemize}
+    \item Risk-free bond is in zero net supply
+\end{itemize}
+
+\paragraph{Competitive Equilibrium Characterization}
+
+Competitive equilibrium are stochastic sequences $\left\{C_t, K_{t+1}, L_t, B_t\right\}_t$ and prices $\left\{W_t, R_t, R_t^{r f}\right\}_t$ such that
+
+\paragraph{Household}
+
+Consumers solve
+$$
+\max _{C_t, L_t, K_{t+1}} \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t U\left(C_t, L_t\right)
+$$
+s.t. $K_0$ given, $B_0=0$ and
+$$
+C_t+K_{t+1}+Q_t B_{t+1}=W_t L_t+\left(1+R_t-\delta\right) K_t+B_t
+$$
+
+
+\paragraph{Firm}
+
+Firms solve
+$$
+\max _{K_t, L_t} A_t K_t^\alpha L_t^{1-\alpha}-W_t L_t-R_t K_t
+$$
+
+\paragraph{Market Clearing}
+
+Markets clear
+$$
+B_t=0
+$$
+
+
+\paragraph{Risk Free Interest Rate}
+
+Let risk-free interest rate $R_{t+1}^{r f}$ be defined by
+$$
+R_{t+1}^{r f}:=1 / Q_t-1
+$$
+
+\begin{itemize}
+    \item Note that saving in period $t$ one unit of consumption in
+        \begin{itemize}
+            \item bonds pays interest rate $1+R_{t+1}^{r f}$ in period $t+1$
+            \item capital pays interest rate $1+R_{t+1}-\delta$ in period $t+1$
+            \item excess return of capital $r x_{t+1}:=\left(R_{t+1}-\delta\right)-R_{t+1}^{r f}$
+        \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Results}
+
 \end{document}
