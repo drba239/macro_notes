@@ -895,7 +895,304 @@ $$
         \end{itemize}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Lecture 8}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $Y_i$: output from firm $i$
+    \item $K_i$: capital in firm $i$
+    \item $L_i$: labor in firm $i$
+    \item $A_i$: technology for firm $i$
+    \item $P_i$: price for firm $i$
+    \item $\bar{K}$: Consumers inelastic endowment of capital 
+    \item $\bar{L}$: Consumers inelastic endowment of labor
+    \item $U(C)$: Utility derived from capital 
+    \item $\sigma$: Elasticity of substitution\footnote{\color{red} Not sure if this is right} 
+    \item $\Pi_i$: Profit for firm $i$
+    \item $r$: rental rate of capital
+    \item $w$: wage rate
+\end{itemize}
+
+\subsection{Setup}
+
+\subsubsection{Intermediate Sector}
+
+\begin{itemize}
+    \item Measure one of firms
+    \item Firm $i \in[0,1]$ produces differentiated product $Y_i$ with technology
+\end{itemize}
+
+\begin{align}
+    Y_i=A_i K_i^\alpha L_i^{1-\alpha}
+\end{align}
+
+\subsubsection{Final Sector}
+
+\begin{itemize}
+    \item Competitive market 
+    \item We assume $\sigma > 1$ in the production function as there's no equilibrium otherwise 
+\end{itemize}
+
+Production Function:
+
+\begin{align}
+    Y=\left(\int Y_i^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}
+\end{align}
+
+\paragraph{Maximization Problem}
+
+The final sector solves:
+
+\begin{align}
+    &\max _{\left\{Y_i\right\}} Y-\int P_i Y_i d i\\
+    &\text{s.t.}\\
+    &Y=\left(\int Y_i^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}
+\end{align}
+
+FOC for $i$:
+
+\begin{align}
+    Y_i=Y \times P_i^{-\sigma}
+\end{align}
+
+\subsubsection{Household}
+
+\begin{itemize}
+    \item Consumers buy final goods
+    \item Inelastic endowment of capital and labor
+\end{itemize}
+
+\subsubsection{Equilibrium}
+
+\paragraph{Consumers}
+
+
+Prices $\left\{P_i\right\}_i, r, w$, allocations $\left\{Y_i, \Pi_i, K_i, L_i\right\}_i, C, Y$ such that:
+
+Consumers own firms and get profits $\int \Pi_i d i$, supply labor $\bar{L}$ and capital $\bar{K}$ inelastically at $w$ and $r$ and solve
+
+\begin{align}
+    &\max _C U(C) \\
+    &\text { s.t. } \\
+    &C=w \bar{L}+r \bar{K}+\int \Pi_i d i
+\end{align}
+
+\paragraph{Final Firms}
+
+Final goods firms take prices $\left\{P_i\right\}$ as given and solve
+
+\begin{align}
+    &\max _{\left\{Y_i\right\}_i, Y} Y-\int P_i Y_i d i \\
+    &\text { s.t. } \\
+    &Y=\left(\int Y_i^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}
+\end{align}
+
+which produces demand for good $i$ as $Y_i\left(P_i\right)=Y P_i^{-\sigma}$
+
+\paragraph{Intermediate Firms}
+
+Intermediate firms take $w$ and $Y_i\left(P_i\right)$ as given and solve
+$$
+\Pi_i=\max _{P_i, Y_i, L_i, K_i} P_i Y_i-w L_i-R K_i
+$$
+s.t.
+$$
+\begin{aligned}
+& Y_i=Y P_i^{-\sigma} \\
+& Y_i=A_i K_i^\alpha L_i^{1-\alpha}
+\end{aligned}
+$$
+
+\paragraph{Market Clearing}
+
+\begin{align}
+    C=Y, \int K_i d i=\bar{K}, \int L_i d i=\bar{L}
+\end{align}
+
+
+\subsubsection{Social Planner's}
+
+Social planner chooses allocations subject to feasibilities:
+$$
+\max _{Y,\left\{Y_i, K_i, L_i\right\}_i} U(Y)
+$$
+s.t.
+$$
+\begin{gathered}
+Y=\left(\int Y_i^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}, \\
+Y_i=A_i K_i^\alpha L_i^{1-\alpha}, \\
+\int K_i d i=\bar{K}, \quad \int L_i d i=\bar{L}
+\end{gathered}
+$$
+
+
+\subsection{Results}
+
+\subsubsection{Optimal Price Equation}
+
+\begin{align}
+    P_i=\underbrace{\frac{\sigma}{\sigma-1}}_{\text {mark up }>1} \times \underbrace{\frac{1}{A_i}\left(\frac{R}{\alpha}\right)^\alpha\left(\frac{w}{1-\alpha}\right)^{1-\alpha}}_{\text {marginal cost, } \lambda_i}
+\end{align}
+
+\begin{itemize}
+    \item All firms charge the same mark up $\frac{\sigma}{\sigma-1}$ over marginal costs
+        \begin{itemize}
+            \item perfect competition limit as $\sigma \rightarrow \infty$
+        \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lecture 9}
+
+\subsection{Terms}
+
+\subsection{Setup}
+
+\subsection{Results}
+
+\subsubsection{TFP of Intermediate Goods Sector}
+
+- Value added of the intermediate good sector is
+$$
+\int P_i Y_i d i=Y
+$$
+- We would measure sectoral TFP in the data from
+$$
+Y=T F P \times L
+$$
+- What is this TFP?
+$$
+Y=\left(\int\left(A_i L_i\right)^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}=\underbrace{\left(\int\left[A_i \frac{L_i}{L}\right]^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}}_{=T F P} \times L
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lecture 9}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $A_i$: technology for firm $i$
+    \item $a_i$: $\ln A_i-\mathbb{E} \ln A_i$: Log of technology for firm $i$ minus the expected log of technology across firms
+    \item $\bar{a}=\mathbb{E} \ln A_i$: Expected log of technology across firms
+    \item $\tau_i$: Distortion faced by firm $i$
+    \item $t_i:=\ln \left(1+\tau_i\right)-\mathbb{E} \ln \left(1+\tau_i\right)$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lecture 10}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $x_{ij}$: inputs from firm $i$ used by firm $j$
+    \item $Y$: Output of the final good sector
+        \begin{itemize}
+            \item Aggregates all of the N producers
+        \end{itemize}
+    \item $\mathcal{D}\left(c_1, \ldots, c_N\right)$: The production function for the final good sector
+    \item $N$: Number of producers
+    \item $p_1, \ldots, p_N$: Prices of products
+    \item $F$: Number of factors
+    \item $\bar{L}_f$: Inelastic supply of factors
+    \item $w_1, \ldots, w_F$: Prices of factors
+    \item $F_i$: Production function for producer $i$
+    \item $A_i$: Technology for producer $i$
+    \item $y_i$: Output of producer $i$
+        \begin{itemize}
+            \item $y_i=A_i F_i\left(\left\{x_{i j}\right\}_{j=1}^{N+F}\right)$
+        \end{itemize}
+\end{itemize}
+
+\subsection{Model}
+
+\subsubsection{Producer's Problem}
+
+Each firm is competitive and operates
+$$
+\pi_i=\max _{y_i,\left\{x_{i j}\right\}_{j=1}^{N+F}} p_i y_i-\sum_{j=1}^N p_j x_{i j}-\sum_{f=1}^F w_f x_{i f}
+$$
+s.t.
+$$
+y_i=A_i F_i\left(\left\{x_{i j}\right\}_{j=1}^{N+F}\right)
+$$
+where $A_i$ is productivity and $F$ is CRS
+
+\subsubsection{Final Good Sector Problem}
+
+Final good sector is competitive and solves
+$$
+\Pi=\max _{Y,\left\{c_j\right\}_{j=1}^N} Y-\sum_{j=1}^N p_j c_j
+$$
+s.t.
+$$
+Y=\mathcal{D}\left(c_1, \ldots, c_N\right)
+$$
+where $\mathcal{D}$ is CRS.
+
+\subsubsection{Consumer Problem}
+
+Consumers solve
+$$
+\max _C U(C)
+$$
+s.t.
+$$
+C=\sum_{f=1}^F w_f \bar{L}_f
+$$
+
+\subsubsection{Competitive Equilibrium}
+
+- CE is $C, Y,\left\{c_j, y_j\right\}_{j=1}^N,\left\{x_{i j}\right\}_{i=1 \ldots N, j=1 \ldots N+F}\left\{p_i\right\}_{i=1}^N,\left\{w_f\right\}_{f=1}^F$ such that
+- Consumers, final good sector, all firms solve their problems
+- Markets clear
+$$
+\begin{gathered}
+C=Y, \\
+y_i=c_i+\sum_{j=1}^N x_{j i} \text { for all } i=1, \ldots, N \\
+\bar{L}_f=\sum_{j=1}^N x_{j f} \text { for all } f=1, \ldots, F
+\end{gathered}
+$$
+
+\subsubsection{Social Planner's Problem}
+
+$$
+\max _{C,\left\{c_i, y_i, x_{i j}\right\}} U(C)
+$$
+s.t.
+$$
+\begin{gathered}
+C=\mathcal{D}\left(c_1, \ldots, c_N\right), \\
+y_i=A_i F_i\left(\left\{x_{i j}\right\}_{j=1}^{N+F}\right) \text { for all } i, \\
+y_i=c_i+\sum_{j=1}^N x_{j i} \text { for all } i=1, \ldots, N, \\
+\bar{L}_f=\sum_{j=1}^N x_{j f} \text { for all } f=1, \ldots, F .
+\end{gathered}
+$$
+
+Note that $y_i=c_i+\sum_{j=1}^N x_{j i} \text { for all } i=1, \ldots, N$ 
+is saying that $y_i$ must equal the amount of good $y_i$ consumed 
+by the final good sector, $c_i$, and the 
+amount of good $i$ consumed by other firms, $x_{j i}$ for each firm $j$.
+
+$A_i F_i\left(\left\{x_{i j}\right\}_{j=1}^{N+F}\right)$ meanwhile 
+says that $y_i$ must equal the amount of good $i$ produced by firm $i$
+under their level of technology and production function.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Lecture 11}
@@ -1136,5 +1433,174 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Results}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lecture 12}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $P_{i,t}$: Price of product of firm $i$ in period $t$
+    \item $A_{i,t}$: Technology of firm $i$ in period $t$
+        \begin{itemize}
+            \item $A = A_{i,t}$: Fix technology initially
+            \item Later may consider stochastic technology
+        \end{itemize}
+    \item $L_{i, t}$: Labor of firm $i$ in period $t$
+    \item $W_t$: Nominal wage in period t
+    \item $\frac{W_t}{P_t}$: Real wage in period t
+    \item $D_{i, t}$: Dividends of firm $i$ in period $t$
+        \begin{itemize}
+            \item $D_{i, t}=P_{i, t} Y_{i, t}-W_t L_{i, t}-\Phi_{i, t}$
+        \end{itemize}
+    \item $\Phi_{i, t}$: Cost of setting price $P_{i,t}$ in period $t$
+        \begin{itemize}
+            \item $\Phi_{i, t}=\frac{\theta}{2} P_t Y_t\left(\frac{P_{i, t}}{P_{i, t-1}}-1\right)^2$
+        \end{itemize}
+    \item $\theta \geq 0$: parameter capturing how costly it is for firm $i$ to change its price
+    \item $Q_t$: Price of a nominal one period risk-free bond purchased at $t$.
+    \item $I_t$: Nominal interest rates in period $t$ (controlled by Central Bank)
+        \begin{itemize}
+            \item $I_t=1 / Q_t-1$
+            \item Initially, we treat $I_t$ (or equivalently $Q_t$) as 
+            an arbitrary stochastic process
+        \end{itemize}
+    \item $B_t$: Bonds held in period $t$
+    \item $\Pi_t$: Inflation in period $t$
+        \begin{itemize}
+            \item $\Pi_t=P_t / P_{t-1}$
+        \end{itemize}
+\end{itemize}
+
+\subsection{Model}
+
+\subsubsection{Equilibrium}
+
+\paragraph{Consumers}
+
+Stochastic sequences $\left\{C_t, L_t, B_t, D_{i, t}, \Phi_{i, t}\right\}_{i, t}$, prices $\left\{P_t, P_{i, t}, W_t, Q_t, \Pi_t\right\}$ such that
+
+Consumers solve
+
+\begin{align}
+    &\max _{\left\{C_t, L_t, B_t\right\}} \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t\left[\frac{C_t^{1-\gamma}}{1-\gamma}-\frac{L_t^{1+\varphi}}{1+\varphi}\right] \\
+    & \text{s.t. } B_{-1}=0 \text{ and } \\
+    & P_t C_t+Q_t B_t=W_t L_t+\int D_{i, t} d i+\int \Phi_{i, t} d i+B_{t-1}
+\end{align}
+
+
+\paragraph{Final Goods Market}
+
+Final goods firms solve
+$$
+\max _{\left\{Y_i\right\}_i, Y} P_t Y_t-\int P_i Y_i d i
+$$
+s.t.
+$$
+Y_t=\left(\int Y_{i, t}^{\frac{\sigma-1}{\sigma}} d i\right)^{\frac{\sigma}{\sigma-1}}
+$$
+
+\paragraph{Intermediate Goods Market}
+
+Easiest to write problem of intermediate firms in recursive form:
+$$
+V_t\left(P_{i, t-1}\right)=\max _{P_{i, t}, Y_{i, t}, L_{i, t}} P_{i, t} Y_{i, t}-W_t L_{i, t}-\Phi_{i, t}+Q_t \mathbb{E}_t V_{t+1}\left(P_{i, t}\right)
+$$
+s.t.
+$$
+\begin{gathered}
+Y_{i, t}=A L_{i, t}, \quad Y_{i, t}=\left(\frac{P_{i, t}}{P_t}\right)^{-\sigma} Y_t \\
+\Phi_{i, t}=\frac{\theta}{2} P_t Y_t\left(\frac{P_{i, t}}{P_{i, t-1}}-1\right)^2
+\end{gathered}
+$$
+where dividends equal
+$D_{i, t}=P_{i, t} Y_{i, t}-W_t L_{i, t}-\Phi_{i, t}$
+
+\paragraph{Monetary Policy}
+
+$Q_t$ is a given stochastic process
+
+\paragraph{Market Clearing}
+
+\begin{align}
+    C_t=Y_t \\
+    L_t=\int L_{i, t} d i \\
+    B_t=0
+\end{align}
+
+
+\subsection{Optimality}
+
+\subsubsection{Consumer Optimality}
+
+\paragraph{Intratemporal Optimality}
+
+\begin{align}
+    C_t^\gamma L_t^{\varphi}=\frac{W_t}{P_t}
+\end{align}
+
+\paragraph{Intertemporal Optimality}
+
+The inter-temporal optimality conditions
+$$
+\begin{aligned}
+Q_t & =\beta \mathbb{E}_t \frac{P_t}{P_{t+1}}\left(\frac{C_{t+1}}{C_t}\right)^{-\gamma} \\
+& =\beta \mathbb{E}_t \frac{1}{\Pi_{t+1}}\left(\frac{C_{t+1}}{C_t}\right)^{-\gamma}
+\end{aligned}
+$$
+
+\subsubsection{Intermediate Firm Optimality}
+
+Firm Problem:
+
+\begin{align}
+        V_t\left(P_{i, t-1}\right) & =\max _{P_{i, t}} P_{i, t}\left(\frac{P_{i, t}}{P_t}\right)^{-\sigma} Y_t-\frac{W_t}{A}\left(\frac{P_{i, t}}{P_t}\right)^{-\sigma} Y_t-\frac{\theta}{2} P_t Y_t\left(\frac{P_{i, t}}{P_{i, t-1}}-1\right)^2 
+        +Q_t \mathbb{E}_t V_{t+1}\left(P_{i, t}\right)
+\end{align}
+
+FOC:
+
+\begin{align}
+    \begin{gathered}
+        (1-\sigma)\left(\frac{P_{i, t}}{P_t}\right)^{-\sigma} Y_t+\sigma \frac{W_t}{A}\left(\frac{P_{i, t}}{P_t}\right)^{-\sigma} Y_t \frac{1}{P_{i, t}} \\
+        -\theta P_t Y_t\left(\frac{P_{i, t}}{P_{i, t-1}}-1\right) \frac{1}{P_{i, t-1}}+Q_t \mathbb{E}_t \frac{\partial}{\partial P_{i, t}} V_{t+1}\left(P_{i, t}\right)=0
+        \end{gathered}
+\end{align}
+
+How do we handle it when we have a partial derivative of the value function 
+in our FOC? We use the envelope theorem to take the derivative 
+of $V_t$ wrt our relevant state variable holding our choice variable 
+fixed at the optimal choice.
+
+Envelope Theorem:
+
+\begin{align}
+    \frac{\partial}{\partial P_{i, t}} V_{t+1}\left(P_{i, t}\right)=\theta P_{t+1} Y_{t+1}\left(\frac{P_{i, t+1}}{P_{i, t}}-1\right) \frac{P_{i, t+1}}{P_{i, t}^2}
+\end{align}
+
+All firms are identical, which implies that (see Lecture 8) that $P_{i, t}=P_t$ for all $i$
+This simplifies our equation to
+$$
+(1-\sigma)+\sigma \frac{W_t / P_t}{A}-\theta \Pi_t\left(\Pi_t-1\right)+\theta Q_t \mathbb{E}_t\left(\Pi_{t+1}-1\right) \Pi_{t+1}^2 \frac{Y_{t+1}}{Y_t}=0
+$$
+
+\subsubsection{Equilibrium}
+
+Combine previous equations and get rid of redundant variables. Then we get that 
+$\left\{C_t, Q_t, L_t, W_t / P_t, \Pi_t\right\}_t$ are a competitive equilibrium if and only if they solve
+$$
+\begin{gathered}
+(1-\sigma)+\sigma \frac{W_t / P_t}{A}-\theta \Pi_t\left(\Pi_t-1\right)+\theta Q_t \mathbb{E}_t\left(\Pi_{t+1}-1\right) \Pi_{t+1}^2 \frac{C_{t+1}}{C_t}=0 \\
+C_t^\gamma L_t^{\varphi}=\frac{W_t}{P_t} \\
+C_t=A L_t \\
+Q_t=\beta \mathbb{E}_t \frac{1}{\Pi_{t+1}}\left(\frac{C_{t+1}}{C_t}\right)^{-\gamma} \\
+\left\{Q_t\right\}_t \text { is given }
+\end{gathered}
+$$
+
 
 \end{document}
