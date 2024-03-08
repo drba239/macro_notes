@@ -1211,6 +1211,14 @@ under their level of technology and production function.
     \item $s^t = (s_0, s_1, \ldots, s_t)$: history of exogenous states up to period $t$
     \item $\operatorname{Pr}\left(s^t\right)$: the probability of the history of realizations comprising $s_t$
     \item $\operatorname{Pr}\left(s^{t+1} \mid s^t\right)=\operatorname{Pr}\left(s^{t+1}\right) / \operatorname{Pr}\left(s^t\right)$: the conditional probability of $s^{t+1}$ given $s^t$
+    \item $F_t$: production function at time $t$
+        \begin{itemize}
+            \item $F_t\left(K_t, L_t\right)=A_t K_t^\alpha L_t^{1-\alpha}$
+        \end{itemize}
+    \item $R_{t+1}^{r f}$: Risk free interest rate in period $t+1$
+        \begin{itemize}
+            \item $R_{t+1}^{r f} = \frac{1}{Q_t} - 1$
+        \end{itemize}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1351,7 +1359,7 @@ $$
 
 Suppose $A_t$ is an $\mathrm{AR}(1)$ process. Then the SP problem can be written as
 $$
-V(K, A)=\max _{C, L, K_{+}} U(C, L)+\sum_{A_{+}} \operatorname{Pr}\left(A_{+} \mid A\right) V\left(K_{+}, A_{+}\right)
+V(K, A)=\max _{C, L, K_{+}} U(C, L)+\beta\sum_{A_{+}} \operatorname{Pr}\left(A_{+} \mid A\right) V\left(K_{+}, A_{+}\right)
 $$
 s.t.
 $$
@@ -1444,7 +1452,8 @@ $$
 \subsection{Terms}
 
 \begin{itemize}
-    \item $P_{i,t}$: Price of product of firm $i$ in period $t$
+    \item $P_t$: Price of final good in period $t$ (nominal -- don't normalize to 1)
+    \item $P_{i,t}$: Price of product of firm $i$ in period $t$ (nominal)
     \item $A_{i,t}$: Technology of firm $i$ in period $t$
         \begin{itemize}
             \item $A = A_{i,t}$: Fix technology initially
@@ -1465,7 +1474,7 @@ $$
     \item $Q_t$: Price of a nominal one period risk-free bond purchased at $t$.
     \item $I_t$: Nominal interest rates in period $t$ (controlled by Central Bank)
         \begin{itemize}
-            \item $I_t=1 / Q_t-1$
+            \item $I_t=\frac{1}{Q_{t}}-1$
             \item Initially, we treat $I_t$ (or equivalently $Q_t$) as 
             an arbitrary stochastic process
         \end{itemize}
@@ -1537,6 +1546,16 @@ $Q_t$ is a given stochastic process
 
 \subsubsection{Consumer Optimality}
 
+\color{red}
+
+It would be nice to 
+get some intuition 
+for the intratemporal 
+and intertemporal 
+optimality conditions.
+
+\color{black}
+
 \paragraph{Intratemporal Optimality}
 
 \begin{align}
@@ -1602,5 +1621,96 @@ Q_t=\beta \mathbb{E}_t \frac{1}{\Pi_{t+1}}\left(\frac{C_{t+1}}{C_t}\right)^{-\ga
 \end{gathered}
 $$
 
+\subsection{Sticky Prices}
+
+\subsubsection{Steady State}
+
+We say that 
+$\left\{C_t, L_t, W_t / P_t, L_t, Q_t, \Pi_t\right\}_t$ 
+is steady state if it is constant and 
+independent of $t$
+
+\subsubsection{Zero Inflation Steady State}
+
+We have zero inflation if:
+
+\begin{align}
+    \Pi_t=1
+\end{align}
+
+Observe that by setting $Q_t=\bar{Q}:=\beta$ the central bank can attain such steady state:
+
+$$
+\begin{gathered}
+\bar{Q}=\beta, \quad \bar{\Pi}=1, \\
+\bar{C}^{\gamma+\varphi}=\frac{\sigma-1}{\sigma}, \bar{C}=A \bar{L}, \overline{W / P}=\frac{\sigma-1}{\sigma} .
+\end{gathered}
+$$
+
+
+\section{Lecture 13}
+
+\subsection{Terms}
+
+\begin{itemize}
+    \item $\beta$: discount factor
+    \item $A_t$: Technology/productivity in period $t$
+    \item $\epsilon_{a,t}$: Shocks to technology/productivity in period $t$
+    \item $a_t = \ln(A_t)$: Log of technology/productivity in period $t$
+        \begin{itemize}
+            \item $a_t = \rho_a a_{t-1} + \epsilon_{a,t}$
+        \end{itemize}
+    \item $I_t$: (Nominal?) interest rate in period $t$
+    \item $\Pi_t$: Inflation in period $t$
+    \item $\pi_t$: Log inflation in period $t$
+    \item $v_{v,t}$: Monetary policy shock in period $t$
+    \item $\iota_t = \ln(1 + I_t)$: Log of 1 + interest rate
+        \begin{itemize}
+            \item $\iota_t$: $-\ln(\beta) + \eta \pi_t + v_t$
+            \item $v_t = \rho_v v_{t-1} + \epsilon_{v,t}$
+        \end{itemize}
+    \item $x_t$: the vector of endogenous variables
+    \item $z_t$: the vector of exogenous processes, $\left\{z_{i, t}\right\}_i$
+    \item $(\bar{x}, \bar{z})$: Steady state of the system without aggregate shocks
+    \item $\hat{x}_t:=x_t-\bar{x}$: The endogenous variables deviation from the steady state 
+    \item $\hat{z}_t:=z_t-\bar{z}$: The exogenous variables deviation from the steady state
+    \item $\sigma$: the elasticity of substitution for the final good between intermediate goods
+    \item $\theta \geq 0$ : parameter capturing how costly it is for firm $i$ to change its price
+    \item $\zeta = \frac{\sigma-1}{\theta}$: 
+\end{itemize}
+
+\subsection{Model}
+
+\subsubsection{Equilibrium Conditions from Lecture 12}
+
+$$
+\begin{gathered}
+(1-\sigma)+\sigma \frac{W_t / P_t}{A_t}-\theta \Pi_t\left(\Pi_t-1\right)+\theta Q_t \mathbb{E}_t\left(\Pi_{t+1}-1\right) \Pi_{t+1}^2 \frac{C_{t+1}}{C_t}=0 \\
+C_t^{\varphi+\gamma} A_t^{-\varphi}=\frac{W_t}{P_t} \\
+\frac{1}{1+I_t}=\beta \mathbb{E}_t \frac{1}{\Pi_{t+1}}\left(\frac{C_{t+1}}{C_t}\right)^{-\gamma}
+\end{gathered}
+$$
+$\left\{I_t\right\}_t$ is given in previous slide
+
+\subsubsection{Log Version of Equilibrium Conditions}
+
+$\begin{gathered}
+    (1-\sigma)+\sigma \exp \left(\left(w_t-p_t\right)-a_t\right)-\theta \exp \pi_t\left(\exp \pi_t-1\right) \\ 
+    +\theta \exp \left(-l_t\right) \mathbb{E}_t \exp \left(2 \pi_{t+1}+c_{t+1}-c_t\right)\left(\exp \pi_{t+1}-1\right)=0 \\ 
+    \\
+    (\varphi+\gamma) c_t-\varphi a_t=w_t-p_t \\ 
+    \\
+    -l_t=\ln \beta+\ln \mathbb{E}_t \exp \left(-\pi_{t+1}-\gamma\left(c_{t+1}-c_t\right)\right), \\ 
+    \iota_t=-\ln \beta+\eta \pi_t+v_t\end{gathered}$
+
+\subsubsection{Stochastic Processes}
+
+Stochastic processes follow an AR(1) process:
+$$
+\begin{aligned}
+a_t & =\rho_a a_{t-1}+\varepsilon_{a, t} \\
+v_t & =\rho_v v_{t-1}+\varepsilon_{v, t}
+\end{aligned}
+$$
 
 \end{document}
