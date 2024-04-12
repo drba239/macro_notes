@@ -1,0 +1,259 @@
+\documentclass[10pt]{article}
+\input{../../../preamble.tex}
+
+\title{Macro 3 Notes}
+
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+\section{Overlapping Generations Economy}
+
+\subsection{Terms}
+
+\input{../input/olg_terms.tex}
+
+\subsection{Pure Exchange Economy}
+
+\subsubsection{Competitive Equilibrium}
+
+The price vector $p$ is an element of $R^{\infty}$, so that
+
+$$
+p=\left(p_1, p_2, p_3, \ldots\right)
+$$
+
+The agent problem is
+
+$$
+\max _x u^i(x)
+$$
+subject to
+
+$$
+p x \leq p e^i
+$$
+
+which, since generation $i$ neither consume nor has endowments at time $t \neq i$ or $t \neq i+1$, can be specialized as
+
+$$
+\max _{x_i, x_{i+1}} v^i\left(x_i, x_{i+1}\right)
+$$
+
+subject to
+
+$$
+p_i x_i+p_{i+1} x_{i+1}=p_i e_i^i+p_{i+1} e_{i+1}^i
+$$
+and for generation $i=0$ as
+
+$$
+\max _{x_1} x_1 \text { subject to } p_1 x_1=p_1 e_1^0 \text {. }
+$$
+
+\subsubsection{No Trade}
+
+\begin{proposition} 
+      The only competitive equilibrium has
+
+      $$
+      x^i=e^i
+      $$
+
+      i.e. there is no trade in equilibrium.
+\end{proposition}
+
+\subsubsection{Equilibrium Prices}
+
+Normalize
+
+\begin{align}
+    p_1=1
+\end{align}
+
+We have:
+
+\begin{align}
+    \frac{p_{i+1}}{p_i}=\frac{v_2^i\left(e_i^i, e_{i+1}^i\right)}{v_1^i\left(e_i^i, e_{i+1}^i\right)}
+\end{align}
+
+for all $i \geq 1$
+
+With $r_t$ net interest rate,
+\begin{align}
+    \frac{1}{1+r_t}=\frac{p_{t+1}}{p_t}
+\end{align}
+
+for all $t$. From our previous condition we have
+$$
+r_t=\frac{v_1^t\left(e_t^t, e_{i+1}^t\right)}{v_2^t\left(e_t^t, e_{t+1}^t\right)}-1
+$$
+for all $t>1$ and
+$$
+p_t=\frac{1}{\left(1+r_1\right)\left(1+r_2\right) \cdots\left(1+r_{t-1}\right)} .
+$$
+
+\subsubsection{Equilibrium Prices Under Specified Utility Function}
+
+Taking utility function
+
+$$
+v^i\left(c_y, c_0\right)=(1-\beta) \log c_y+\beta \log c_0
+$$
+
+we have:
+
+\begin{align}
+    r_t \equiv \bar{r}=\frac{(1-\beta)}{\beta} \frac{\alpha}{1-\alpha}-1=\frac{\alpha-\beta}{\beta(1-\alpha)} 
+\end{align}
+
+or 
+
+\begin{align}
+    p_t=\left[\frac{\beta}{(1-\beta)} \frac{1-\alpha}{\alpha}\right]^{t-1} \text { for } t \geq 1
+\end{align}
+
+\subsubsection{Best Symmetric Allocation}
+
+We will solve for the best feasible symmetric allocation, where best is for the point of view of the young. In particular, consider the problem
+$$
+\max _{c_y, c_o} v\left(c_y, c_o\right)=\max _{c_y, c_o}(1-\beta) \log c_y+\beta \log c_o
+$$
+subject to
+$$
+c_y+c_o=1
+$$
+
+Its sufficient first order condition is given by
+$$
+\frac{\beta}{1-\beta} \frac{c_y}{c_0}=1
+$$
+so the solution of this f.o.c. that also is feasible, i.e. the solution of the problem is
+$$
+c_y=1-\beta, c_o=\beta .
+$$
+
+The best symmetric allocation depends on $\beta$ in this way because for higher preference parameter $\beta$ agents give less weight to consumption when young and more weight to consumption when old.
+
+\subsubsection{Comparison of CE and Best Symmetric Allocation}
+
+We will compare the utility of the unique competitive equilibrium allocation
+$$
+\bar{c}_i^i=1-\alpha, \quad \bar{c}_{i+1}^i=\alpha \text { for } i \geq 1 \text { and } \bar{c}_1^0=\alpha
+$$
+with the one for the best symmetric allocation
+$$
+c_i^{* i}=1-\beta, c_{i+1}^{* i}=\beta \text { for } i \geq 1 \text { and } c_1^{* 0}=\beta
+$$
+
+Notice that, since the CE allocation has $x^i=e^i$, and since that allocation is a feasible symmetric allocation, then, unless $c^*=\bar{c}$-which happens only when $\alpha=\beta-$ the best symmetric feasible allocation is strictly preferred by the agents of generations $i=1,2, \ldots$. It only remains to compare the utility of the initial old, i.e. generation $i=0$, between the best symmetric and CE allocations.
+
+\begin{itemize}
+    \item Case 1: $\beta > \alpha$: All generations prefer Best Symmetric Allocation
+    \item Case 2: $\beta = \alpha$: Indifferent between CE and Best Symmetric Allocation
+    \item Case 3: $\beta < \alpha$: Original Generation prefers CE
+\end{itemize}
+
+\subsection{Social Security}
+
+\subsubsection{After-Tax Endowments}
+
+\begin{align}
+    e_i^i & =(1-\alpha)-\tau \text { and } e_{i+1}^i=\alpha+\tau \text { for all } i \geq 1 \\
+    e_1^0 & =\alpha+\tau
+\end{align}
+
+Notice that by suitable choice of $\tau$ we can make the after-tax endowments equal to the best symmetric allocations, the required $\tau$ is
+$$
+\tau=\beta-\alpha
+$$
+
+\subsection{Growing Economy}
+
+\subsubsection{Setup}
+
+We will now consider an economy with population and productivity growth. Let $N_t$ the number of young agents at time $t$. Let $n$ be the growth rate of population, so that
+$$
+N_{t+1}=(1+n) N_t \text { for } t \geq 1 \text { and } N_0=1 .
+$$
+
+Let $g$ denote the growth rate of productivity of the endowments of each cohort, so that
+$$
+e_{t+1}^{t+1}=(1+g) e_t^t \text { and } e_{t+2}^{t+1}=(1+g) e_{t+1}^t
+$$
+so that
+$$
+\begin{aligned}
+e_t^t & =(1+g)^t(1-\alpha) \\
+e_{t+1}^t & =(1+g)^t \alpha
+\end{aligned}
+$$
+for all $t \geq 1$.
+
+\subsubsection{Feasible Symmetric Allocation}
+
+
+Define the feasible symmetric allocations as those solving
+$$
+N_t c_y^t+N_{t-1} c_o^t=N_t(1-\alpha)(1+g)^t+N_{t-1} \alpha(1+g)^{t-1}
+$$
+where each agent born at time $t$ and young at $t$ consumes
+$$
+c_y^t=\hat{c}_y(1+g)^t,
+$$
+and each agent born at time $t-1$ and old at $t$ consumes
+$$
+c_o^t=\hat{c}_o(1+g)^{t-1} .
+$$
+
+Notice that this constraint can be written as
+$$
+\hat{c}_y(1+g)(1+n)+\hat{c}_o=(1-\alpha)(1+g)(1+n)+\alpha
+$$
+
+\section{OLG Perpetual Youth Model}
+
+\subsection{Terms}
+
+\input{../input/olg_py_terms.tex}
+
+\subsection{Setup}
+
+Agents that die replaced by newborns. Thus, 
+adding all cohort alive at time $t$ yields:
+
+\begin{align}
+    \int_{-\infty}^t N(s, t) d s=\int_{-\infty}^t p e^{-p(t-s)} d s=1 .
+\end{align}
+
+\subsection{Household Problem}
+
+\begin{align}
+    \max \mathbb{E}\left[\int_t^{\infty} u(c(z)) e^{-\theta(z-t)} d z\right]=\int_t^{\infty} \log (c(z)) e^{-(p+\theta)(z-t)} d z
+\end{align}
+
+subject to 
+
+\begin{align}
+    \int_t^{\infty}[c(z)-y(z)] R(t, z) d z=v(t)
+\end{align}
+
+We define human wealth as:
+
+\begin{align}
+    h(t)=\int_t^{\infty} y(z) R(t, z) d z
+\end{align}
+
+and find that the solution to our problem is:
+
+\begin{align}
+    c(t)=(\theta+p)(v(t)+h(t))
+\end{align}
+
+\end{document}
