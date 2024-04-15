@@ -13,6 +13,61 @@
 
 \section{Introduction}
 
+\section{General Equilibrium Theory}
+
+\subsection{Welfare Theorems}
+
+\begin{definition}[Local Non-Satiation] 
+    Utility function $u^i: \mathbf{X}^i \rightarrow \mathbb{R}$ satisfies the 
+    local non-satiation (LNS) property if, for any 
+    $\mathbf{x} \in \mathbf{X}^i$ and any neighborhood of 
+    $\mathbf{x}$, denote $B_{\varepsilon}(\mathbf{x})$, there 
+    exists $\hat{\mathbf{x}} \in B_{\varepsilon}(\mathbf{x})$ 
+    such that $u^i(\hat{\mathbf{x}})>u^i(\mathbf{x})$.
+\end{definition}
+
+\begin{theorem}[First Welfare Theorem]
+    Suppose that $u^i$ satisfies local non-satiation for all $i \in \mathbf{I}$. 
+    Let $\left\{\mathbf{p}, \overline{\mathbf{x}}^i, \overline{\mathbf{y}}^j\right\}$ 
+    be a competitive equilibrium. 
+    Then, $\left\{\overline{\mathbf{x}}^i, \overline{\mathbf{y}}^j\right\}$ is a Pareto optimal allocation.
+\end{theorem}
+
+\begin{definition}[Convexity] 
+    A function $u^i: \mathbf{X}^i \rightarrow \mathbb{R}$ is strictly convex if, for any $\mathbf{x}, \mathbf{x}^{\prime} \in \mathbf{X}^i$ such that $\mathbf{x}^{\prime} \neq \mathbf{x}$, we have
+    $$
+    u^i\left(\theta \mathbf{x}+(1-\theta) \mathbf{x}^{\prime}\right)>\theta u^i(\mathbf{x})+(1-\theta) u^i\left(\mathbf{x}^{\prime}\right), \forall \theta \in(0,1) .
+    $$
+\end{definition}
+
+\begin{definition}[Quasiconcavity] 
+    A function $u^i: \mathbf{X}^i \rightarrow \mathbb{R}$ is (strictly) quasiconcave if its upper contour set $\left\{x \in \mathbf{X}^i: u^i(\mathbf{x}) \geq u^i(\overline{\mathbf{x}})\right\}$ is (strictly) convex for all $i \in \mathbf{I}$ and all $\overline{\mathbf{x}} \in \mathbf{X}^i$. Equivalently, for any $\mathbf{x} \neq \overline{\mathbf{x}}$, we must have
+    $$
+    u^i(\alpha \mathbf{x}+(1-\alpha) \tilde{\mathbf{x}})>\min \left\{u^i(\mathbf{x}), u^i(\overline{\mathbf{x}})\right\}, \forall \alpha \in(0,1)
+    $$
+\end{definition}
+
+\begin{theorem}[Second Welfare Theorem]
+    Assumption 1. (Assumption HH) Assume that $\mathbf{X}^i$ are convex for all $i \in \mathbf{I}$ and that $u^i: \mathbf{X}^i \rightarrow \mathbb{R}$ are continuous and strictly quasiconcave.
+
+    Assumption 2. (Assumption FF) Assume that the aggregate production sumset of the economy is convex; i.e.
+    $$
+    \mathbf{Y}:=\left\{\mathbf{y} \in \mathbf{L}: \mathbf{y}=\sum_{j=1}^J \mathbf{y}^j, \mathbf{y}^j \in \mathbf{Y}^j, \forall j \in \mathbf{J}\right\} .
+    $$
+
+    Let $\left\{\overline{\mathbf{x}}^i, \overline{\mathbf{y}}^j\right\}$ be a Pareto optimal allocation. Then, there exists a price vector $\mathbf{p}$ such that:
+    (i) all firms maximise profits such that, for all $j \in \mathbf{J}$,
+    $$
+    \mathbf{p} \cdot \overline{\mathbf{y}}^j \geq \mathbf{p} \cdot \mathbf{y}, \forall \mathbf{y} \in \mathbf{Y}^j
+    $$
+    (ii) given allocation $\left\{\overline{\mathbf{x}}^i\right\}$, consumers minimise expenditure subject to attaining at least the same utility obtained by consuming $\overline{\mathbf{x}}^i$; i.e.
+    $$
+    \overline{\mathbf{x}}^i \in \underset{\mathbf{x} \in \mathbf{X}^i}{\arg \min } \mathbf{p} \cdot \mathbf{x} \quad \text { s.t. } \quad u^i(\mathbf{x}) \geq u^i\left(\overline{\mathbf{x}}^i\right) .
+    $$
+\end{theorem}
+
+\section{Aggregation}
+
 \section{Overlapping Generations Economy}
 
 \subsection{Terms}
@@ -232,6 +287,12 @@ adding all cohort alive at time $t$ yields:
     \int_{-\infty}^t N(s, t) d s=\int_{-\infty}^t p e^{-p(t-s)} d s=1 .
 \end{align}
 
+\subsection{Insurance, Annuities}
+
+Invest $v$ at $t$, gets $v \frac{1+\Delta r}{1-p \Delta}$ if alive at $t+\Delta$, and zero if dead.
+
+Continuous time (as $\Delta \downarrow 0$ ) : $v \frac{1+\Delta r}{1-p \Delta}=v+v(r+p) \Delta+o(\Delta)$
+
 \subsection{Household Problem}
 
 \begin{align}
@@ -244,16 +305,211 @@ subject to
     \int_t^{\infty}[c(z)-y(z)] R(t, z) d z=v(t)
 \end{align}
 
-We define human wealth as:
+\subsection{Budget Constraint and Human Wealth}
+
+The individual's dynamic budget constraint is:
+
+\begin{align}
+    \frac{d v(t)}{d t}=(r(t)+p) v(t)+y(t)-c(t)
+\end{align}
+
+We also have a no-Ponizi-game (NPG) condition:
+
+\begin{align}
+    \lim _{z \rightarrow \infty} v(z) R(t, z)=0
+\end{align}
+
+The price of a good in time $z$ in terms of goods in time $t$ is
+given by:
+
+\begin{align}
+    R(t, z):=\exp \left[-\int_t^z(r(\mu)+p) d \mu\right]
+\end{align}
+
+We can also integrate the dynamic budget constraint to get
+the intertemporal budget constraint:
+
+\begin{align}
+    v(t)=\int_t^{\infty}[c(z)-y(z)] R(t, z) d z
+\end{align}
+
+We define human wealth as the present value of 
+all future income, i.e.,:
 
 \begin{align}
     h(t)=\int_t^{\infty} y(z) R(t, z) d z
 \end{align}
 
-and find that the solution to our problem is:
+with the boundary condition
+
+\begin{align}
+    \lim _{z \rightarrow \infty} h(z) R(t, z)=0
+\end{align}
+
+which is equivalent to:
+
+\begin{align}
+    \frac{d h(z)}{d z}=[r(z)+p] h(z)-y(z) \text { with } \lim _{z \rightarrow \infty} R(t, z) h(z)=0
+\end{align}
+
+\subsection{Optimal Consumption}
+
+We find that the solution to our problem is:
 
 \begin{align}
     c(t)=(\theta+p)(v(t)+h(t))
 \end{align}
+
+The law of motion (or, Euler equation) for consumption is:
+
+\begin{align}
+    \frac{d c(t)}{d t}=(r(t)-\theta) c(t)
+\end{align}
+
+\begin{notes}
+    A few miscellaneous points from Tak's notes:
+    \begin{itemize}
+        \item We will later find that in the steady state, the
+            interest rate must be higher than our discount rate, i.e., $r > \theta$.
+            We could re-frame this as the interest rate must be higher than 
+            our impatience, hence savings will accumulate over time.
+        \item Consumption is independent of the interest rate. This 
+            is due to the assumption of log utility, which implies 
+            that the substitution and income effect from changes in 
+            the interest rate exactly offset each other.
+    \end{itemize}
+\end{notes}
+
+\subsection{Aggregation}
+
+\subsubsection{Distribution of Labor Income}
+
+Given aggregate labor income at the time $t$, $Y(t)$, we have:
+
+\begin{align}
+    y(s, t)=\frac{\alpha+p}{p} Y(t) e^{-\alpha(t-s)}, \alpha \geq 0
+\end{align}
+
+as the expression for the labor income in time $t$ of a living agent born at time $s$.
+
+This means that, at any particular point in time $t$, the share of $Y(t)$ endowed to generation $s$ falls at the rate $\alpha$ as $s$ increases.
+
+\subsubsection{Aggregate Human Wealth}
+
+The aggregate human wealth is defined as
+
+\begin{align}
+    H(t)&:=\int_{-\infty}^t h(s, t) N(s, t) d s \\
+    &=\int_{-\infty}^t h(s, t) p e^{-p(t-s)} d s \\
+    &= \int_{-\infty}^t a p\left[\int_t^{\infty} Y(z) e^{-\alpha(z-t)} R(t, z) d z\right] e^{-\alpha(t-s)} e^{-p(t-s)} d s \\
+    &=\int_t^{\infty} Y(z) \exp \left\{-\int_t^z(\alpha+p+r(\mu)) d \mu\right\} d z
+\end{align}
+
+We can then get:
+
+\begin{align}
+    \frac{d H(t)}{d t}&=(r(t)+p+\alpha) H(t)-Y(t)
+\end{align}
+
+\subsubsection{Aggregate Non-Human Wealth}
+
+The aggregate non-human wealth is defined as
+
+\begin{align}
+    V(t)&:=\int_{-\infty}^t N(s, t) v(s, t) d s \\
+    &=\int_{-\infty}^t v(s, t) p e^{-p(t-s)} d s
+\end{align}
+
+From which we can get:
+
+\begin{align}
+    \frac{d V(t)}{d t}=r(t) V(t)+Y(t)-C(t)
+\end{align}
+
+\subsubsection{Aggregate Consumption}
+
+Thus, aggregate consumption is defined as
+
+$$
+C(t):=\int_{-\infty}^t N(s, t) c(s, t) d s .
+$$
+
+We may also aggregate consumption as
+
+$$
+C(t)=(p+\theta)(H(t)+V(t)) .
+$$
+
+We can then get:
+
+\begin{align}
+    \frac{d C(t)}{d t}=(r(t)+\alpha-\theta) C(t)-(p+\theta)(p+\alpha) V(t)
+\end{align}
+
+\subsubsection{Aggregation Summary}
+
+We have now derived the dynamics that describe the aggregate behaviour in the Perpetual Youth Model:
+
+\begin{align}
+    & \frac{d H(t)}{d t}=(r(t)+p+\alpha) H(t)-Y(t) \\
+    & \frac{d V(t)}{d t}=r(t) V(t)+Y(t)-C(t) \\
+    & \frac{d C(t)}{d t}=(r(t)+\alpha-\theta) C(t)-(p+\theta)(p+\alpha) V(t) \\
+    &C(t)=(p+\theta)(H(t)+V(t))
+\end{align}
+
+We also need a no-Ponzi-game condition, which ensures that agents have finite wealth; i.e.
+
+$$
+\lim _{T \rightarrow \infty} Y(t) \exp \left[-\int_t^T(r(z)+\alpha+p) d z\right]=0 .
+$$
+
+\subsection{Pure Endowment}
+
+\subsubsection{Labor Income and Consumption}
+
+In a pure endowment economy, we have:
+
+\begin{align}
+    Y(t)=C(t)=Y
+\end{align}
+
+\subsubsection{Non-human Wealth}
+
+In aggregate, we have:
+$V(t)=0$, since some agents borrow and others lend:
+$$
+V(t)=\int_{-\infty}^t N(s, t) v(s, t) d s=0 .
+$$
+
+$v(s, t)$ value of cumulated savings (net assets) of cohort born at $s$ at $t$.
+
+\subsubsection{Equilibrium Interest Rate}
+
+Equilibrium interest rate $r(t)=\theta-\alpha$
+
+\subsubsection{Individual Consumption}
+
+\begin{align}
+    \frac{d c(s, t)}{d t}=[r(t)-\theta] c(s, t)=-\alpha c(s, t)
+\end{align}
+
+\subsubsection{Equilibrium Outcome}
+
+Thus equilibrium is autarky! $c(s, t)=y(s, t)$ and $v(s, t)=0$
+
+\subsubsection{Results Summary}
+
+\begin{align}
+    Y(t) & =C(t)=Y, \\
+    V(t) & =0 \\
+    r(t) & =\theta-\alpha, \\
+    c(s, t) & =y(s, t), \forall t \geq s, \\
+    v(s, t) & =0, \forall t \geq s .
+\end{align}
+
+\subsection{Capital Accumulation, Technology}
+
+
+
 
 \end{document}
