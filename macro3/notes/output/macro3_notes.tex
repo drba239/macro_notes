@@ -15,6 +15,75 @@
 
 \section{General Equilibrium Theory}
 
+\subsection{Terms}
+
+\input{../input/gen_eq_terms.tex}
+
+\subsection{Feasible Allocations}
+
+\begin{definition}[Feasible Allocation] 
+    
+    A feasible allocation, $\{x^i, y^j\}$, satisfies three conditions:
+
+    \begin{enumerate}
+        \item Each consumer can consume $x^i$, 
+            \begin{align}
+                x^i \in X^i, \forall i \in I
+            \end{align}
+        \item Each firm can produce $y^j$,
+            \begin{align}
+                y^j \in Y^j, \forall j \in J
+            \end{align}
+        \item Demand equals supply:
+            \begin{align}
+                \sum_{i \in I} x^i=\sum_{j \in J} y^j + \sum_{i \in I} e^i
+            \end{align}
+    \end{enumerate}
+
+\end{definition}
+
+\subsection{Key Concepts for Competitive Equilibrium}
+
+Suppose there are $m$ commodities (i.e., $L = \mathbb{R}^m$).
+
+Then the price vector $p$ is given by:
+
+\begin{align}
+    p=\left(p_1, \ldots, p_m\right)
+\end{align}
+
+and we have the following equation:
+
+\begin{align}
+    p \cdot x=p_1 x_1+p_2 x_2+\cdots+p_m x_m \equiv \sum_{s=1}^m p_s x_s
+\end{align}
+
+$p \cdot x$ is the value of the commodity vector $x$
+in terms of the numeraire\footnote{By ``in terms of the numeraire,''
+I just mean that we are normalizing the price of some good (usually the first 
+element in $x$) to be 1 and 
+then expressing the price of the other goods relative to that one.}
+
+A quick useful quality to note:
+
+\begin{align}
+    p \cdot x^a+p \cdot x^b=p \cdot\left(x^a+x^b\right)
+\end{align}
+
+\subsection{Competitive Equilibrium}
+
+\begin{definition}[Competitive Equilibrium] 
+    We denote prices by a vector $p \in R^m$. 
+    
+    A competitive equilibrium is a price vector $p$, and a feasible allocation 
+    $\left\{x^i, y^j\right\}$ such that
+
+    \begin{enumerate}
+        \item each firm $j \in J$ maximize its profits. We denote the profit of firm $j$ by $\pi^j$.
+    \end{enumerate}
+
+\end{definition}
+
 \subsection{Welfare Theorems}
 
 \begin{definition}[Local Non-Satiation] 
@@ -67,6 +136,10 @@
 \end{theorem}
 
 \section{Aggregation}
+
+\subsection{Terms}
+
+\input{../input/aggregation_terms.tex}
 
 \section{Overlapping Generations Economy}
 
