@@ -582,7 +582,207 @@ Thus equilibrium is autarky! $c(s, t)=y(s, t)$ and $v(s, t)=0$
 
 \subsection{Capital Accumulation, Technology}
 
+\section{Uncertainty}
 
+\subsection{Terms}
 
+\input{../input/uncer_terms.tex}
+
+\subsection{Introducing Risk Under One Physically Different Good}
+
+Suppose there is only one physically different good. Then:
+
+\begin{align}
+    u^i(\mathbf{x})=\sum_{s=1}^m v^i\left(x_s\right) \pi_s^i
+\end{align}
+
+\begin{definition}[Risk Averse] 
+    We say that $u^i$ is risk averse if:
+        \begin{align}
+            v^i\left(\sum_{s=1}^m x_s \pi_s^i\right)>\sum_{s=1}^m v^i\left(x_s\right) \pi_s^i
+        \end{align}
+    for any random variable $x$.
+\end{definition}
+
+Notice that if $m=2$, this coincides with the definition of $v$ being strictly concave and the assumption that $x$, as a random variable, is not degenerate.
+
+Intuition: Logical that risk aversion corresponds to 
+utility over consumption across several possible states of the world 
+being in some sense
+concave: 
+
+\begin{theorem}
+    Fix an arbitrary vector of $\lambda$-weights.   
+    The corresponding Pareto optimal allocation can be described by a set of strictly increasing functions $g^i$ of the aggregate endowment, i.e. the optimal allocation can be written as
+    
+    $$
+    x_s^i=g^i\left(\bar{e}_s\right) \text { for all } i \in I
+    $$
+\end{theorem}
+
+\begin{remark}
+    Now we show that the $g^i$ functions are strictly increasing. Consider two states $s$ and $s^{\prime}$ with
+    $$
+    \bar{e}_s>\bar{e}_{s^{\prime}}
+    $$
+
+    It must be that for at least some $i$,
+    $$
+    x_s^i>x_{s^{\prime}}^i .
+    $$
+\end{remark}
+
+\begin{remark}
+    Remark: CE and State Prices. In a CE the budget constraint of agent $i$ is
+    $$
+    \sum_{s=1}^m p_s x_s^i=\sum_{s=1}^m p_s e_s^i
+    $$
+    where $p_s$ are also referred to as state prices, the price of a security that pays one unit of the numeraire in state $s$ and zero otherwise. Thus, agents can buy consumption contingent on the state, and they finance that by selling their endowment contingent on the state.
+\end{remark}
+
+\subsubsection{State Prices}
+
+Using the foc of agent $i$ we obtain that in an equilibrium (or in its corresponding Pareto problem)
+$$
+p_s=\frac{\partial v^i\left(x_s^i\right)}{\partial x} \pi_s / \mu_i=\lambda_i \frac{\partial v^i\left(g^i\left(\bar{e}_s\right)\right)}{\partial x} \pi_s
+$$
+so that the state prices reflect the probability that the state $s$ be realized as well as the scarcity of the aggregate endowment in state $s$.
+
+The state prices are lower if the probability is small or if the aggregate endowment in that state is large, so that goods are relatively plentiful, and hence its marginal value relatively smaller.
+
+\subsection{Security Markets}
+
+We now consider a securities market.
+We assume that before the state $s$ is realized agents trade 
+in competitive markets where they buy and sell securities $k=1, \ldots, K$.
+
+\subsubsection{Value of Purchases}
+
+The first equation is given by
+
+$$
+\sum_{k=1}^K h_k^i q_k=\sum_{k=1}^K \theta_k^i q_k
+$$
+
+This says that the value of purchases is 
+limited by the value of 
+the sales of the securities.
+
+\subsubsection{Equation for each State}
+
+The second equation, indeed one for each state $s$, is given by
+
+$$
+x_s^i=\sum_{k=1}^K h_k^i d_{k s}+\hat{e}_s^i
+$$
+
+for each $s=1, \ldots, m$,
+which says that consumption in each state $s$
+must equal purchases plus endowment.
+
+\subsubsection{Summarizing Equations}
+
+\paragraph{Budget Constraints}
+
+\begin{align}
+    \begin{aligned}
+        \sum_{k=1}^K h_k^i q_k & =\sum_{k=1}^K \theta_k^i q_k \\
+        x_s^i & =\sum_{k=1}^K h_k^i d_{k s}+\hat{e}_s^i \text { for each } s=1, \ldots, m
+        \end{aligned}
+\end{align}
+
+\paragraph{Market Clearing}
+
+\begin{align}
+    \begin{aligned}
+        \sum_{i=1}^I h_k^i & =\sum_{i=1}^I \theta_k^i \text { for each } k=1,2, \ldots K \\
+        \sum_{i=1}^I x_s^i & =\sum_{i=1}^I\left[\hat{e}_s^i+\left(\sum_{k=1}^K d_{k s} \theta_k^i\right)\right] \text { for each } s=1,2 \ldots, m
+    \end{aligned}
+\end{align}
+
+\subsubsection{More stuff}
+
+\begin{definition}[Consistent with State Price] 
+    We will say that security prices $q$ and payoffs $D$ are consistent with state price $p$, if
+    $$
+    q_k=\sum_{s=1}^m p_s d_{k s} \quad \text { for all securities } k=1, \ldots, K .
+    $$
+\end{definition}
+
+\begin{definition}[Equivalent Endowments]
+    
+    The endowment $e^i$ and $\left(\hat{e}^i, \theta^i\right)$ are equivalent if
+    $$
+    \hat{e}_s^i+\sum_{k=1}^K d_{k s} \theta_k^i=e_s^i
+    $$
+    for all states $s=1,2 \ldots, m$.
+     
+\end{definition}
+
+\begin{proposition} 
+    Assume that prices $q$ and payoffs $D$ are consistent with state prices $p$, as in ( $q$ $=\mathrm{pv}$ using $\mathrm{AD}$ prices). Assume that the endowments are equivalent as in (equivalent endowments). Then:
+    
+    \begin{enumerate}
+        \item If $(x, h)$ is budget feasible in the security market economy, then $x$ is budget feasible in the A-D economy.
+        \item If $x$ is budget feasible in the A-D economy, then it must be budget feasible in the security market economy, provided that $D$ has full rank. 
+    \end{enumerate}
+
+\end{proposition}
+
+\begin{proposition} 
+    Assume that the endowments $e^i$ and $\left(\hat{e}^i, \theta^i\right)$ are equivalent, then
+    
+    \begin{enumerate}
+        \item If $\left(x^i, h^i\right)$ clears the markets in the security market economy, then $\left(x^i\right)$ clears the markets in the A-D economy.
+        \item Assume also that $D$ has full rank. 
+        If $\left(x^i\right)$ clears the markets in the A-D economy, 
+        the $\left(x^i, h^i\right)$ clears the markets in the security market economy.
+    \end{enumerate}
+
+\end{proposition}
+
+\subsection{The Tilde Economy}
+
+We will use objects with tildes to denote the A-D economy that 
+corresponds to the security market economy. In this economy,
+we define the utility as a function of the portfolio shares, 
+so that $\tilde{L}=\mathbb{R}^K$. The utility is given by
+
+\begin{align}
+    \tilde{u}^i\left(\tilde{x}_1^i, \tilde{x}_2^i, \ldots, \tilde{x}_K^i\right):=u^i\left(\underbrace{\sum_{k=1}^K d_{k 1} \tilde{x}_k^i+e_1^i}_{=x_1^i}, \ldots, \underbrace{\sum_{k=1}^K d_{k s} \tilde{x}_k^i+e_s^i}_{=x_s^i}, \ldots, \underbrace{\sum_{k=1}^K d_{k m} \tilde{x}_k^i+e_m^i}_{=x_m^i}\right)
+\end{align}
+
+The budget constraint is:
+
+\begin{align}
+    \sum_{k=1}^K \tilde{p}_k \tilde{x}_k^i=\sum_{k=1}^K \tilde{p}_k \tilde{e}_k^i,
+\end{align}
+
+where 
+
+\begin{align}
+    \tilde{\mathbf{e}}^i=\boldsymbol{\theta}^i
+\end{align}
+
+LHS: Tilde utility is the utility derived from the $K$ 
+objects that capture the number of shares bought or sold of each of the 
+$K$ securities by agent $i$.
+
+RHS: Non-tilde utility is the utility derived from the 
+$m$ objects that capture the consumption of each of the 
+$m$ distinguishable commodities, which in this case, since 
+we're only considering one good,
+reflects the $m$ possible states of the world.
+
+Summation elaboration: Each of the $m$ elements in the RHS 
+contains a summation over the $K$ securities. For each security, 
+we multiply the payoff of that security in state $s$ (corresponding 
+to entry $s$ in the input to $u^i$) by the number of shares 
+of that security that the agent has bought or sold ($\tilde{x}_k^i$).
+This gives the sum of the payoffs of the agent's bought or sold
+securities in state $s$. We then add the agent's endowment
+of the good in the state $s$. (Notice that there is only one subscript for $e$,
+because there is only one good in the simplified model that we're 
+considering.)
 
 \end{document}
