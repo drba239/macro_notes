@@ -785,4 +785,214 @@ of the good in the state $s$. (Notice that there is only one subscript for $e$,
 because there is only one good in the simplified model that we're 
 considering.)
 
+\subsection{Asset Pricing and the ``Equity Premium''}
+
+Consider an economy with one good, $m$ states, and complete markets.
+
+We are interested in understanding the price of two securities. Security $k=1$ is a riskless bond, i.e.
+
+$$
+d_{1 s}=1, \forall s=1,2, \ldots, m
+$$
+
+\begin{definition}[Expected Gross Return of Security $k$] 
+    The expected (gross) return of any security $k$ is denoted as $r_k$ and defined as
+
+    $$
+    1+r_k:=\frac{\sum_{s=1}^m d_{k s} \pi_s}{q_k}=\frac{\mathbb{E}\left[d_k\right]}{q_k} ;
+    $$
+\end{definition}
+
+\section{Risk Aversion and Portfolio Choice}
+
+\subsection{Terms}
+
+\input{../input/ra_pc_terms.tex}
+
+\subsection{Coefficients of Risk Aversion}
+
+\begin{definition}[Arrow-Pratt Coefficient of Risk Aversion] 
+    This coefficient is a measure of the curvature of the utility function around the point $x$, and is given by
+    
+    $$
+    r a(x)=-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)} .
+    $$
+
+    The higher the coefficient, the greater is the curvature and, hence, the more risk averse the agent is.
+        
+\end{definition}
+
+\begin{example}
+    CRRA (Constant Relative Risk Aversion)
+    $$
+    \begin{aligned}
+    u(x) & =\frac{x^{1-\gamma}-1}{1-\gamma} \\
+    & \Rightarrow-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)}=-\frac{-\gamma x^{-\gamma-1}}{x^{-\gamma}}=\gamma x^{-1}
+    \end{aligned}
+    $$
+\end{example}
+
+\begin{example}
+    CARA (Constant Absolute Risk Aversion):
+    Is there a utility function $u(x)$ such that $-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)}=$ constant?
+    Yes:
+    $$
+    \begin{aligned}
+    u(x) & =-\frac{1}{a} e^{-a x} \\
+    & \Rightarrow-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)}=-\frac{-a e^{-a x}}{e^{-a x}}=a
+    \end{aligned}
+    $$
+
+    See \autoref{fig:ra_pc_cara}.
+
+\begin{figure}[!htb]
+    \centering
+        \includegraphics[width=0.8\textwidth]{../input/cara_graph.png}
+    \caption{CARA Utility Function}
+    \label{fig:ra_pc_cara}
+\end{figure}
+
+\end{example}
+
+\begin{definition}[Absolute Insurance Premium] 
+     
+
+    Absolute insurance premium $p$ is the maximum amount that an agent is willing to pay to avoid a risk $\tilde{x}$ ( a random variable); i.e.\footnote{
+        \color{red} Not sure why no tilde on LHS $x$
+    }
+    
+    $$
+    u(\mathbb{E}[x]-p)=\mathbb{E}[u(\tilde{x})],
+    $$
+    
+    where $p$ is the premium and $\tilde{x}$ is the risk. The size of $p$ depends on the willingness of the agent to bear risk, as well as the size of the risk.
+
+\end{definition}
+
+For small risk, i.e., 
+when the random variable $\tilde{x}$ has a small variance, 
+$\sigma^2$, we can express the premium as:
+
+\begin{align}
+    p=-\frac{1}{2} \frac{u^{\prime \prime}(\bar{x})}{u^{\prime}(\bar{x})} \sigma^2
+\end{align}
+
+where 
+
+\begin{align}
+    \bar{x}=E[\tilde{x}]
+\end{align}
+
+\begin{definition}[Coefficient of Relative Risk Aversion]
+    
+        $$
+        r r a(x)=-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)} x .
+        $$
+     
+\end{definition}
+
+\begin{definition}[Relative Insurance Premium]
+    Relative insurance premium is the the maximum proportion of certain consumption, $\bar{x}$, that an agent is willing to pay to avoid a risk $\tilde{x}=\bar{x}(1+\varepsilon)$; i.e.
+    $$
+    u((1-\rho) \bar{x})=\mathbb{E}[u(\bar{x}(1+\varepsilon))]
+    $$
+    where $\mathbb{E}[\varepsilon]=0$ and $\mathbb{E}\left[\varepsilon^2\right]=\sigma_{\varepsilon}^2$
+
+\end{definition}
+
+\begin{proposition}
+    Relative insurance premium. Suppose that the risk is small. Then, the relative insurance premium $\rho$ is given by
+    $$
+    \rho=\frac{1}{2}\left(-\frac{u^{\prime \prime}(\bar{x}) \bar{x}}{u^{\prime}(\bar{x})}\right) \sigma_{\varepsilon}^2,
+    $$
+    where $-u^{\prime \prime}(\bar{x}) \bar{x} / u^{\prime}(\bar{x})$ measures the agent's willingness to bear relative risk, $\sigma_{\varepsilon}^2$ measures the size of the risk, and the utility function is evaluated at the expected value of the risk; i.e. $\bar{x}=\mathbb{E}[\tilde{x}]$.
+
+\end{proposition}
+
+We can then notice a relationship between the 
+absolute and proportional risk premium:
+
+\begin{align}
+    p & =\bar{x} \rho \\
+    \sigma^2(x) & =(\bar{x})^2 \sigma_{\varepsilon}^2
+\end{align}
+
+Thus using the expression for $p$ :
+$$
+p=-\frac{u^{\prime \prime}(\bar{x})}{u^{\prime}(\bar{x})} \sigma^2(x)=-\frac{u^{\prime \prime}(\bar{x})}{u^{\prime}(\bar{x})}(\bar{x})^2 \sigma_{\varepsilon}^2
+$$
+or
+$$
+\frac{p}{x}=\rho=-\bar{x} \frac{u^{\prime \prime}(\bar{x})}{u^{\prime}(\bar{x})} \sigma_{\varepsilon}^2
+$$
+
+\subsection{Certainty Equivalent}
+
+\begin{definition}[Certainty Equivalent]
+    
+    A certainty equivalent of risk $\tilde{x}$, denoted $c_e(\tilde{x})$, is given by
+    $$
+    u\left(c_e\right)=\mathbb{E}[u(\tilde{x})] .
+    $$
+
+    Hence, $c_e$ is the sure (deterministic) amount of consumption that will be equivalent to a given risk $\tilde{x}$. 
+    To draw parallel with earlier definitions:
+    $$
+    c_e=\bar{x}-p=\bar{x}(1-\rho) .
+    $$
+     
+\end{definition}
+
+\subsection{Arrow-Pratt Theorem}
+
+\begin{theorem}
+    (Arrow-Pratt) Let $u$ and $v$ be utility functions. The following statements are equivalent.
+    
+    \begin{enumerate}
+        \item  If $u$ is an increasing and concave transformation of $v$; i.e. there exists a function $f$ such that
+        $$
+        u(x)=f(v(x)), \forall x,
+        $$
+        and,
+        $$
+        \begin{aligned}
+        f^{\prime}(\cdot) & >0, \\
+        f^{\prime \prime}(\cdot) & <0 .
+        \end{aligned}
+        $$
+        \item $u$ has a higher insurance premium than v; i.e. for all random variables $\tilde{x}$, the insurance premium $p_u(\tilde{x}), p_v(\tilde{x})$ corresponding to the utility functions $u$ and $v$ are:
+        $$
+        p_u(\tilde{x})>p_v(\tilde{x}) .
+        $$
+        \item The absolute risk aversion coefficient of $u$ is higher than that of $v$ everywhere; i.e.
+        $$
+        -\frac{u^{\prime \prime}(x)}{u^{\prime}(x)}>-\frac{v^{\prime \prime}(x)}{v^{\prime}(x)}, \forall x
+        $$
+    \end{enumerate}
+
+\end{theorem}
+
+Intuition: 
+The more concave the increasing utility function, the more risk averse the agent is, and the higher the insurance premium that the agent is willing to pay to avoid risk.
+(Is that correct?)
+
+\subsection{Portfolio Choice Problem}
+
+\subsubsection{Maximization Problem}
+
+$$
+\max _{\left\{w_i\right\}} \mathbb{E}[u(\tilde{W})]=\max _{\left\{w_i\right\}}\sum_{s=1}^S u\left(W\left[\sum_{i=1}^N w_i\left(R_{i, s}-\bar{\mu}\right)+\bar{\mu}\right]\right) \pi_s
+$$
+
+First order conditions :
+$$
+\begin{aligned}
+& \mathbb{E}\left[u^{\prime}(\tilde{W})\left(\tilde{R}_i-\bar{\mu}\right)\right]  \\
+= & \mathbb{E}\left[u^{\prime}\left(W\left[\sum_{j=1}^N w_j\left(\tilde{R}_j-\bar{\mu}\right)+\bar{\mu}\right]\right)\left(\tilde{R}_i-\bar{\mu}\right)\right] \\
+= & 0
+\end{aligned}
+$$
+for $i=1,2, \ldots, N$.
+
+
 \end{document}
