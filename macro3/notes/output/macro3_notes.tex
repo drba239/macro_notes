@@ -994,5 +994,57 @@ $$
 $$
 for $i=1,2, \ldots, N$.
 
+\begin{lemma}
+    (Properties of concavity).
+
+    \begin{enumerate}
+        \item Additive of concavity: let $f(x)$ and $g(x)$ be (strictly) concave, then $h(x)=f(x)+g(x)$ is also (strictly) concave.
+        \item Preservation of concavity under strictly increasing and
+            strictly concave transformation: 
+            let $f(x)$ and $g(x)$ be strictly concave and $f(x)$ be a strictly increasing function, then $h(x)=$ $f(g(x))$ is also strictly concave.
+    \end{enumerate}
+
+\end{lemma}
+
+\subsubsection{One Risky Asset Case}
+
+In this case, we can denote the share of wealth 
+invested in the risky asset as $w$
+and the share invested in the risk-free asset as $1-w$.
+We can denote the return on the risky asset as $\tilde{R}$.
+
+Then the simplified problem is:
+
+\begin{align}
+    \max _w \mathbb{E}[u(W[w(\tilde{R}-\bar{\mu})+\bar{\mu}])]
+\end{align}
+
+and the first order condition becomes:
+
+\begin{align}
+    W \mathbb{E}\left[u^{\prime}\left(W\left[w_u^*(\tilde{R}-\bar{\mu})+\bar{\mu}\right]\right)(\tilde{R}-\bar{\mu})\right]=0
+\end{align}
+
+Intuition for the below propositions: 
+(i) the investor will always invest in a risky asset with a higher return than the risk-free return, independent of the degree of his risk aversion; and (ii) the more risk averse the agent is, the smaller the size of the investment in the risky asset.
+
+\begin{proposition} 
+    The investor will always invest in a risky asset with a higher return than the risk-free return, no matter how risk averse the investor is. That is,
+    $$
+    w_u^*>0 \Leftrightarrow \mathbb{E}[\tilde{R}]>\bar{\mu} .
+    $$ 
+\end{proposition}
+
+\begin{proposition} 
+    Suppose $\mathbb{E}[\tilde{R}]>\bar{\mu}, u$ is strictly concave, and that $N=1$ (i.e. there is only one risky asset). Suppose $u$ is more risk averse than $v$; i.e.
+    $$
+    -\frac{u^{\prime \prime}(x)}{u^{\prime}(x)}>-\frac{v^{\prime \prime}(x)}{v^{\prime}(x)}, \forall x>0 .
+    $$
+    
+    Then, the proportion of invested into the risky asset, $w_u$ and $w_v$ corresponding to $u$ and $v$ respectively, are such that
+    $$
+    w_u<w_v .
+    $$ 
+\end{proposition}
 
 \end{document}

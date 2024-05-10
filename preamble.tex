@@ -442,6 +442,44 @@
 }
 
 
+% Define a new counter for lemmas
+\newcounter{lemmacounter}
+\renewcommand{\thelemmacounter}{L.\arabic{lemmacounter}}
+
+\newenvironment{lemma}[1][]{%
+  \refstepcounter{lemmacounter}%
+  \if\relax\detokenize{#1}\relax
+    \tcolorbox[
+      breakable,
+      parbox=false, % Treat content normally regarding paragraphs
+      before upper={\parindent0pt \parskip7pt}, % No indentation and add space between paragraphs
+      colback=green!10, colframe=green,
+      fonttitle=\bfseries,
+      title={Lemma \thelemmacounter},
+      arc=5mm,
+      boxrule=0.5mm,
+      before skip=10pt, % Adjust vertical space before the box
+      after skip=10pt % Adjust vertical space after the box
+    ]
+  \else
+    \tcolorbox[
+      breakable,
+      parbox=false,
+      before upper={\parindent0pt \parskip7pt},
+      colback=green!10, colframe=green,
+      fonttitle=\bfseries,
+      title={Lemma \thelemmacounter: #1},
+      arc=5mm,
+      boxrule=0.5mm,
+      before skip=10pt,
+      after skip=10pt
+    ]
+  \fi
+}{
+  \endtcolorbox
+}
+
+
 
 % Add a line after paragraph header
 \makeatletter
