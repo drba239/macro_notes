@@ -1047,4 +1047,221 @@ Intuition for the below propositions:
     $$ 
 \end{proposition}
 
+\section{Steady States, Neoclassical Growth Model, Deterministic Case}
+
+\subsection{Terms}
+
+\input{../input/neo_clas_terms.tex}
+
+\subsection{Setup}
+
+\subsubsection{Household}
+
+We take there to be a representative household who
+derives utility from a sequence of unique consumption
+good and leisure. 
+
+\begin{align}
+    \left\{c_t, 1-n_t\right\}_{t=0}^{\infty}
+\end{align}
+
+with utility:
+
+\begin{align}
+    u\left(\left\{c_t, 1-n_t\right\}_{t=0}^{\infty}\right)=u\left(c_0, 1-n_0, c_1, 1-n_1, \ldots\right)
+\end{align}
+
+where the time endowment is normalized to one, 
+so that leisure is given by $1-n_t$.
+
+\subsubsection{Planning Problem}
+
+We start with the following planning problem:
+
+\begin{align}
+        \max _{\left\{c_t, n_t, x_t, k_{t+1}\right\}_{t=0}^{\infty}} & u\left(c_0, 1-n_0, c_1, 1-n_1, \ldots\right) \\
+        \text { s.t. } & c_t+x_t=F\left(k_t, n_t\right), \forall t \geq 0 \\
+        & k_{t+1}=x_t+k_t(1-\delta), \forall t \geq 0 \\
+        & k_0 \text { given, }
+\end{align}
+
+The first constraint is the resource constraint; it says 
+that consumption and investment must equal the output of the
+production function. 
+
+The second constraint is the law of motion for capital; it says that
+capital in the next period is equal to the sum of investment and the
+depreciated value of capital from the current period.
+
+We often use:
+
+\begin{align}
+    u\left(c_0, 1-n_0, c_1, 1-n_1, \ldots\right)=\sum_{t=0}^{\infty} \beta^t v\left(c_t, 1-n_t\right)
+\end{align}
+
+as our utility function.
+
+\subsection{Version 1: Firms Own and Accumulate Capital}
+
+\subsubsection{V1 Setup}
+
+\begin{itemize}
+    \item Commodity space: Let $\mathbb{R}^{2 T}$ for $T=\infty$. More formally,
+
+        \begin{align}
+            L:=\left\{\left\{c_t, n_t\right\}_{t=0}^{\infty}:\left(c_t, n_t\right) \in \mathbb{R}^2, \forall t \geq 0\right\}
+        \end{align}
+        
+        i.e. the commodity space is the set of all pairs of real sequences.
+    \item Production possibility set of the firm: 
+        \begin{align}
+            Y:=\left\{\left\{c_t, n_t\right\}_{t=1}^{\infty}: x_t+c_t \leq F\left(k_t, n_t\right), k_{t+1}=x_t+k_t(1-\delta), x_t \in \mathbb{R}, \forall t \geq 0, k_0 \text { given }\right\}
+        \end{align}
+        Constraints reflect the resource constraint and the law of motion for capital:
+        \begin{itemize}
+            \item $x_t+c_t \leq F\left(k_t, n_t\right)$: resource constraint
+            \item $k_{t+1}=x_t+k_t(1-\delta)$: law of motion for capital
+        \end{itemize}
+    \item Consumption possibility set:
+        \begin{align}
+            X:=\left\{\left\{c_t, n_t\right\}_{t=0}^{\infty}: c_t \geq 0,0 \leq n_t \leq 1\right\}
+        \end{align}
+    \item Household budget constraint:
+        \begin{align}
+            \sum_{t=0}^{\infty} p_t\left(c_t+w_t \ell_t\right)=\pi+\sum_{t=0}^{\infty} p_t w_t
+        \end{align}
+        \begin{itemize}
+            \item LHS:Purchases of consumption goods and leisure (over all $t$)
+                \begin{itemize}
+                    \item $p_t w_t \ell_t$: Weird term but $p_t w_t$ is 
+                        the wage income in period $t$, and $\ell_t$ 
+                        is an amount of leisure consumed in period $t$,
+                        so the product is like the surrendered wage income.
+                \end{itemize}
+            \item RHS: Firm profit (over all $t$) plus wage income (over all $t$)  
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Firm's Problem}
+
+The firm's problem is:
+
+\begin{align}
+    \pi=\max _{\left\{\left\{c_t, n_t\right\} \in Y\right\}_{t=0}^{\infty}} \sum_{t=0}^{\infty} p_t\left(c_t-w_t n_t\right)
+\end{align}
+
+which we can re-write as:
+
+\begin{align}
+    \pi=\max _{\left\{k_{t+1}, n_t\right\}_{t=0}^{\infty}} \sum_{t=0}^{\infty} p_t\left(F\left(k_t, n_t\right)-w_t n_t-\left(k_{t+1}-k_t(1-\delta)\right)\right)
+\end{align}
+
+using the fact that the resource contraint will bind, i.e., 
+
+\begin{align}
+    x_t+c_t=F\left(k_t, n_t\right)
+\end{align}
+
+and the law of motion is:
+
+\begin{align}
+    k_{t+1}=x_t+k_t(1-\delta)
+\end{align}
+
+so consumption can be written as:
+
+\begin{align}
+    c_t=F\left(k_t, n_t\right)-k_{t+1}+k_t(1-\delta)
+\end{align}
+
+FOCs then give:
+
+\begin{align}
+    w_t & =F_n\left(k_t, n_t\right), \\
+    p_t & =p_{t+1}\left[F_k\left(k_{t+1}, n_{t+1}\right)+(1-\delta)\right] \\
+    \Rightarrow-(1-\delta)+\underbrace{\frac{p_t}{p_{t+1}}}_{:=1+r_t} & =F_k\left(k_{t+1}, n_{t+1}\right) \\
+    \Rightarrow \delta+r_t & =F_k\left(k_{t+1}, n_{t+1}\right)
+\end{align}
+
+\paragraph{Simplifying $F$}
+
+Since $F$ is CRS, by Euler's theorem, we have:
+
+\begin{align}
+    F\left(k_t, n_t\right)=F_n\left(k_t, n_t\right) n_t+F_k\left(k_t, n_t\right) k_t
+\end{align}
+
+and using the FOC wrt $n_t$ (i.e., $F_n\left(k_t, n_t\right)=w_t$):
+
+\begin{align}
+    F_k\left(k_t, n_t\right) k_t=F\left(k_t, n_t\right)-w_t n_t
+\end{align}
+
+Then note that since $F$ is CRS, it's partials 
+are homogenous of degree zero. 
+Define
+
+\begin{align}
+    \kappa_t:=k_t / n_t
+\end{align}
+
+which gives us:
+
+\begin{align}
+    F_k\left(\kappa_t, 1\right) k_t=F\left(k_t, n_t\right)-w_t n_t
+\end{align}
+
+Thus, we can re-write maximized profit as:
+
+\begin{align}
+    \pi=\sum_{t=0}^{\infty} p_t\left(F_k\left(\kappa_t, 1\right) k_t-\left(k_{t+1}-k_t(1-\delta)\right)\right)
+\end{align}
+
+where $\kappa_t$ solves $F_n\left(\kappa_t, 1\right)=w_t$.
+
+\subsection{Version 2: Households Own Capital, which is Rented to the Firm}
+
+\subsubsection{V2 Setup}
+
+\begin{itemize}
+    \item Commodity Space:
+        Let $L=R^{4 T}$ for $T=\infty$, or more formally
+        \begin{align}
+            L=\left\{\left\{c_t, n_t, x_t, k_t\right\}_{t=0}^{\infty} \mid\left(c_t, n_t, k_t\right) \in R^4\right\}
+        \end{align}
+    \item Production possibility set of the firm:
+        \begin{align}
+            Y=\left\{\left\{c_t, x_t, n_t, k_t\right\}: c_t+x_t \leq F\left(n_t, k_t\right)\right\}
+        \end{align}
+    \item Consumption possibility set:
+        \begin{align}
+            X= & \left\{\left\{c_t, n_t, k_t\right\}: 0 \leq n_t \leq 1, k_{t+1}=x_t+k_t(1-\delta) \text { for all } t \geq 0, k_0 \text { given }\right\}
+        \end{align}
+        \begin{itemize}
+            \item Notice that the law of motion for capital is now part of the consumption possibility set, 
+                rather than the production possibility set as it was in Version 1.
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Firm's Problem}
+
+The firm's problem now becomes:
+
+\begin{align}
+    \pi=\max _{(y, n, k) \in Y} \sum_{t=0} p_t\left[y_t-w_t n_t-v_t k_t\right]
+\end{align}
+
+
+Notice the constraint in the production possibility set will be binding, 
+so we can write:
+
+\begin{align}
+    \pi=\max _{\left\{\left\{n_t, k_t\right\} \in Y_t\right\}_{t=0}^{\infty} \in Y} \sum_{t=0}^{\infty} p_t\left(F\left(k_t, n_t\right)-w_t n_t-v_t k_t\right)
+\end{align}
+
+
+
+
+
+
 \end{document}
