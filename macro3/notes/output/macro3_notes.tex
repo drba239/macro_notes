@@ -1260,7 +1260,316 @@ so we can write:
 \end{align}
 
 
+\subsubsection{Household Budget Constraint}
 
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left[x_t+c_t+w_t l_t\right]=\sum_{t=0}^{\infty} p_t\left[w_t+v_t k_t\right]
+\end{align}
+
+\subsection{Steady States}
+
+\subsubsection{Definition and Setup}
+
+An equilibrium is a steady state if:
+
+\begin{align}
+        & r_t=r, \quad v_t=v, \quad x_t=x . \\
+        & w_t=w, \quad \ell_t=\ell \text {, } \\
+        & c_t=c, \quad k_t=k \\
+\end{align}
+
+for all $t \geq 0$ with $k_0=k$. 
+
+Alternatively, we can define a steady state as an initial condition $k_0$ such that, if the economy starts at that value, then it continues at that same value.for all $t \geq 0$ with $k_0=k$. 
+
+\paragraph{Assumptions Going Forward}
+
+Some additional assumptions:
+
+From now on, unless otherwise specified, we are supposing:
+
+\begin{itemize}
+    \item Assumption: additively separable From now on, unless otherwise stated, assume $u$ is given by the present value of $v\left(c_t, 1-n_t\right)$, with discount rate $\beta$.
+    \item Assumption: $c$ and $\ell$ normal goods. From now on, unless otherwise stated, assume that both consumption and leisure are normal goods in $v(c, 1-n)$.
+\end{itemize}
+
+Recall that in additively separable utility we have:
+
+\begin{align}
+    u\left(c_0, 1-n_0, c_1, 1-n_1, \ldots\right)=\sum_{t=0}^{\infty} \beta^t v\left(c_t, 1-n_t\right)
+\end{align}
+
+where $v$ is the sub-utility function.
+
+\subsubsection{A Result}
+
+\begin{proposition} 
+    If $v(c, 1-n)$ is such that leisure is a normal good, then there is a unique steady state.
+\end{proposition}
+
+\subsection{Add Government Purchases to the Model}
+
+\subsubsection{Constraints Revisited}
+
+We make the feasibility constraint into:
+
+\begin{align}
+    c_t+x_t+g_t=F\left(k_t, l_t\right)
+\end{align}
+
+The household budget constraint then becomes:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left[x_t+c_t+w_t l_t+\tau_t\right]=\sum_{t=0}^{\infty} p_t\left[w_t+v_t k_t\right]
+\end{align}
+
+and the government budget constraint is:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t g_t=\sum_{t=0}^{\infty} p_t \tau_t
+\end{align}
+
+
+\subsection{Linear Taxes in Steady State}
+
+
+\subsubsection{Consumer's Budget Constraint}
+
+The consumer's budget constraint is then:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left[c_t+x_t+\tau_t\right]=\sum_{t=0}^{\infty} p_t\left[\left(1-\tau_{t t}\right) w_t n_t+k_t v_t-k_t\left(v_t-\delta\right) \tau_{k t}\right]
+\end{align}
+
+where the law of motion of capital is:
+
+\begin{align}
+    k_{t+1}=x_t+(1-\delta) k_t
+\end{align}
+
+Here, time $t$ income from renting capital equals:
+
+\begin{align}
+    v_t k_t-\tau_{k t}\left(v_t-\delta\right) k_t=v_t k_t\left(1-\tau_{k t}\right)+\tau_{k t} \delta k_t
+\end{align}
+
+\subsubsection{Firm's Problem}
+
+The firm's problem is then:
+
+\begin{align}
+    \max _{\left\{k_t, n_t\right\}} \sum_{t=0}^{\infty} p_t\left[F\left(k_t, n_t\right)-w_t n_t-v_t k_t\right]
+\end{align}
+
+\subsubsection{Government Budget Constraint}
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left[\tau_t+\tau_{l t} w_t n_t+k_t\left(v_t-\delta\right) \tau_{k t}\right]=\sum_{t=0}^{\infty} p_t g_t
+\end{align}
+
+\subsubsection{Characterisation of normal goods}
+
+\begin{proposition} 
+    If $c$ and $\ell$ are normal goods, then
+
+    $$
+    \begin{gathered}
+    \frac{\partial}{\partial c}\left(\frac{v_{\ell}(c, \ell)}{v_c(c, \ell)}\right)>0, \\
+    \frac{\partial}{\partial \ell}\left(\frac{v_{\ell}(c, \ell)}{v_c(c, \ell)}\right)<0 .
+    \end{gathered}
+    $$
+    
+    That is, the marginal rate of substitution between $\ell$ and $c, v_{\ell} / v_c$, is strictly increasing in $c$ and strictly decreasing in $\ell$.
+\end{proposition}
+
+
+\begin{proposition} 
+    
+    If $c$ and $\ell$ are normal goods, then we can define a function $\phi(\ell, \omega)$ such that
+    
+    $$
+    \frac{v_{\ell}(\phi(\ell, \omega), \ell)}{v_c(\phi(\ell, \omega), \ell)}=\omega,
+    $$
+    
+    and $\phi$ is increasing in $\omega$ and $\ell$. 
+\end{proposition}
+
+\section{Ramsey Taxation: Neoclassical Growth Model, Deterministic Case}
+
+\subsection{Terms}
+
+\input{../input/ram_det_terms.tex}
+
+\subsection{Setup}
+
+Preferences are given by:
+
+\begin{align}
+    \sum_{t=0}^{\infty} \beta^t U\left(c_t, n_t\right)
+\end{align}
+
+The household budget constraint is given by:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left[c_t+k_{t+1}\right]=\sum_{t=0}^{\infty} p_t\left[\left(1-\tau_{t t}\right) w_t n_t+k_t R_{k, t}\right]
+\end{align}
+
+and 
+
+\begin{align}
+    R_{k t}=1+\left(1-\tau_{k t}\right)\left(v_t-\delta\right) \text { for all } t \geq 0
+\end{align}
+
+\subsection{Firm's Problem}
+
+\begin{align}
+    \max _{k_t, n_t} F\left(k_t, n_t, A_t\right)-k_t v_t-w_t n_t
+\end{align}
+
+Feasibility is given by:
+
+\begin{align}
+    g_t+c_t+k_{t+1}=F\left(k_t, n_t, A_t\right)+(1-\delta) k_t
+\end{align}
+
+\subsection{Government Budget Constraint}
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t g_t=\sum_{t=0}^{\infty} p_t\left[\tau_{l t} w_t n_t+\tau_{k t} k_t\left(v_t-\delta\right)\right]
+\end{align}
+
+\subsection{Competitive Equilibrium}
+
+\begin{definition}[Competitive Equilibrium] 
+    A competitive equilibrium with taxes where the government finances the purchases $\left\{g_t\right\}$ is:
+    
+    \begin{itemize}
+        \item an allocation $\left\{c_t, n_t, k_{t+1}\right\}_{t=0}^{\infty}$,
+        \item a price system $\left\{p_t, w_t, R_{k t}, v_t\right\}_{t=0}^{\infty}$, and
+        \item taxes $\left\{\tau_{l t}, \tau_{k t}\right\}_{t=0}^{\infty}$
+    \end{itemize}
+
+    such that:
+
+    \begin{enumerate}
+        \item $\left\{c_t, n_t, k_{t+1}\right\}_{t=0}^{\infty}$ is feasible for $\left\{g_t\right\}$ and initial condition $k_0$
+        \item $\left\{c_t, n_t, k_{t+1}\right\}_{t=0}^{\infty}$ maximizes the household utility given prices, $\left\{p_t, w_t, R_{k t}, v_t\right\}_{t=0}^{\infty}$, taxes $\left\{\tau_{t t}, \tau_{k t}\right\}_{t=0}^{\infty}$, and initial condition $k_0$,
+        \item firms maximize profits given prices $\left\{w_t, v_t\right\}$, and
+        \item the government budget constraint holds.
+    \end{enumerate}
+
+\end{definition}
+
+\subsection{The Household's Perspective}
+
+In an equilibrium agents take the sequence of prices $\left\{p_t, w_t, R_{k t}, v_t\right\}_{t=0}^{\infty}$, and taxes $\left\{\tau_{l t}, \tau_{k t}\right\}_{t=0}^{\infty}$ as given.
+
+That is, at time $t=0$, the household can plan with the knowledge of all future actions. This means that we assume that the government is committed to this path of taxes.
+
+We should think of this as a version of rational expectation, in the sense that agents correctly anticipate future prices and taxes.
+
+\subsubsection{The Household's Problem}
+
+The FOCs for the household problem are,
+using $\lambda_h$ to denote the Lagrange multiplier on the budget constraint:
+
+\begin{align}
+    \begin{aligned}
+        c_t & : \beta^t U_{c t}=\lambda_h p_t \\
+        n_t & :-\beta^t U_{n t}=\lambda_h p_t w_t\left(1-\tau_{l t}\right) \\
+        k_{t+1} & :\left[-p_t+p_{t+1} R_{k t+1}\right] \lambda_h=0
+        \end{aligned}
+\end{align}
+
+From these equations, we get:
+
+\begin{align}
+    \begin{aligned}
+        -\frac{U_{n t}}{U_{c t}} & =w_t\left(1-\tau_{t t}\right) \\
+        \frac{\beta U_{c t+1}}{U_{c t}} & =\frac{p_{t+1}}{p_t} \equiv \frac{1}{1+r_t} \\
+        1+r_t & =R_{k t+1}
+        \end{aligned}
+\end{align}
+
+\subsubsection{Firm's Problem}
+
+The firm's problem gives the usual first order conditions:
+
+\begin{align}
+    \begin{aligned}
+        w_t & =F_n\left(k_t, n_t, A_t\right), \\
+        v_t & =F_k\left(k_t, n_t, A_t\right),
+        \end{aligned}
+\end{align}
+
+\subsubsection{Implementability}
+
+Recall the household's budget constraint:
+
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left(c_t+k_{t+1}\right)=\sum_{t=0}^{\infty} p_t\left[\left(1-\tau_{\ell t}\right) w_t n_t+k_t R_{k t}\right]
+\end{align}
+
+which we can re-arrange to get:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=\sum_{t=0}^{\infty} p_t k_t R_{k t}-\sum_{t=0}^{\infty} p_t k_{t+1}
+\end{align}
+
+Then, notice that:
+
+\begin{align}
+        &\sum_{t=0}^{\infty} p_t k_t R_{k t}-\sum_{t=0}^{\infty} p_t k_{t+1} \\
+        =&p_0 k_0 R_{k 0} + \sum_{t=0}^{\infty} p_{t+1} k_{t+1} R_{k, t+1} -\sum_{t=0}^{\infty} p_t k_{t+1} \\
+        =&p_0 k_0 R_{k 0}+\sum_{t=0}^{\infty} k_{t+1}\left(p_{t+1} R_{k t+1}-p_t\right)
+\end{align}
+
+where if we recall from our household FOCs before that we have:
+
+\begin{align}
+    &0=\left(-p_t+p_{t+1} R_{k t+1}\right) \lambda_h 
+    \Rightarrow0 =\left(-p_t+p_{t+1} R_{k t+1}\right)
+\end{align}
+
+Then, we get:
+
+\begin{align}
+    p_0 k_0 R_{k 0}+\sum_{t=0}^{\infty} k_{t+1}\left(p_{t+1} R_{k t+1}-p_t\right) =p_0 k_0 R_{k 0}
+\end{align}
+
+and hence:
+
+\begin{align}
+    \sum_{t=0}^{\infty} p_t\left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=p_0 k_0 R_{k 0}
+\end{align}
+
+We can then recall from the FOC wrt $c_t$ that 
+\begin{align}
+    \beta^t U_{c_t}=\lambda_h p_t \\
+    \Rightarrow p_t = \frac{\beta^t U_{c_t}}{\lambda_h}
+\end{align}
+
+Thus, we can replace $p_t$ out to get:
+
+\begin{align}
+    &\sum_{t=0}^{\infty} \frac{\beta^t U_{c_t}}{\lambda_h} \left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=\frac{U_{c_0}}{\lambda_h} k_0 R_{k 0} \\
+    \Rightarrow &\sum_{t=0}^{\infty} \beta^t U_{c_t}\left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=U_{c_0} k_0 R_{k 0} \\
+    \Rightarrow &\sum_{t=0}^{\infty} \beta^t U_{c_t}\left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=U_{c_0} k_0 (1+\left(1-\tau_{k 0}\right)\left(v_0-\delta\right)) && \parbox[t]{4cm}{\raggedright equation for $R_{k t}$} \\
+    \Rightarrow &\sum_{t=0}^{\infty} \beta^t U_{c_t}\left(c_t-\left(1-\tau_{\ell t}\right) w_t n_t\right)=U_{c_0} k_0 \left(1+\left(1-\tau_{k 0}\right)\left(F_k\left(k_0, n_0\right)-\delta\right)\right) && \parbox[t]{4cm}{\raggedright by firm's FOC: $v_t=F_k\left(k_t, n_t, A_t\right)$} \\
+    \Rightarrow &\sum_{t=0}^{\infty} \beta^t U_{c_t}\left(c_t+\frac{U_{n_t}}{U_{c_t}} n_t\right) =U_{c_0} k_0 \left(1+\left(1-\tau_{k 0}\right)\left(F_k\left(k_0, n_0\right)-\delta\right)\right) && \parbox[t]{4cm}{\raggedright by $\frac{\{n_t\}}{\{c_t\}} = -\frac{U_{n_t}}{U_{c_t}}=w_t\left(1-\tau_{\ell t}\right)$} \\
+    \Rightarrow &\sum_{t=0}^{\infty} \beta^t\left(U_{c_t} c_t+U_{n_t} n_t\right)=U_{c_0} k_0 \left(1+\left(1-\tau_{k 0}\right)\left(F_k\left(k_0, n_0\right)-\delta\right)\right)
+\end{align}
+
+Thus, we now have one equation called the 
+implementability constraint:
+
+\begin{align}
+    \sum_{t=0}^{\infty} \beta^t\left(U_{c_t} c_t+U_{n_t} n_t\right)=U_{c_0} k_0\left(1+\left(1-\tau_{k 0}\right)\left(F_{k 0}-\delta\right)\right)
+\end{align}
+
+Interpretation from Tak:
+This is, in essence, the budget constraint of the agent after replacing taxes and prices using the relevant marginal rates of substitutions (i.e. using the first-order conditions that must be satisfied in the equilibrium).
 
 
 
