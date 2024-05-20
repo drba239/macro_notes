@@ -822,6 +822,14 @@ $$
         
 \end{definition}
 
+\begin{definition}[Coefficient of Relative Risk Aversion]
+    
+    $$
+    r r a(x)=-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)} x .
+    $$
+ 
+\end{definition}
+
 \begin{example}
     CRRA (Constant Relative Risk Aversion)
     $$
@@ -883,13 +891,6 @@ where
     \bar{x}=E[\tilde{x}]
 \end{align}
 
-\begin{definition}[Coefficient of Relative Risk Aversion]
-    
-        $$
-        r r a(x)=-\frac{u^{\prime \prime}(x)}{u^{\prime}(x)} x .
-        $$
-     
-\end{definition}
 
 \begin{definition}[Relative Insurance Premium]
     Relative insurance premium is the the maximum proportion of certain consumption, $\bar{x}$, that an agent is willing to pay to avoid a risk $\tilde{x}=\bar{x}(1+\varepsilon)$; i.e.
@@ -1502,7 +1503,7 @@ The firm's problem gives the usual first order conditions:
         \end{aligned}
 \end{align}
 
-\subsubsection{Implementability}
+\subsection{Implementability}
 
 Recall the household's budget constraint:
 
@@ -1571,6 +1572,97 @@ implementability constraint:
 Interpretation from Tak:
 This is, in essence, the budget constraint of the agent after replacing taxes and prices using the relevant marginal rates of substitutions (i.e. using the first-order conditions that must be satisfied in the equilibrium).
 
+\begin{questions}
+    There's a segment on recovering prices here, but I'm a bit confused by it right now.
+\end{questions}
+
+\subsection{Recovering Taxes from Allocations}
+
+With the exception of $\tau_{k 0}$, there are no explicit taxes in the implementability constraint. However, given an allocation that satisfies the implementability constraint, as well as feasibility constraints, we can recover tax wedges by using the relevant marginal rate of substitution and marginal rate of transformation.
+
+For labor, we can recall 
+
+\begin{align}
+    &\frac{\{n_t\}}{\{c_t\}} \Rightarrow -\frac{U_{n_t}}{U_{c_t}}=w_t\left(1-\tau_{\ell t}\right) \\
+    \Rightarrow &1 - \tau_{\ell t} = -\frac{U_{n_t}/U_{c_t}}{w_t} \\
+    \Rightarrow &1 - \tau_{\ell t} =   -\frac{-U_{n_t}/U_{c_t}}{F_n\left(k_t, n_t, A_t\right)}
+\end{align}
+
+For capital, recall $\{k_{t+1}\}$ gives:
+
+\begin{align}
+    1+r_t&=R_{k t+1} 
+    &= 1+\left(1-\tau_{k t+1}\right)\left(v_{t+1}-\delta\right)
+\end{align}
+
+where the second line uses our expression for $R_{k t}$.
+
+This then gives: 
+
+\begin{align}
+    1-\tau_{k t+1}&=\frac{r_t}{v_{t+1}-\delta} \\
+    &=\frac{\frac{1}{\beta\left(U_{c_{t+1}} / U_{c_t}\right)}-1}{F_k\left(k_{t+1}, n_{t+1}, A_{t+1}\right)-\delta}
+\end{align}
+
+where the second line uses the facts:
+
+\begin{align}
+    v_{t+1} = F_k\left(k_{t+1}, n_{t+1}, A_{t+1}\right) 
+\end{align}
+
+and 
+\begin{align}
+    \frac{\left\{c_{t+1}\right\}}{\left\{c_t\right\}} \Rightarrow \beta \frac{U_{c_{t+1}}}{U_{c_t}}=\frac{p_{t+1}}{p_t}=\frac{1}{1+r_t} \\
+    \Rightarrow r_t = \frac{1}{\beta\left(U_{c_{t+1}} / U_{c_t}\right)}
+\end{align}
+
+\subsection{The Ramsey Problem}
+
+We write the Ramsey problem as follows, where 
+$\lambda$ is the Lagrange multiplier of the 
+implementability constraint:
+
+\begin{align}
+    \max _{\left\{c_t, n_t, k_{t+1}\right\}_{t=0}^{\infty}} &\sum_{t=0}^{\infty} \beta^t\left[U\left(c_t, n_t\right)+\lambda\left(U_{c_t}\left(c_t, n_t\right) c_t+U_{n_t}\left(c_t, n_t\right) n_t\right)\right]-\lambda U_{c_0} k_0\left(1+\left(1-\tau_{k 0}\right)\left(F_{k 0}-\delta\right)\right) \\
+    \text { s.t. } \quad & g_t+c_t+k_{t+1}=F\left(k_t, n_t, A_t\right)+(1-\delta) k_t, \forall t \geq 0 \\
+    &k_0 \text { given, } \\
+    &\tau_{k 0} \leq \bar{\tau}_{k 0}
+\end{align}
+
+We define:
+
+\begin{align}
+    W\left(c_t, n_t ; \lambda\right):=U\left(c_t, n_t\right)+\lambda\left(U_{c_t}\left(c_t, n_t\right) c_t+U_{n_t}\left(c_t, n_t\right) n_t\right)
+\end{align}
+
+where we can interpret 
+$W$ as the social value of consumption and labor 
+since $U\left(c_t, n_t\right)$ represents
+private value, and $\lambda\left(U_{c_t} c_t+U_{n_t} n_t\right)$ are the taxes corresponding to period- $t$ allocation in terms of period- $t$ utility, which represents the penalty for violating implementability.
+
+We can then re-write the problem using $W$ as:
+
+\begin{align}
+    \max _{\left\{c_t, n_t, k_{t+1}\right\}_{t=0}^{\infty}} & \sum_{t=0}^{\infty} \beta^t W\left(c_t, n_t ; \lambda\right)-\lambda U_{c_0} k_0\left(1+\left(1-\tau_{k 0}\right)\left(F_{k 0}-\delta\right)\right) \\
+    \text { s.t. } & g_t+c_t+k_{t+1}=F\left(k_t, n_t, A_t\right)+(1-\delta) k_t, \forall t \geq 0 \\
+    & k_0 \text { given, } \\
+    & \tau_{k 0} \leq \tau_{k 0}^m
+\end{align}
+
+In this form, the problem is similar to the planner's problem for the neoclassical growth model except that: (i) the period-utility function $U(c, n)$ has been replaced by the social value function, $W(c, n, \lambda)$; (ii) the first term in the discounted utility is treated differently from others.
+
+The FOCs with respect to $n_t$ 
+and $k_{t+1}$ are then:
+
+
+\begin{proposition} 
+    Chamley-Judd: No taxation of capital in steady state. 
+    Assume that $g_t \rightarrow \bar{g}$ and $A_t \rightarrow \bar{A}$ as 
+    $t \rightarrow \infty$. 
+    In a steady state of the Ramsey problem 
+    corresponding to $\bar{g}, \bar{A}$, there is 
+    no taxation of capital, i.e. $\bar{\tau}_k=0$.
+\end{proposition}
 
 
 \end{document}
