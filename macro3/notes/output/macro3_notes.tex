@@ -1591,7 +1591,7 @@ For labor, we can recall
 For capital, recall $\{k_{t+1}\}$ gives:
 
 \begin{align}
-    1+r_t&=R_{k t+1} 
+    1+r_t&=R_{k t+1} \\
     &= 1+\left(1-\tau_{k t+1}\right)\left(v_{t+1}-\delta\right)
 \end{align}
 
@@ -1655,6 +1655,7 @@ The FOCs with respect to $n_t$
 and $k_{t+1}$ are then:
 
 
+
 \begin{proposition} 
     Chamley-Judd: No taxation of capital in steady state. 
     Assume that $g_t \rightarrow \bar{g}$ and $A_t \rightarrow \bar{A}$ as 
@@ -1663,6 +1664,185 @@ and $k_{t+1}$ are then:
     corresponding to $\bar{g}, \bar{A}$, there is 
     no taxation of capital, i.e. $\bar{\tau}_k=0$.
 \end{proposition}
+
+
+\subsection{Ramsey Under Government Randomness}
+
+\subsubsection{Setup}
+
+Representative Agent:
+
+\begin{align}
+    \mathbb{E}_0\left[\sum_{t=0}^{\infty} \beta^t u\left(c_t, l_t\right)\right]
+\end{align}
+
+with budget constraint:
+
+\begin{align}
+    \underbrace{\underbrace{b_t \frac{1}{1+r_t}}_{\text{govt debt in next period dollars}}+\underbrace{c_t}_{\text{consumption}}}_{\text{expenditures}} \leq \underbrace{\underbrace{\left(1-\tau_t\right)}_{\text{tax}}\underbrace{\left(1-l_t\right)}_{\text{labor}}+\underbrace{b_{t-1}}_{\text{govt debt from last period}}+\underbrace{T_t}_{\text{transfer}}}_{\text{earnings}}
+\end{align}
+
+Government budget constraint:
+
+\begin{align}
+    b_{t-1} &\geq s_t+\frac{1}{1+r_t} b_t \\
+    &=\tau_t\left(1-l_t\right)-g_t + \frac{1}{1+r_t} b_t
+\end{align}
+
+That is, 
+govt debt from last period must be 
+greater than or equal to 
+tax revenue minus government spending 
+plus government debt in last periods dollars.
+
+\begin{questions}
+    Why greater?
+\end{questions}
+
+
+\subsubsection{Ramsey Problem}
+
+\begin{align}
+    \max _{\left\{R_t\right\}} E_0\left[\sum_{t=0}^{\infty} \beta^t W\left(R_t\right)\right] \\
+    \text{s.t.} \\
+    b_t=(1+r)\left(g_t+b_{t-1}-R_t\right) \\
+    \underline{M} \leq b_t \leq \bar{M}
+\end{align}
+
+\section{Diamond-Mortensen-Pissarides Model}
+
+\subsection{Terms}
+
+\input{../input/dmp_terms.tex}
+
+\subsection{Present Values: Discrete Time}
+
+Discrete time, present value:
+
+\begin{align}
+    P(t)=\sum_{j=0,1, \ldots}\left(\frac{1}{1+r d t}\right)^j D(t+j d t) d t
+\end{align}
+
+Discrete time, recursive:
+
+\begin{align}
+    P(t)=D(t) d t+\frac{1}{1+r d t} P(t+d t)
+\end{align}
+
+\subsection{Present Values: Continuous Time}
+
+\begin{align}
+    P(t)=\int_t^{\infty} e^{-r(s-t)} D(s) d s
+\end{align}
+
+\begin{align}
+    r P(t)=D(t)+\frac{\partial P(t)}{\partial t}
+\end{align}
+
+\subsection{Present Value: Markov Regimes}
+
+$P$ will take two values
+corresponding to $i = l, h$:
+
+\begin{align}
+    P^i=D^i d t+\frac{1}{1+r d t}\left[\pi^i d t P^j+\left(1-\pi^i d t\right) P^i\right]
+\end{align}
+
+\subsection{Model Setup}
+
+\subsubsection{Workers}
+
+Maximize:
+
+\begin{align}
+    \int_0^{\infty} e^{-r t} y(t) d t
+\end{align}
+
+\begin{itemize}
+    \item $y(t) = 0$ if the worker is unemployed, exogenous
+    \item $y(t) = w - \gamma$ if the worker is employed, endogenous
+    \item Unemployed workers search for job vacancies 
+    \item Employed workers separate at rate $x$, exogenous
+\end{itemize}
+
+\subsubsection{Firms}
+
+\begin{itemize}
+    \item CRS production function using only labor 
+    \item Flow revenue per employed worker is $z$, exogenous 
+    \item Flow cost per vacancy is $c$, exogenous 
+        \begin{itemize}
+            \item Free entry vacancies search for unemployed workers
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Matching}
+
+\begin{itemize}
+    \item Flow of matches is $m(u,v)$, CRS
+    \item Unemployed workers find jobs at rate
+        \begin{align}
+            f(\theta) = m(1, \theta) \\
+            \theta = v/u
+        \end{align}
+    \item Vacancies find workers at rate:
+        \begin{align}
+            \mu(\theta) = m(\theta^{-1}, 1) = f(\theta)/ \theta
+        \end{align}
+\end{itemize}
+
+\subsection{Recursive Formulation}
+
+Continuous time Bellman equations:
+
+\begin{align}
+    \begin{aligned}
+        r U & =f(\theta)(E-U) \\
+        r E & =w-\gamma+x(U-E) \\
+        r V & =-c+\mu(\theta)(J-V) \\
+        r J & =z-w+x(V-J)
+        \end{aligned}
+\end{align}
+
+\subsubsection{Recursive Formulation, Discrete Time}
+
+Assume period of length, $dt$. 
+
+Assume steady state.
+
+\begin{align}
+    \begin{aligned}
+        U & =\frac{1}{1+r d t}(f(\theta) d t E(w)+(1-f(\theta) d t) U) \\
+        E(w) & =(w-\gamma) d t+\frac{1}{1+r d t}(x d t U+(1-x d t) E(w)) \\
+        V & =-c d t+\frac{1}{1+r d t}(\mu(\theta) d t J(w)+(1-\mu(\theta) d t) V) \\
+        J(w) & =(z-w) d t+\frac{1}{1+r d t}[(1-x d t) J(w)+x d t V]
+        \end{aligned}
+\end{align}
+
+\subsection{Bargaining}
+
+Wage satisfy the Nash bargaining solution:
+
+\begin{align}
+    w \in \arg \max (E-U)^\phi J^{1-\phi}
+\end{align}
+
+taking $U$ as given.
+
+\subsection{Summary}
+
+Six equations in six unknowns:
+
+\begin{align}
+    \begin{aligned}
+        r U & =f(\theta)(E-U) \\
+        r E & =w-\gamma+x(U-E) \\
+        r V & =-c+\mu(\theta)(J-V) \\
+        r J & =z-w-x J \\
+        V & =0 \\
+        \phi J & =(1-\phi)(E-U)
+        \end{aligned}
+\end{align}
 
 
 \end{document}
